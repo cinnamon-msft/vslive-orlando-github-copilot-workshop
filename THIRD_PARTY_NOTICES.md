@@ -2,6 +2,14 @@
 
 This repository combines selected educational content and starter materials from the sources below. Imported versions are pinned in `workshops.sources.json`; canonical repositories remain the source of truth.
 
+The VS Live! Orlando edition is adapted from <https://github.com/jamesmontemagno/vslive-github-copilot-workshop>. Copyright its contributors; original history and attribution are preserved.
+
+The Copilot App overlays and VS Code curriculum integration are adapted from <https://github.com/jamesmontemagno/ndc-oslo-copilot-workshop> at commit `b840aa995c1bf3ba7028af30e387ff17c6a3e11b`. Copyright its contributors; upstream attribution and canonical source links are preserved.
+
+## VS Code GitHub Copilot Agent Lab
+
+Copyright its contributors. Source: <https://github.com/copilot-dev-days/agent-lab-typescript>. Distributed under the MIT License. Its lesson Markdown is imported; its application source is not redistributed in this repository.
+
 ## Mona Mayhem
 
 Copyright its contributors. Source: <https://github.com/cinnamon-msft/kayla-chaos>. Distributed under the MIT License. The upstream `LICENSE` is preserved in the standalone <https://github.com/jamesmontemagno/workshop-mona-mayhem> repository.
@@ -17,7 +25,3 @@ The Copilot app lab uses the separate Tailspin Toys template at <https://github.
 ## Visual Studio GitHub Copilot Lab
 
 Copyright its contributors. Source: <https://github.com/dotnet-presentations/visual-studio-github-copilot-lab>. Distributed under the MIT License. The upstream `LICENSE` is preserved in the standalone <https://github.com/jamesmontemagno/workshop-tinyshop> repository.
-
-## Copilot SDK Workshop
-
-Copyright its contributors. Source: <https://github.com/jamesmontemagno/copilot-sdk-workshop>. The upstream repository describes the material as provided as-is for educational purposes and does not currently include a standalone license file. That notice and the canonical source link are preserved here; no additional license terms are inferred.

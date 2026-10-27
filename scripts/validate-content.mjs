@@ -13,10 +13,31 @@ const required = [
   'resources.md',
   'labs/cli/index.md',
   'labs/copilot-app/index.md',
-  'labs/visual-studio/index.md',
-  'labs/copilot-sdk/index.md'
+  'labs/vscode/index.md',
+  'labs/visual-studio/index.md'
 ];
 const errors = [];
+const expectedLabs = ['cli', 'copilot-app', 'visual-studio', 'vscode'];
+const actualLabs = readdirSync(join(docsRoot, 'labs'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && entry.name !== '_images')
+  .filter((entry) => readdirSync(join(docsRoot, 'labs', entry.name)).length > 0)
+  .map((entry) => entry.name)
+  .sort();
+if (actualLabs.join(',') !== expectedLabs.join(',')) {
+  errors.push(`Expected only the four workshop labs, found: ${actualLabs.join(', ')}`);
+}
+const expectedAppLessons = [
+  '0-prerequisites', '1-install-copilot-app', '2-guided-tour', '3-add-star-rating',
+  '4-custom-instructions', '5-build-filtering', '6-mcp-playwright', '7-agent-merge',
+  '8-canvases', '9-review', 'index'
+];
+const actualAppLessons = readdirSync(join(docsRoot, 'labs', 'copilot-app'))
+  .filter((name) => name.endsWith('.md'))
+  .map((name) => name.slice(0, -3))
+  .sort();
+if (actualAppLessons.join(',') !== expectedAppLessons.join(',')) {
+  errors.push(`Unexpected Copilot App lessons: ${actualAppLessons.join(', ')}`);
+}
 
 const favicon = readFileSync(join(root, 'public', 'favicon.svg'), 'utf8');
 const headerMark = readFileSync(join(root, 'src', 'assets', 'mark.svg'), 'utf8');
@@ -73,7 +94,7 @@ for (const path of [
   'labs/visual-studio/setup.md'
 ]) {
   const markdown = readFileSync(join(docsRoot, path), 'utf8');
-  if (!markdown.includes('GPT-5.3 Codex')) {
+  if (!/GPT-5\.3[ -]Codex/.test(markdown)) {
     errors.push(`Missing GPT-5.3 Codex workshop model guidance: ${path}`);
   }
 }
@@ -85,14 +106,11 @@ const walk = (directory) => {
     if (entry.isFile() && ['.md', '.mdx'].includes(extname(entry.name))) {
       const markdown = readFileSync(path, 'utf8');
       if (!/^---\r?\n/.test(markdown)) errors.push(`Missing frontmatter: ${path}`);
-      if (/]\([^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
+      if (/]\((?!https?:\/\/)[^)\s]+\.md(?:#[^)]+)?\)/.test(markdown)) {
         errors.push(`Unnormalized Markdown link: ${path}`);
       }
       if (markdown.includes('Add from MCP MCP')) {
         errors.push(`Incorrect MCP Registry label: ${path}`);
-      }
-      if (markdown.includes('{{TARGET_APP_URL}}')) {
-        errors.push(`Unresolved SDK target URL placeholder: ${path}`);
       }
       for (const line of findMalformedTaskMarkers(markdown)) {
         errors.push(`Malformed task marker at ${path}:${line}; use [ ] instead of []`);
@@ -159,62 +177,6 @@ if (
 }
 if (commitSummaryLesson.includes('Tools -> Options -> GitHub -> Copilot')) {
   errors.push('Visual Studio commit-message lesson must use copilot-instructions.md, not Tools options.');
-}
-
-const firstSdkSession = readFileSync(
-  join(docsRoot, 'labs', 'copilot-sdk', '01-first-session.md'),
-  'utf8'
-);
-for (const [index, heading] of [
-  'Import the SDK and add a heading',
-  'Connect to the Copilot runtime',
-  'Confirm the connection',
-  'Create a conversation and send a prompt',
-  'Check and print the response'
-].entries()) {
-  if (!firstSdkSession.includes(`### ${index + 1}. ${heading}`)) {
-    errors.push(`Missing incremental first-session step: ${heading}`);
-  }
-}
-const initialRunIndex = firstSdkSession.indexOf('## Run it');
-const modelSelectionIndex = firstSdkSession.indexOf('## Choose a model and run it again');
-if (
-  initialRunIndex < 0 ||
-  modelSelectionIndex <= initialRunIndex ||
-  !firstSdkSession.includes('ModelSelector.SelectAsync(client)') ||
-  !firstSdkSession.includes('Model = selectedModel')
-) {
-  errors.push('The first SDK session must add model selection after its default-model run.');
-}
-for (const name of [
-  '02-streaming.md',
-  '03-local-tool.md',
-  '04-mcp-safety.md',
-  '05-combine-tools.md',
-  '06-structured-report.md'
-]) {
-  const lesson = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', name), 'utf8');
-  if (!lesson.includes('Model = selectedModel')) {
-    errors.push(`SDK lesson must retain the selected model: ${name}`);
-  }
-}
-const hostedTargetAppUrl =
-  'https://jamesmontemagno.github.io/workshop-accessibility-agent/target-app/';
-const sdkIndex = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', 'index.md'), 'utf8');
-if (!sdkIndex.includes(hostedTargetAppUrl)) {
-  errors.push('The SDK overview must link to the hosted target app.');
-}
-for (const name of [
-  '00-preflight.md',
-  '04-mcp-safety.md',
-  '05-combine-tools.md',
-  '06-structured-report.md',
-  '07-run-explain.md'
-]) {
-  const markdown = readFileSync(join(docsRoot, 'labs', 'copilot-sdk', name), 'utf8');
-  if (!markdown.includes(hostedTargetAppUrl)) {
-    errors.push(`SDK lesson must use the hosted target app: ${name}`);
-  }
 }
 
 if (errors.length) {

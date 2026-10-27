@@ -154,15 +154,15 @@ lab_state() {
 
 app_lab="$(lab_state "$git_state" "$node_state" "$app_state")"
 cli_lab="$(lab_state "$git_state" "$node_state" "$npm_state" "$copilot_state" "$connectivity_state" "$code_state")"
-sdk_lab="$(lab_state "$git_state" "$node_state" "$npm_state" "$copilot_state" "$connectivity_state" "$dotnet_state" "$code_state")"
+vscode_lab="$(lab_state "$git_state" "$node_state" "$npm_state" "$code_state")"
 
 printf '\n%s\n' 'Lab readiness'
 printf '%s\n' "Copilot app: $app_lab"
 printf '%s\n' "Copilot CLI: $cli_lab"
+printf '%s\n' "VS Code: $vscode_lab (also verify VS Code 1.135+, the Copilot extension, and Local session sign-in)"
 printf '%s\n' 'Visual Studio 2026: Not applicable on this operating system'
-printf '%s\n' "Copilot SDK: $sdk_lab"
 
-if [ "$app_lab" = 'Ready' ] && [ "$cli_lab" = 'Ready' ] && [ "$sdk_lab" = 'Ready' ]; then
+if [ "$app_lab" = 'Ready' ] && [ "$cli_lab" = 'Ready' ] && [ "$vscode_lab" = 'Ready' ]; then
   printf '\n%s\n' 'Compatible-lab status: Ready. In Copilot CLI, run copilot login and select GPT-5.3 Codex with /model.'
 else
   printf '\n%s\n' 'Compatible-lab status: Needs setup. Install the missing tools for the labs you plan to attend.'

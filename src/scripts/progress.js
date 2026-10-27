@@ -6,13 +6,14 @@
     'copilot-app': [
       '0-prerequisites',
       '1-install-copilot-app',
-      '2-add-star-rating',
-      '3-custom-instructions',
-      '4-build-filtering',
-      '5-mcp-playwright',
-      '6-agent-merge',
-      '7-canvases',
-      '8-review'
+      '2-guided-tour',
+      '3-add-star-rating',
+      '4-custom-instructions',
+      '5-build-filtering',
+      '6-mcp-playwright',
+      '7-agent-merge',
+      '8-canvases',
+      '9-review'
     ],
     cli: [
       '01-setup',
@@ -24,6 +25,13 @@
       '07-skills',
       '08-mcp',
       '09-bonus'
+    ],
+    vscode: [
+      '01-setup',
+      '02-design',
+      '03-quiz-master',
+      '04-multi-agent',
+      '05-complete'
     ],
     'visual-studio': [
       'setup',
@@ -40,17 +48,6 @@
       'part10-planning-mode',
       'part11-reusable-prompts',
       'part12-delegate-to-cloud'
-    ],
-    'copilot-sdk': [
-      '00-preflight',
-      '01-first-session',
-      '02-streaming',
-      '03-local-tool',
-      '04-mcp-safety',
-      '05-combine-tools',
-      '06-structured-report',
-      '07-run-explain',
-      '08-model-selection'
     ]
   };
 

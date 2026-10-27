@@ -27,9 +27,9 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'VS Live × GitHub Copilot',
+      title: 'VS Live! Orlando × GitHub Copilot',
       description:
-        'Four hands-on GitHub Copilot labs for VS Live Redmond with Kayla Cinnamon and James Montemagno.',
+        'Four hands-on GitHub Copilot labs for VS Live! Orlando with Kayla Cinnamon and James Montemagno.',
       favicon: '/favicon.svg',
       logo: {
         src: './src/assets/mark.svg',
@@ -48,13 +48,14 @@ export default defineConfig({
             { label: 'Lab overview', link: '/labs/copilot-app/' },
             { label: 'Prerequisites', link: '/labs/copilot-app/0-prerequisites/' },
             { label: 'Install the app', link: '/labs/copilot-app/1-install-copilot-app/' },
-            { label: 'First agent session', link: '/labs/copilot-app/2-add-star-rating/' },
-            { label: 'Custom instructions', link: '/labs/copilot-app/3-custom-instructions/' },
-            { label: 'Build with Autopilot', link: '/labs/copilot-app/4-build-filtering/' },
-            { label: 'Playwright MCP', link: '/labs/copilot-app/5-mcp-playwright/' },
-            { label: 'Agent Merge', link: '/labs/copilot-app/6-agent-merge/' },
-            { label: 'Canvases', link: '/labs/copilot-app/7-canvases/' },
-            { label: 'Automations', link: '/labs/copilot-app/8-automations/' }
+            { label: 'Guided app tour', link: '/labs/copilot-app/2-guided-tour/' },
+            { label: 'First Tailspin session', link: '/labs/copilot-app/3-add-star-rating/' },
+            { label: 'Custom instructions', link: '/labs/copilot-app/4-custom-instructions/' },
+            { label: 'Build with Autopilot', link: '/labs/copilot-app/5-build-filtering/' },
+            { label: 'Playwright MCP', link: '/labs/copilot-app/6-mcp-playwright/' },
+            { label: 'Agent Merge', link: '/labs/copilot-app/7-agent-merge/' },
+            { label: 'Canvases', link: '/labs/copilot-app/8-canvases/' },
+            { label: 'Review', link: '/labs/copilot-app/9-review/' }
           ]
         },
         {
@@ -73,7 +74,18 @@ export default defineConfig({
           ]
         },
         {
-          label: '3 · Visual Studio 2026',
+          label: '3 · VS Code',
+          items: [
+            { label: 'Lab overview', link: '/labs/vscode/' },
+            { label: 'Setup & context engineering', link: '/labs/vscode/01-setup/' },
+            { label: 'Design-first frontend', link: '/labs/vscode/02-design/' },
+            { label: 'Custom Quiz Master', link: '/labs/vscode/03-quiz-master/' },
+            { label: 'Multi-agent development', link: '/labs/vscode/04-multi-agent/' },
+            { label: 'Completion & next steps', link: '/labs/vscode/05-complete/' }
+          ]
+        },
+        {
+          label: '4 · Visual Studio 2026',
           items: [
             { label: 'Lab overview', link: '/labs/visual-studio/' },
             { label: 'Setup', link: '/labs/visual-studio/setup/' },
@@ -90,21 +102,6 @@ export default defineConfig({
             { label: 'Planning mode', link: '/labs/visual-studio/part10-planning-mode/' },
             { label: 'Prompt files', link: '/labs/visual-studio/part11-reusable-prompts/' },
             { label: 'Delegate to cloud', link: '/labs/visual-studio/part12-delegate-to-cloud/' }
-          ]
-        },
-        {
-          label: '4 · Copilot SDK',
-          items: [
-            { label: 'Lab overview', link: '/labs/copilot-sdk/' },
-            { label: 'Preflight', link: '/labs/copilot-sdk/00-preflight/' },
-            { label: 'First session', link: '/labs/copilot-sdk/01-first-session/' },
-            { label: 'Streaming', link: '/labs/copilot-sdk/02-streaming/' },
-            { label: 'Local tools', link: '/labs/copilot-sdk/03-local-tool/' },
-            { label: 'MCP safety', link: '/labs/copilot-sdk/04-mcp-safety/' },
-            { label: 'Combine tools', link: '/labs/copilot-sdk/05-combine-tools/' },
-            { label: 'Structured report', link: '/labs/copilot-sdk/06-structured-report/' },
-            { label: 'Run & explain', link: '/labs/copilot-sdk/07-run-explain/' },
-            { label: 'Optional: model selection', link: '/labs/copilot-sdk/08-model-selection/' }
           ]
         },
         { label: 'Resources & attribution', link: '/resources/' }

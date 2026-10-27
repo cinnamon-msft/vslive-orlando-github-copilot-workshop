@@ -12,8 +12,16 @@
       "key": "copilot-app",
       "name": "Copilot Workshops",
       "repository": "https://github.com/github-samples/copilot-workshops.git",
-      "commit": "1d1a341ac911478700afc667b12d9874f84ae33b",
+      "commit": "949044f0605f1b17322194baca52bd0586d931c5",
       "cacheDirectory": "copilot-workshops",
+      "license": "MIT"
+    },
+    {
+      "key": "vscode",
+      "name": "VS Code GitHub Copilot Agent Lab",
+      "repository": "https://github.com/copilot-dev-days/agent-lab-typescript.git",
+      "commit": "00a4dbd1d6c603bff2d645d3019f56e4620c2d03",
+      "cacheDirectory": "agent-lab-typescript",
       "license": "MIT"
     },
     {
@@ -23,14 +31,6 @@
       "commit": "3f873100b75889368e55a586b87579130f177dcf",
       "cacheDirectory": "visual-studio-lab",
       "license": "MIT"
-    },
-    {
-      "key": "copilot-sdk",
-      "name": "Copilot SDK Workshop",
-      "repository": "https://github.com/jamesmontemagno/copilot-sdk-workshop.git",
-      "commit": "1102d69ed78a8f0ef4294a49e19e36ae40dd3252",
-      "cacheDirectory": "copilot-sdk-workshop",
-      "license": "Educational use notice in upstream README"
     }
   ]
 }

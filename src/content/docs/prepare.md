@@ -1,14 +1,14 @@
 ---
 title: "Prepare for the workshop"
-description: "Install and verify everything needed for the four VS Live GitHub Copilot labs."
+description: "Install and verify everything needed for the four VS Live! Orlando GitHub Copilot labs."
 ---
 
-Complete this checklist before Friday. Copilot app, Copilot CLI, and Copilot SDK work on Windows, macOS, or Linux. **Visual Studio 2026 requires Windows.**
+Complete this checklist before the workshop. Copilot app, Copilot CLI, and VS Code work on Windows, macOS, or Linux. **Visual Studio 2026 requires Windows.**
 
 ## Accounts and access
 
 - [ ] A personal GitHub account (preferred)
-- [ ] GitHub Copilot Free or a paid Copilot plan
+- [ ] GitHub Copilot access; the Copilot app lessons require Copilot Student or a paid plan (see the lab prerequisites)
 - [ ] Permission to create repositories and pull requests in your account, if you plan to use the repository-backed exercises
 - [ ] Git configured with your GitHub identity
 - [ ] If you use Copilot Business or Enterprise, confirmation from your administrator that the required Copilot policies are enabled
@@ -19,11 +19,12 @@ Complete this checklist before Friday. Copilot app, Copilot CLI, and Copilot SDK
 |---|---|---|
 | [Git](https://git-scm.com/downloads) | All labs | `git --version` |
 | [GitHub Copilot app](https://github.com/features/ai/github-app) | Copilot app | Open the app and sign in |
-| [Node.js 22 or 24](https://nodejs.org/) | Copilot app, CLI, and SDK | `node --version` |
-| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) | CLI and SDK | `copilot --version` |
-| [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) | CLI and SDK | `code --version` or `code-insiders --version` |
-| [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) | Labs 3 and 4 | `dotnet --version` |
-| [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 3 | Open Visual Studio |
+| [Node.js 22 or 24](https://nodejs.org/) | Copilot app, CLI, and VS Code | `node --version` |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) | CLI | `copilot --version` |
+| [Visual Studio Code 1.135 or later](https://code.visualstudio.com/) | CLI and VS Code | `code --version` |
+| [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) | VS Code | Sign in and open Copilot Chat with **Local** selected |
+| [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) | Lab 4 | `dotnet --version` |
+| [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 4 | Open Visual Studio |
 | Edge or Chrome | Browser-based verification | Open the browser once |
 
 ## Visual Studio 2026 setup
@@ -43,7 +44,7 @@ Download the preflight script for your operating system, inspect it if desired, 
   <div role="tabpanel" data-panel="powershell">
 
 ```powershell
-Invoke-WebRequest https://raw.githubusercontent.com/jamesmontemagno/vslive-github-copilot-workshop/main/scripts/workshop-doctor.ps1 -OutFile .\workshop-doctor.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/main/scripts/workshop-doctor.ps1 -OutFile .\workshop-doctor.ps1
 .\workshop-doctor.ps1
 ```
 
@@ -52,7 +53,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/jamesmontemagno/vslive-githu
   <div role="tabpanel" data-panel="shell" hidden>
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/jamesmontemagno/vslive-github-copilot-workshop/main/scripts/workshop-doctor.sh
+curl -fsSLO https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/main/scripts/workshop-doctor.sh
 bash ./workshop-doctor.sh
 ```
 
@@ -73,23 +74,24 @@ Complete the browser device flow. For GitHub Enterprise Cloud with data residenc
 
 Copilot Business and Enterprise users need the relevant organization or enterprise policies enabled before the workshop:
 
-- The **Copilot CLI** policy is required for the CLI and SDK labs.
+- The **Copilot CLI** policy is required for the CLI and Copilot app labs.
 - The **GitHub Copilot app** policy is separately required for the Copilot app lab.
+- VS Code Copilot agent features must be enabled for the VS Code lab.
 
 If a policy, SSO authorization, or model is unavailable, contact your administrator or a facilitator before the workshop. Do not use tokens or accounts you are not authorized to use.
 
 ## Clone the project for each lab
 
-Clone only the project for the lab you are starting. Use [Visual Studio Code](https://code.visualstudio.com/) for the CLI and SDK labs, and [Visual Studio](https://visualstudio.microsoft.com/vs/) for the Visual Studio lab:
+Clone only the project for the lab you are starting. Use [Visual Studio Code](https://code.visualstudio.com/) for the CLI and VS Code labs, and [Visual Studio](https://visualstudio.microsoft.com/vs/) for the Visual Studio lab:
 
 | Lab | Clone and open |
 |---|---|
-| Copilot app | Create a repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys), then open it in the Copilot app |
+| Copilot app | No initial clone: create a local `space-quiz` folder for the guided tour, then create a repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys) in Lesson 3 |
 | Copilot CLI | `git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git` then `cd workshop-mona-mayhem` and run `copilot` |
+| VS Code | `git clone https://github.com/copilot-dev-days/agent-lab-typescript.git` then `cd agent-lab-typescript` and run `code .` |
 | Visual Studio 2026 | `git clone https://github.com/jamesmontemagno/workshop-tinyshop.git`, then open `workshop-tinyshop/src/TinyShop.sln` |
-| Copilot SDK | `git clone https://github.com/jamesmontemagno/workshop-accessibility-agent.git` then `cd workshop-accessibility-agent` and run `code .` |
 
-Each standalone repository has its workshop starter on `main` and a `completed` branch for reference.
+Mona Mayhem and TinyShop have their workshop starters on `main` and a `completed` branch for reference. For Bingo Mixer, follow the VS Code lab's source repository and install its recommended extensions.
 
 ## When to fork instead
 
@@ -105,6 +107,7 @@ Before arriving, confirm:
 2. You can authenticate with GitHub and Copilot.
 3. Visual Studio 2026 opens `workshop-tinyshop/src/TinyShop.sln` if you are attending that Windows-only lab.
 4. You can access the separate Tailspin Toys template repository.
+5. VS Code 1.135+ opens `agent-lab-typescript`, and Copilot Chat is signed in with **Local** selected.
 
 When everything is ready, [begin with the Copilot app lab](/labs/copilot-app/).
 

@@ -6,7 +6,7 @@ title: "Lab 2 · Mona Mayhem — GitHub Copilot CLI"
 > **Level:** Intermediate  
 > **Stack:** Astro / Node.js / TypeScript
 
-Build a retro arcade GitHub contribution comparison app — **Mona Mayhem** — while learning the full spectrum of GitHub Copilot workflows. This VS Live edition is the second hands-on lab and focuses on the GitHub Copilot CLI experience.
+Build a retro arcade GitHub contribution comparison app — **Mona Mayhem** — while learning the full spectrum of GitHub Copilot workflows. This VS Live! Orlando edition is the second hands-on lab and focuses on the GitHub Copilot CLI experience.
 
 ---
 

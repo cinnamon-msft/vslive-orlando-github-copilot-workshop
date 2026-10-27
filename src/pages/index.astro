@@ -24,44 +24,43 @@ const labs = [
     href: `${base}labs/cli/`
   },
   {
-    key: 'visual-studio',
+    key: 'vscode',
     number: '03',
+    title: 'VS Code',
+    duration: '90 min',
+    platform: 'Windows · macOS · Linux',
+    description: 'Transform Bingo Mixer with context engineering, design-first development, custom agents, and multi-agent workflows.',
+    outcome: 'Build with GitHub Copilot Agent Mode in VS Code.',
+    href: `${base}labs/vscode/`
+  },
+  {
+    key: 'visual-studio',
+    number: '04',
     title: 'Visual Studio 2026',
     duration: '90 min',
     platform: 'Windows required',
     description: 'Explore advanced Copilot features while completing and improving the TinyShop solution.',
     outcome: 'Use Copilot across coding, debugging, planning, and delegation.',
     href: `${base}labs/visual-studio/`
-  },
-  {
-    key: 'copilot-sdk',
-    number: '04',
-    title: 'Copilot SDK',
-    duration: 'Time permitting',
-    platform: 'Windows · macOS · Linux',
-    description: 'Build a .NET accessibility reviewer with streaming, local tools, Playwright MCP, and trust boundaries.',
-    outcome: 'Run Copilot as an agent inside your own application.',
-    href: `${base}labs/copilot-sdk/`,
-    optional: true
   }
 ];
 ---
 
 <LandingLayout
-  title="VS Live Redmond · GitHub Copilot Workshop"
-  description="Four hands-on GitHub Copilot labs with Kayla Cinnamon and James Montemagno at VS Live Redmond 2026."
+  title="VS Live! Orlando · GitHub Copilot Workshop"
+  description="Four hands-on GitHub Copilot labs with Kayla Cinnamon and James Montemagno at VS Live! Orlando 2026."
 >
   <section class="hero">
     <div class="hero-copy">
       <p class="event-line">
-        <span>VS Live Redmond</span>
+        <span>VS Live! Orlando</span>
         <span aria-hidden="true">/</span>
         <time datetime="2026">2026</time>
       </p>
       <h1>One day.<br /><strong>Four ways to build.</strong></h1>
       <p class="hero-lede">
-        Start in the desktop app, continue in the terminal, go deep into Visual Studio, and finish inside
-        Copilot itself. A hands-on workshop with Kayla Cinnamon and James Montemagno.
+        Start in the desktop app, continue in the terminal, and go deep into VS Code and Visual Studio.
+        A hands-on workshop with Kayla Cinnamon and James Montemagno.
       </p>
       <div class="hero-actions">
         <a class="primary-action" href={`${base}prepare/`}>Prepare your machine</a>
@@ -86,10 +85,10 @@ const labs = [
       </div>
       <div class="surface-row">
         <div><span>APP</span><strong>Autopilot</strong><i>working</i></div>
+        <div><span>VS CODE</span><strong>Bingo Mixer</strong><i>agent</i></div>
         <div><span>IDE</span><strong>TinyShop</strong><i>agent</i></div>
-        <div><span>SDK</span><strong>session.send</strong><i>stream</i></div>
       </div>
-      <svg class="signal-trace" viewBox="0 0 520 130" role="img" aria-label="Signal flowing through CLI, app, IDE, and SDK">
+      <svg class="signal-trace" viewBox="0 0 520 130" role="img" aria-label="Signal flowing through CLI, app, VS Code, and Visual Studio">
         <path d="M12 100 C90 100 82 28 166 28 S238 103 322 103 400 42 508 42" />
         <circle cx="12" cy="100" r="6" />
         <circle cx="166" cy="28" r="6" />
@@ -101,7 +100,7 @@ const labs = [
 
   <section class="day-intro" aria-labelledby="day-heading">
     <div>
-      <p>Friday workshop · Microsoft HQ</p>
+      <p>Hands-on workshop · Orlando</p>
       <h2 id="day-heading">A complete Copilot field guide.</h2>
     </div>
     <p>
@@ -112,7 +111,7 @@ const labs = [
 
   <section class="pathway" aria-label="Workshop labs">
     {labs.map((lab) => (
-      <article class:list={['lab-stage', { optional: lab.optional }]}>
+      <article class="lab-stage">
         <div class="stage-index">
           <span>{lab.number}</span>
           <div class="stage-progress" aria-hidden="true">
@@ -122,7 +121,6 @@ const labs = [
         <div class="stage-main">
           <div class="stage-heading">
             <h2>{lab.title}</h2>
-            {lab.optional && <span class="optional-label">Optional finale</span>}
           </div>
           <p>{lab.description}</p>
           <strong>{lab.outcome}</strong>
@@ -139,14 +137,15 @@ const labs = [
   <section class="requirements" aria-labelledby="requirements-heading">
     <div>
       <h2 id="requirements-heading">Arrive ready to build.</h2>
-      <p>Run the preflight before Friday so workshop time stays focused on Copilot.</p>
+      <p>Run the preflight before the workshop so our time stays focused on Copilot.</p>
       <a href={`${base}prepare/`}>View the complete preparation guide →</a>
     </div>
     <ul>
-      <li><span>01</span><strong>GitHub account</strong><small>Copilot Free or paid</small></li>
+      <li><span>01</span><strong>GitHub account</strong><small>Copilot access · plan varies by lab</small></li>
       <li><span>02</span><strong>Node.js</strong><small>Version 22 or 24</small></li>
       <li><span>03</span><strong>.NET SDK</strong><small>Version 10</small></li>
       <li><span>04</span><strong>Visual Studio 2026</strong><small>Windows · web/.NET workload</small></li>
+      <li><span>05</span><strong>VS Code</strong><small>Version 1.135+ · Copilot extension</small></li>
     </ul>
   </section>
 </LandingLayout>
@@ -434,14 +433,6 @@ const labs = [
     font-size: clamp(1.8rem, 3.2vw, 3rem);
     letter-spacing: -0.03em;
     line-height: 1;
-  }
-
-  .optional-label {
-    padding: 0.3rem 0.55rem;
-    border: 1px solid var(--workshop-violet);
-    border-radius: 2rem;
-    color: var(--workshop-violet);
-    font: 650 0.7rem/1 var(--font-sans);
   }
 
   .stage-main p {

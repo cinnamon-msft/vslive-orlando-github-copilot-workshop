@@ -3,10 +3,10 @@ title: "Resources and attribution"
 description: "Official event links, source workshops, and imported-content provenance."
 ---
 
-## VS Live Redmond
+## VS Live! Orlando
 
-- [Event home](https://vslive.com/events/microsofthq-2026/home.aspx)
-- [GitHub Copilot workshop session](https://vslive.com/events/microsofthq-2026/sessions/friday/f01-workshop-github-copilot.aspx)
+- [Event home](https://live360events.com/events/orlando-2026/home.aspx)
+- [Visual Studio Live! agenda](https://live360events.com/events/orlando-2026/sessions/pages/vslive.aspx)
 
 ## Presenters
 
@@ -16,16 +16,18 @@ description: "Official event links, source workshops, and imported-content prove
 ## Workshop projects
 
 - [Mona Mayhem · Copilot CLI](https://github.com/jamesmontemagno/workshop-mona-mayhem)
+- [Bingo Mixer · VS Code](https://github.com/copilot-dev-days/agent-lab-typescript)
 - [TinyShop · Visual Studio](https://github.com/jamesmontemagno/workshop-tinyshop)
-- [Accessibility Agent · Copilot SDK](https://github.com/jamesmontemagno/workshop-accessibility-agent)
 
 ## Source workshops
+
+The Copilot App and VS Code lessons are adapted from the [NDC Oslo workshop](https://github.com/jamesmontemagno/ndc-oslo-copilot-workshop/tree/b840aa995c1bf3ba7028af30e387ff17c6a3e11b), including its guided app tour and pinned upstream lessons.
 
 - [Mona Mayhem source](https://github.com/cinnamon-msft/kayla-chaos)
 - [Copilot Workshops · Copilot app track](https://github.com/github-samples/copilot-workshops)
 - [Tailspin Toys starter](https://github.com/github-samples/tailspin-toys)
 - [Visual Studio GitHub Copilot Lab](https://github.com/dotnet-presentations/visual-studio-github-copilot-lab)
-- [Copilot SDK Workshop](https://github.com/jamesmontemagno/copilot-sdk-workshop)
+- [VS Code GitHub Copilot Agent Lab](https://github.com/copilot-dev-days/agent-lab-typescript)
 
 Lesson content and starter projects are pinned to the exact upstream commits listed in `workshops.sources.json`. See `THIRD_PARTY_NOTICES.md` in the repository for license and provenance details.
 
@@ -37,7 +39,6 @@ Lesson content and starter projects are pinned to the exact upstream commits lis
 - [Copilot organization policies](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
 - [Copilot enterprise policies](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
 - [GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started)
-- [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Visual Studio](https://visualstudio.microsoft.com/vs/)
 - [Visual Studio GitHub Copilot](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-extension)

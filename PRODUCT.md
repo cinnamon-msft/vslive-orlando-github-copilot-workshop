@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Developers attending the VS Live Redmond 2026 workshop with Kayla Cinnamon and James Montemagno. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
+Developers attending the VS Live! Orlando 2026 workshop with Kayla Cinnamon and James Montemagno. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
 
 ## Product Purpose
 
-Provide one trusted path through four GitHub Copilot experiences: the CLI, Copilot app, Visual Studio 2026, and Copilot SDK. Success means attendees can prepare once, understand where they are in the day, launch the correct starter project, complete each lesson in sequence, and resume without searching across separate repositories.
+Provide one trusted path through four GitHub Copilot experiences: Copilot app, CLI, VS Code, and Visual Studio 2026. Success means attendees can prepare once, understand where they are in the day, launch the correct starter project, complete each lesson in sequence, and resume without searching across separate repositories.
 
 ## Brand Personality
 

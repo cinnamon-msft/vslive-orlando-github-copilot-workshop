@@ -2,7 +2,7 @@
 
 ## Overview
 
-The site combines a high-energy VS Live event landing page with a quiet, dependable lesson reader. Its visual reference is a live technical production desk: near-black equipment, burnt-orange status lamps, cyan monitor traces, and carefully labeled controls. The composition is bold at the entry point and progressively calmer as learners move into instructions.
+The site combines a high-energy VS Live! Orlando event landing page with a quiet, dependable lesson reader. Its visual reference is a live technical production desk: near-black equipment, burnt-orange status lamps, cyan monitor traces, and carefully labeled controls. The composition is bold at the entry point and progressively calmer as learners move into instructions.
 
 ## Color
 
@@ -50,7 +50,7 @@ Compact brand mark, workshop title, preparation link, GitHub source link, progre
 
 ### Hero signal board
 
-A composed visual of terminal, editor, app, and SDK fragments connected as one workflow. It is illustrative and semantic, not a collection of fake metrics.
+A composed visual of app, terminal, VS Code, and Visual Studio fragments connected as one workflow. It is illustrative and semantic, not a collection of fake metrics.
 
 ### Four-stage pathway
 

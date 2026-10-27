@@ -1,21 +1,27 @@
 ---
 title: "Lesson 0 - Prerequisites"
-description: "Set up for the GitHub Copilot app lessons: install Node.js for the Tailspin Toys project and create your own copy of the repository from the template."
+description: "Install the local tools required for the GitHub Copilot app workshop."
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-08-06
 ---
 
-> [!NOTE]
-> This lab intentionally uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys), not a folder from the combined workshop repository. Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own repository from that template.
-
-
-The GitHub Copilot app is a desktop app, serving as your central hub for both Copilot and GitHub. It provides quick access to issues and pull requests, and of course allows you to build using GitHub Copilot. During this workshop you'll be working locally, using both the Tailspin Toys app, built on Astro, and of course the GitHub Copilot app. Before you get started, let's ensure Node.js is installed locally, then install the Copilot app.
+The GitHub Copilot app is a desktop hub for working with Copilot and GitHub. During this workshop you'll build a small standalone web app, then work locally with the Tailspin Toys Astro project. Before you install the app, make sure the local tools used by the lessons are ready.
 
 In this lesson, you will:
 
-- install Node.js so the project's tests can run on your machine.
-- create your own copy of the Tailspin Toys project from the template.
+- confirm Git is installed.
+- install Node.js so the workshop projects can run on your machine.
+
+## Confirm Git is installed
+
+Open a terminal and run:
+
+```shell
+git --version
+```
+
+If the command is not found, [install Git][install-git], open a new terminal, and run the command again.
 
 ## Install Node.js
 
@@ -50,37 +56,16 @@ The simplest option on every platform is the official installer:
 > [!TIP]
 > Prefer containers? If you have **[Docker][docker]**, you can use the repository's [dev container][dev-containers] instead of installing Node.js locally — it bundles Node for you. You don't need both.
 
-## Set up the lab repository
-
-You'll work against your own copy of the Tailspin Toys project. Create it now from the [template repository][template-repository]. The new repository contains every file the lab needs, and you'll connect it to the app in the next lesson.
-
-1. In a new browser window, navigate to the GitHub repository for this lab: [https://github.com/github-samples/tailspin-toys](https://github.com/github-samples/tailspin-toys).
-2. Create your own copy of the repository by selecting the **Use this template** button on the lab repository page. Then select **Create a new repository**.
-
-    ![The Use this template button with Create a new repository selected from the dropdown](../_images/app-0-use-template.png)
-
-3. If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors. Otherwise, you can create the new repository in an organization where you have access to GitHub Copilot.
-
-    ![The Create a new repository form with github-samples/tailspin-toys set as the template and the repository name filled in](../_images/app-0-create-repository.png)
-
-4. Make a note of the repository path you created (**organization-or-user-name/repository-name**), as you will be referring to this later in the lab.
-
-> [!NOTE]
-> When you create your repository from the template, a backlog of GitHub issues is created for you automatically. You'll work from these issues throughout the workshop — there's nothing to file yourself.
-
-> [!IMPORTANT]
-> Creating a repository from the template is required for the issue, pull request, cloud, and Agent Merge lessons. If enterprise policy prevents that, clone the template with `git clone https://github.com/github-samples/tailspin-toys.git` and complete the local editing lessons; skip the repository-backed exercises.
-
 ## Summary and next steps
 
-You're set up! You installed Node.js so the project can build and test on your machine, and you created your own copy of the Tailspin Toys repository from the template.
+You're set up! Git and Node.js are available for the projects you'll build during the workshop.
 
-Next, you'll install the GitHub Copilot app, connect the repository you just created, and get oriented in the workspace. Continue to [Lesson 1 - Installing the GitHub Copilot app][next-lesson].
+Next, you'll install the GitHub Copilot app, sign in, and get oriented in the workspace. Continue to [Lesson 1 - Installing the GitHub Copilot app][next-lesson].
 
 ## Resources
 
 - [Download Node.js][node-download]
-- [Creating a repository from a template][template-repository]
+- [Install Git][install-git]
 - [About the GitHub Copilot app][about-copilot-app]
 
 [next-lesson]: ../1-install-copilot-app/
@@ -88,5 +73,5 @@ Next, you'll install the GitHub Copilot app, connect the repository you just cre
 [node-download]: https://nodejs.org/en/download
 [docker]: https://www.docker.com/products/docker-desktop/
 [dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
-[template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
+[install-git]: https://github.com/git-guides/install-git
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

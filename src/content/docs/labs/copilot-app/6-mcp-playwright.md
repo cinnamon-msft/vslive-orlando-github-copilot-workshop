@@ -1,5 +1,5 @@
 ---
-title: "Lesson 5 - Testing with the Playwright MCP server"
+title: "Lesson 6 - Testing with the Playwright MCP server"
 description: "Add the Playwright MCP server to the GitHub Copilot app and ask the agent to manually test your filtering feature in a real browser."
 authors:
   - geektrainer
@@ -72,7 +72,7 @@ Congratulations, you used the Playwright MCP server to explore your feature in a
 - added the Playwright MCP server from the app settings.
 - asked the agent to drive a browser and explore your filtering feature.
 
-Your feature is built, verified, and seen working. Now it's time to ship it — using **Agent Merge** to open and merge the pull request for you. Continue to [Lesson 6 - Merging with Agent Merge][next-lesson].
+Your feature is built, verified, and seen working. Now it's time to ship it — using **Agent Merge** to open and merge the pull request for you. Continue to [Lesson 7 - Merging with Agent Merge][next-lesson].
 
 ## Check your understanding
 
@@ -93,7 +93,7 @@ MCP lets Copilot communicate with external tools and services, such as using Pla
 - [Microsoft Playwright MCP Server][playwright-mcp-server]
 - [Configuring MCP servers in the GitHub Copilot app][customize-app]
 
-[next-lesson]: ../6-agent-merge/
+[next-lesson]: ../7-agent-merge/
 [mcp-blog-post]: https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it/
 [playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app

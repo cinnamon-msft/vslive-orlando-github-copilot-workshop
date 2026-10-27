@@ -1,5 +1,5 @@
 ---
-title: "Lesson 6 - Merging with Agent Merge"
+title: "Lesson 7 - Merging with Agent Merge"
 description: "Open the filtering pull request, review it in My work, and let Agent Merge fix what's blocking it and merge it for you — the top rung of the merge-automation ladder."
 authors:
   - geektrainer
@@ -28,25 +28,24 @@ Up to this point you've been the one clicking **Merge pull request** on github.c
 
 You've reviewed the code manually, run tests, and even allowed Copilot to validate the UI. Now it's time to merge the new code into the codebase! Let's allow agent merge to shepherd the PR through continuous integration (CI) and to merge.
 
-> [!IMPORTANT]
-> Agent Merge requires a writable repository, permission to create and merge pull requests, and any organization policies required for its CI workflow. If you cloned Tailspin Toys without creating your own template repository, you cannot run this lesson.
-
 1. Return to the session you had open from the previous module where you were adding filtering functionality.
 2. In the upper right-hand corner, select the dropdown next to **Create PR**.
 3. Select **Agent merge** to enable agent merge.
 
-   ![The Create PR dropdown in the GitHub Copilot app expanded, with an arrow pointing to the Agent merge option](../_images/app-agent-merge-toggle.png)
+   ![The Create PR dropdown in the GitHub Copilot app expanded, with an arrow pointing to the Agent merge option](../_images/app-enable-agent-merge.png)
 
 4. The button text now changes to **Agent merge**.
-5. Select the **Agent merge** button to view options the agent can take to manage the PR, like checking its merge status, CI check status, and if there are any unresolved comments.
+5. Select the **Agent merge** button to start the agent merge process.
 
-  ![The Agent merge panel](../_images/app-agent-merge-check.png)
-   
-7. Allow agent merge to merge the pull request by selecting the dropdown next to **Agent merge** then **Merge pull request**.
+Copilot app then begins the process of creating and managing the PR! It starts by exploring the project to determine how best to create a PR, followed by creating the new PR.
+
+After a few moments, you'll notice Copilot starts work again, looking at the PR conditions - the CI process of running all the tests on your repository. It will report back status on any reviews left by other team members, any checks that need to run (the CI process), and if the PR is mergeable.
+
+6. Allow agent merge to merge the pull request by selecting the dropdown next to **Agent merge** then **Merge pull request**.
 
    ![The Agent merge dropdown showing the agent's allowed actions — Address reviews, Fix CI failures, Resolve conflicts — with an arrow pointing to Merge pull request](../_images/app-agent-merge-merge.png)
 
-8. Once all CI processes are green (meaning the tests passed), Copilot will merge the pull request!
+7. Once all CI processes are green (meaning the tests passed), Copilot will merge the pull request!
 
 ## Summary and next steps
 
@@ -56,7 +55,7 @@ You've automated several parts of the development process, including generating 
 - enabled Agent Merge on your filtering session.
 - watched it create the pull request, run CI, and merge when everything was green.
 
-Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 7 - Planning with canvases][next-lesson].
+Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 8 - Planning with canvases][next-lesson].
 
 ## Check your understanding
 
@@ -76,6 +75,6 @@ Agent Merge handles the mechanical pull-request finish line: monitoring checks a
 - [Managing issues and pull requests with the GitHub Copilot app][managing-issues-prs]
 - [About the GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../7-canvases/
+[next-lesson]: ../8-canvases/
 [managing-issues-prs]: https://docs.github.com/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

@@ -210,14 +210,14 @@ Write-Output ''
 Write-Output 'Lab readiness'
 $appLab = Get-LabState @('Git', 'Node.js', 'GitHub Copilot app')
 $cliLab = Get-LabState @('Git', 'Node.js', 'npm', 'Copilot CLI', 'Copilot CLI connectivity', 'VS Code or VS Code Insiders')
+$vscodeLab = Get-LabState @('Git', 'Node.js', 'npm', 'VS Code or VS Code Insiders')
 $visualStudioLab = Get-LabState @('Git', '.NET SDK 10', 'Visual Studio')
-$sdkLab = Get-LabState @('Git', 'Node.js', 'npm', 'Copilot CLI', 'Copilot CLI connectivity', '.NET SDK 10', 'VS Code or VS Code Insiders')
 Write-Output "Copilot app: $appLab"
 Write-Output "Copilot CLI: $cliLab"
+Write-Output "VS Code: $vscodeLab (also verify VS Code 1.135+, the Copilot extension, and Local session sign-in)"
 Write-Output "Visual Studio 2026: $visualStudioLab"
-Write-Output "Copilot SDK: $sdkLab"
 
-if (@($appLab, $cliLab, $visualStudioLab, $sdkLab) -contains 'Needs setup') {
+if (@($appLab, $cliLab, $vscodeLab, $visualStudioLab) -contains 'Needs setup') {
     Write-Output ''
     Write-Output 'Full-event status: Needs setup. Install the missing tools for the labs you plan to attend.'
 } else {

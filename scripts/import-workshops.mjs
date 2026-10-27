@@ -24,46 +24,28 @@ const cachedRoot =
     : null;
 const temporaryRoot = cachedRoot ? null : mkdtempSync(join(tmpdir(), 'vslive-workshops-'));
 const contentRoot = join(root, 'src', 'content', 'docs', 'labs');
-const targetAppUrl =
-  'https://jamesmontemagno.github.io/workshop-accessibility-agent/target-app/';
-const modelSelectorSource = (rootNamespace) => `using GitHub.Copilot;
-
-namespace ${rootNamespace}.Helpers;
-
-public static class ModelSelector
-{
-    public static async Task<string?> SelectAsync(CopilotClient client)
-    {
-        var models = (await client.ListModelsAsync())?.ToList();
-        if (models is null || models.Count is 0)
-        {
-            Console.WriteLine("No model list was returned; using the account default.");
-            return null;
-        }
-
-        Console.WriteLine("Available models:");
-        for (var index = 0; index < models.Count; index++)
-        {
-            Console.WriteLine($"{index + 1}. {models[index].Name}");
-        }
-
-        Console.Write($"Choose 1-{models.Count} [1]: ");
-        var valid = int.TryParse(Console.ReadLine(), out var choice) &&
-                    choice >= 1 &&
-                    choice <= models.Count;
-        var selected = models[(valid ? choice : 1) - 1];
-
-        Console.WriteLine($"Using {selected.Name}\\n");
-        return selected.Id;
-    }
-}
-`;
+const overlayRoot = join(root, 'scripts', 'workshop-overlays');
+const copilotAppDestinationNames = {
+  '2-add-star-rating.md': '3-add-star-rating.md',
+  '3-custom-instructions.md': '4-custom-instructions.md',
+  '4-build-filtering.md': '5-build-filtering.md',
+  '5-mcp-playwright.md': '6-mcp-playwright.md',
+  '6-agent-merge.md': '7-agent-merge.md',
+  '7-canvases.md': '8-canvases.md',
+  '8-review.md': '9-review.md'
+};
+const shiftedCopilotAppRoutes = Object.fromEntries(
+  Object.entries(copilotAppDestinationNames).map(([from, to]) => [
+    basename(from, '.md'),
+    basename(to, '.md')
+  ])
+);
 
 const cleanTargets = [
   join(contentRoot, 'cli'),
   join(contentRoot, 'copilot-app'),
+  join(contentRoot, 'vscode'),
   join(contentRoot, 'visual-studio'),
-  join(contentRoot, 'copilot-sdk'),
   join(contentRoot, '_images')
 ];
 
@@ -166,6 +148,7 @@ const addKnowledgeCheck = (markdown, destinationFile) => {
     .replaceAll('\\', '/');
   const check = knowledgeChecks[key];
   if (!check) return markdown;
+  if (markdown.includes('## Check your understanding')) return markdown;
 
   const block = `## Check your understanding
 
@@ -228,6 +211,9 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
   if (options.removeTrack) {
     markdown = stripTrack(markdown, options.removeTrack);
   }
+  if (options.transform) {
+    markdown = options.transform(markdown);
+  }
 
   const isIndex = basename(destinationFile) === 'index.md';
   markdown = normalizeLinks(markdown, isIndex);
@@ -270,7 +256,8 @@ const importMarkdownDirectory = (sourceDirectory, destinationDirectory, options 
   for (const name of readdirSync(sourceDirectory)) {
     if (!name.endsWith('.md')) continue;
     if (options.exclude?.includes(name)) continue;
-    const destinationName = options.indexFile === name ? 'index.md' : name;
+    const destinationName =
+      options.indexFile === name ? 'index.md' : options.destinationNames?.[name] || name;
     const fileOptions =
       options.introFiles && !options.introFiles.includes(name)
         ? { ...options, intro: null }
@@ -300,7 +287,7 @@ importMarkdownDirectory(
       ],
       [
         /The workshop supports \*\*two tracks\*\*: a VS Code experience and a GitHub Copilot CLI experience\./,
-        'This VS Live edition focuses on the GitHub Copilot CLI experience.'
+        'This VS Live! Orlando edition focuses on the GitHub Copilot CLI experience.'
       ],
       [
         /## 🎯 Choose Your Track[\s\S]*?---/,
@@ -347,15 +334,46 @@ Keep your work in this folder. A direct clone is sufficient for the local lab. F
   }
 );
 
+const shiftCopilotAppLesson = (markdown) => {
+  const routePattern = new RegExp(
+    `\\b(${Object.keys(shiftedCopilotAppRoutes).join('|')})\\b`,
+    'g'
+  );
+  return markdown
+    .replace(/\bLesson ([2-8])\b/g, (_, lesson) => `Lesson ${Number(lesson) + 1}`)
+    .replace(routePattern, (route) => shiftedCopilotAppRoutes[route]);
+};
+
+importMarkdownDirectory(
+  join(sources.vscode, 'workshop'),
+  join(contentRoot, 'vscode'),
+  {
+    indexFile: '00-overview.md',
+    exclude: ['GUIDE.md'],
+    replacements: [
+      [/\[← README\]\(\.\.\/README\.md\)\n?/, ''],
+      [/\]\(\.\.\/00-overview\/\)/g, '](../)']
+    ]
+  }
+);
+
 importMarkdownDirectory(
   join(sources['copilot-app'], 'docs', 'app'),
   join(contentRoot, 'copilot-app'),
   {
     indexFile: 'README.md',
+    destinationNames: copilotAppDestinationNames,
     introFiles: ['README.md', '0-prerequisites.md'],
     intro:
-      '> [!NOTE]\n> This lab intentionally uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys), not a folder from the combined workshop repository. Because the exercises use issues, branches, sessions, and pull requests, Lesson 0 guides you through creating your own repository from that template. If your enterprise policy prevents creating a template repository, clone the template for local-only exercises and skip issue, pull request, and Agent Merge lessons.'
+      '> [!NOTE]\n> This lab starts with a standalone `space-quiz` project for a guided tour, then uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys) for the remaining lessons.',
+    transform: shiftCopilotAppLesson
   }
+);
+
+importMarkdownDirectory(
+  join(overlayRoot, 'copilot-app'),
+  join(contentRoot, 'copilot-app'),
+  { indexFile: 'README.md' }
 );
 
 const appImagesSource = join(sources['copilot-app'], 'docs', '_images');
@@ -418,220 +436,10 @@ copyTree(
   join(contentRoot, 'visual-studio', 'images')
 );
 
-importMarkdownDirectory(
-  join(sources['copilot-sdk'], 'workshop'),
-  join(contentRoot, 'copilot-sdk'),
-  {
-    replacements: [
-      [/## 1\. Clone the repository/, '## 1. Open the SDK lab folder'],
-      [
-        /```bash\ngit clone https:\/\/github\.com\/jamesmontemagno\/copilot-sdk-workshop\.git\ncd copilot-sdk-workshop\ncode \.\n```/,
-        `Clone the dedicated SDK workshop repository and open it in Visual Studio Code:
-
-\`\`\`bash
-git clone https://github.com/jamesmontemagno/workshop-accessibility-agent.git
-cd workshop-accessibility-agent
-code .
-\`\`\``
-      ],
-      [
-        /If `code` is not on your path, use your editor's \*\*Open Folder\*\* command instead\./,
-        "If `code` is not on your path, use your editor's **Open Folder** command and select `workshop-accessibility-agent` instead."
-      ],
-      [
-        /github\.com\/codemillmatt\/copilot-sdk-workshop/g,
-        'github.com/jamesmontemagno/workshop-accessibility-agent'
-      ],
-      [
-        /github\.com\/jamesmontemagno\/copilot-sdk-workshop/g,
-        'github.com/jamesmontemagno/workshop-accessibility-agent'
-      ],
-      [
-        /\{\{TARGET_APP_URL\}\}/g,
-        targetAppUrl
-      ],
-      [
-        /## Fire up your first Copilot session[\s\S]*?session becomes idle, so it works well when you only need the completed answer\./,
-        `## Fire up your first Copilot session
-
-Open \`workshop-app/Program.cs\`. Build the program in the following small additions so you can see where each responsibility belongs.
-
-### 1. Import the SDK and add a heading
-
-Replace the starter file contents with:
-
-\`\`\`csharp
-using GitHub.Copilot;
-
-Console.WriteLine("=== First Copilot session ===\\n");
-\`\`\`
-
-\`using GitHub.Copilot;\` makes the SDK types available. The heading separates the workshop output from the commands you run in the terminal.
-
-### 2. Connect to the Copilot runtime
-
-Add this below the heading:
-
-\`\`\`csharp
-await using var client = new CopilotClient();
-await client.StartAsync();
-\`\`\`
-
-\`CopilotClient\` manages the application-wide connection to the local Copilot CLI runtime. \`StartAsync\` launches or connects to that runtime before any requests are sent.
-
-### 3. Confirm the connection
-
-Add this next:
-
-\`\`\`csharp
-var ping = await client.PingAsync("workshop");
-Console.WriteLine($"Connected to the Copilot runtime: {ping.Message}");
-\`\`\`
-
-\`PingAsync\` performs a lightweight health check, giving you an immediate confirmation that the app can reach Copilot. Print the returned message so connection failures are obvious before you create a session.
-
-### 4. Create a conversation and send a prompt
-
-Add the session and request:
-
-\`\`\`csharp
-await using var session = await client.CreateSessionAsync(new SessionConfig());
-var response = await session.SendAndWaitAsync(
-    "In one sentence, explain why an accessible name matters for a form input.");
-\`\`\`
-
-A \`CopilotSession\` owns one conversation and its context. With an empty \`SessionConfig\`, the runtime uses your account's default model. \`SendAndWaitAsync\` sends the prompt and waits until the session is idle.
-
-### 5. Check and print the response
-
-Finish the program with:
-
-\`\`\`csharp
-if (response is null)
-{
-    throw new InvalidOperationException("Copilot completed without an assistant message.");
-}
-
-Console.WriteLine($"\\nCopilot: {response.Data.Content}");
-\`\`\`
-
-The guard fails clearly if Copilot finishes without an assistant message. Otherwise, print the message content so you can inspect the response in the terminal.`
-      ]
-    ]
-  }
-);
-for (const template of ['visual-studio', 'copilot-sdk']) {
-  cpSync(
-    join(root, 'scripts', 'templates', `${template}-index.md`),
-    join(contentRoot, template, 'index.md')
-  );
-}
 cpSync(
-  join(root, 'scripts', 'templates', 'copilot-sdk-model-selection.md'),
-  join(contentRoot, 'copilot-sdk', '08-model-selection.md')
+  join(root, 'scripts', 'templates', 'visual-studio-index.md'),
+  join(contentRoot, 'visual-studio', 'index.md')
 );
-
-const configureSdkLessonModelSelection = () => {
-  for (const name of [
-    '02-streaming.md',
-    '03-local-tool.md',
-    '04-mcp-safety.md',
-    '05-combine-tools.md',
-    '06-structured-report.md'
-  ]) {
-    const lessonPath = join(contentRoot, 'copilot-sdk', name);
-    let lesson = readFileSync(lessonPath, 'utf8');
-    lesson = lesson.replace(
-      /new SessionConfig\r?\n\{\r?\n(?!\s*Model = selectedModel,)/g,
-      'new SessionConfig\n{\n    Model = selectedModel,\n'
-    );
-    lesson = lesson.replace(
-      /(var ping = await client\.PingAsync\("workshop"\);\r?\n[\s\S]*?Console\.WriteLine\([^;]+?\);\r?\n)(?!\r?\nvar selectedModel)/g,
-      '$1\nvar selectedModel = await ModelSelector.SelectAsync(client);\n'
-    );
-    writeFileSync(lessonPath, lesson);
-  }
-
-  const firstSessionPath = join(contentRoot, 'copilot-sdk', '01-first-session.md');
-  let firstSession = readFileSync(firstSessionPath, 'utf8');
-  const modelSelectionExtension = `## Choose a model and run it again
-
-Your first run used the account default, so you could confirm the runtime connection without making
-another choice. Now add an explicit model selection for the next run.
-
-### 1. Add the model picker
-
-Create \`workshop-app/Helpers/ModelSelector.cs\`:
-
-\`\`\`csharp
-${modelSelectorSource('HelloCopilotSDK').trimEnd()}
-\`\`\`
-
-The helper asks the runtime which models your signed-in account can use, displays their names, and
-returns the selected model ID. If the runtime returns no list, it returns \`null\` so the account
-default remains in effect. Invalid input uses the first listed model.
-
-### 2. Create the next session with that model
-
-In \`Program.cs\`, add the helper namespace and select a model after the connection check:
-
-\`\`\`csharp
-using HelloCopilotSDK.Helpers;
-
-var selectedModel = await ModelSelector.SelectAsync(client);
-\`\`\`
-
-Then replace the empty session configuration:
-
-\`\`\`csharp
-await using var session = await client.CreateSessionAsync(new SessionConfig
-{
-    Model = selectedModel
-});
-\`\`\`
-
-A model is selected when a session is created, so keep the existing first session code as your
-working starting point, update its configuration, and rerun the application.
-
-## Run it again
-
-\`\`\`bash
-dotnet run --project workshop-app
-\`\`\`
-
-Choose a model when prompted, then confirm the terminal prints a Copilot response again. Keep
-\`selectedModel\` and \`Model = selectedModel\` as you continue through the later lessons.`;
-  firstSession = firstSession.replace(
-    '> **You\'re ready for streaming when:**',
-    `${modelSelectionExtension}\n\n> **You're ready for streaming when:**`
-  );
-  const checkpointIndex = firstSession.indexOf('<summary>Complete Step 1 checkpoint</summary>');
-  const prefix = firstSession.slice(0, checkpointIndex);
-  const checkpoint = firstSession
-    .slice(checkpointIndex)
-    .replace('using GitHub.Copilot;', 'using GitHub.Copilot;\nusing HelloCopilotSDK.Helpers;')
-    .replace(
-      /(var ping = await client\.PingAsync\("workshop"\);\r?\n[\s\S]*?Console\.WriteLine\([^;]+?\);\r?\n)(?!\r?\nvar selectedModel)/,
-      '$1\nvar selectedModel = await ModelSelector.SelectAsync(client);\n'
-    )
-    .replace(
-      /new SessionConfig\(\)/g,
-      'new SessionConfig\n{\n    Model = selectedModel\n}'
-    );
-  writeFileSync(firstSessionPath, `${prefix}${checkpoint}`);
-
-  const streamingPath = join(contentRoot, 'copilot-sdk', '02-streaming.md');
-  let streaming = readFileSync(streamingPath, 'utf8');
-  const sessionInstruction =
-    'In `Program.cs`, keep `var selectedModel = await ModelSelector.SelectAsync(client);` from Step 1, then replace the session and response code with:';
-  streaming = streaming.replace(
-    'In `Program.cs`, add `using HelloCopilotSDK.Helpers;`, then replace the session and response code\nwith:',
-    sessionInstruction
-  );
-  writeFileSync(streamingPath, streaming);
-};
-
-configureSdkLessonModelSelection();
 
 if (temporaryRoot) {
   rmSync(temporaryRoot, { recursive: true, force: true });

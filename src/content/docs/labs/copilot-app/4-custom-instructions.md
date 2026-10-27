@@ -1,5 +1,5 @@
 ---
-title: "Lesson 3 - Guiding Copilot with custom instructions"
+title: "Lesson 4 - Guiding Copilot with custom instructions"
 description: "Use the GitHub Copilot app to add a custom instructions standard to your repository, starting from an issue in your backlog and merging the change as a pull request."
 authors:
   - geektrainer
@@ -60,11 +60,14 @@ Take a moment to read the instruction files this repository ships with — there
    ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
 
 2. Select the **+** to add a new item to the review panel.
-3. Select **Files**.
-4. Search for `copilot-instructions.md`. If it doesn't come up, you may have to enable showing hidden files. Click the settings button to the right and then select **Show hidden files**.
+3. Select **File**.
+4. Search for `copilot-instructions.md`.
 5. Select  `copilot-instructions.md` from the list of files to open it.
 6. Explore the file, noting the brief description of the project plus sections such as **Agent notes**, **Code standards**, **Scripts**, and **Repository Structure**. Under **Code standards**, note the nested **GitHub Actions Workflows** guidance. These are applicable to any interactions you'd have with Copilot.
-7. Clear the search box.
+7. Select **Show folder view** to open the folder navigator.
+
+   ![The Show folder view button in the review panel with a file open in the GitHub Copilot app](../_images/app-show-folder-view.png)
+
 8. Navigate to the `.github/instructions` folder and explore the files. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
 9. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any TypeScript test file (for example, one matching `**/*.test.ts`) will match.
 10. Note the instructions specific to creating unit tests for this project.
@@ -142,7 +145,7 @@ You explored how the app picks up context from instruction files, then used a se
 - asked the agent to add a documentation standard to `.github/copilot-instructions.md`.
 - reviewed the change and merged it as a pull request.
 
-Next, you'll build the filtering feature in a fresh session — and watch it pick up the standard you just merged. Continue to [Lesson 4 - Building a feature with Autopilot][next-lesson].
+Next, you'll build the filtering feature in a fresh session — and watch it pick up the standard you just merged. Continue to [Lesson 5 - Building a feature with Autopilot][next-lesson].
 
 ## Resources
 
@@ -151,7 +154,7 @@ Next, you'll build the filtering feature in a fresh session — and watch it pic
 - [Best practices for creating custom instructions][instructions-best-practices]
 - [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
 
-[next-lesson]: ../4-build-filtering/
+[next-lesson]: ../5-build-filtering/
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository

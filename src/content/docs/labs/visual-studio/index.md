@@ -1,5 +1,5 @@
 ---
-title: "Lab 3 · Visual Studio 2026"
+title: "Lab 4 · Visual Studio 2026"
 description: "Use advanced GitHub Copilot features while completing the TinyShop solution."
 ---
 

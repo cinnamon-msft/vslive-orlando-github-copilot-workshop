@@ -1,16 +1,17 @@
 ---
-title: "Lesson 2 - Running your first agent session"
-description: "Start your first agent session in the GitHub Copilot app, make a small change to the game cards, and merge it as your first pull request."
+title: "Lesson 3 - Running your first Tailspin agent session"
+description: "Create your Tailspin Toys repository, start an agent session, make a small change to the game cards, and merge it as your first pull request."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-08-06
 ---
 
-In the previous lesson you toured the workspace and used a quick chat. Now it's time to start an **agent session** and make your first change to the project. You'll keep it small: the games already have a star rating in their data, but the game cards on the home page don't show it yet. You'll ask the agent to surface it, review the change, and merge it as your first pull request.
+In the previous lesson you completed a guided tour with the standalone space quiz. Now you'll create the Tailspin Toys project used through the rest of the workshop, start an **agent session**, and make your first change. You'll keep it small: the games already have a star rating in their data, but the game cards on the home page don't show it yet.
 
 In this lesson, you will:
 
 - start an agent session and learn how a session is structured.
+- create your copy of the Tailspin Toys template and add it to the app.
 - ask the agent to make a small, focused change to the project.
 - review the change in the workspace diff view.
 - run the app locally to confirm the change in the browser.
@@ -20,6 +21,20 @@ In this lesson, you will:
 
 Each game in Tailspin Toys can have a star rating, and it already appears on the game details page. The game cards on the home page, though, only show the title, category, publisher, and description. As a warm-up, you'll have the agent display the existing rating on each card — a tiny, self-contained change that's perfect for your first session.
 
+## Set up the Tailspin Toys repository
+
+You'll work against your own copy of the [Tailspin Toys template repository][template-repository].
+
+1. In a browser, navigate to `https://github.com/github-samples/tailspin-toys`.
+2. Select **Use this template**, then **Create a new repository**.
+3. Create the repository in an organization or account where you can use GitHub Copilot.
+4. Keep the repository name `tailspin-toys`, then create the repository.
+5. In the Copilot app, select the **+** next to **Sessions**.
+6. Choose **GitHub repository**, search for `<YOUR_GITHUB_HANDLE>/tailspin-toys`, then select it to clone and add the project.
+
+> [!NOTE]
+> The template creates a backlog of GitHub issues automatically. You'll use those issues throughout the remaining lessons.
+
 ## Anatomy of a session
 
 A **session** is a conversation with an agent that runs in its own isolated workspace. Every session gets a **dedicated git worktree and branch**, which is what lets you run several sessions at once — one adding a feature, another fixing a bug — without their changes colliding. Your sessions appear in the sidebar grouped by repository; select any one to switch to it.
@@ -28,7 +43,7 @@ Inside a session you'll see three things: the **conversation** with the agent, t
 
 ## Start a session and request our change
 
-Let's start a new session to begin exploring the project and implementing our feature. In a [prior lesson][prior-lesson] you added your project from its GitHub repository. We'll create a new session for that repository and request our change.
+Let's start a new session to begin exploring the project and implementing our feature. You just added the Tailspin Toys project from its GitHub repository, so we'll create a session for that repository and request our change.
 
 1. Return to (or open) the GitHub Copilot app.
 2. Select the **Home screen**.
@@ -36,17 +51,16 @@ Let's start a new session to begin exploring the project and implementing our fe
 
    ![The GitHub Copilot app prompt box with the repository selector set to tailspin-toys and the model selector shown beneath the prompt](../_images/app-2-start-session.png)
 
-4. Confirm that the model selector below the prompt is set to **GPT-5.3 Codex**, not **Auto**. If it is unavailable for your account, use **Auto** and let a facilitator know.
-5. Use the following prompt to request the change:
+4. Use the following prompt to request the change:
 
    ```plaintext
-   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in @src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
+   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
    ```
 
 > [!NOTE]
 > Notice how the prompt contained the name of the file for Copilot to update. While it's not required at all to specify which files Copilot should include in its work, pointing it in the right direction both helps Copilot quickly generate code and reduce token usage.
 
-6. Select <kbd>Enter</kbd> to send the prompt to Copilot.
+5. Select <kbd>Enter</kbd> to send the prompt to Copilot.
 
 Copilot app begins work by first creating a new worktree, an isolated copy of the project. It then explores the project, locating the necessary files to update to add the new feature. It will then create the necessary code. You've now added a new feature with Copilot app!
 
@@ -89,7 +103,7 @@ Of course we shouldn't just read the code and assume it works. We should visuall
    npm run dev
    ```
 
-3. Once the server starts (this will just take a moment), in the review panel on the right side of Copilot app, select the **+**, then select **Browser**.
+3. Once the server starts (this will just take a moment), open a browser window.
 4. Navigate to http://localhost:4321.
 5. You should now see star ratings on all the games on the landing page!
 6. Return to the terminal window.
@@ -121,7 +135,7 @@ You've started your first agent session and shipped your first change! Specifica
 - ran the app locally to confirm the star rating in the browser.
 - opened a pull request and merged it yourself on github.com.
 
-Next, you'll use the app to add a custom instructions standard to the repository — starting from one of the issues in your backlog. Continue to [Lesson 3 - Guiding Copilot with custom instructions][next-lesson].
+Next, you'll use the app to add a custom instructions standard to the repository — starting from one of the issues in your backlog. Continue to [Lesson 4 - Guiding Copilot with custom instructions][next-lesson].
 
 ## Check your understanding
 
@@ -142,8 +156,8 @@ A dedicated worktree and branch isolate one session's edits from other sessions,
 - [About the GitHub Copilot app][about-copilot-app]
 - [Managing issues and pull requests with the GitHub Copilot app][managing-issues-prs]
 
-[prior-lesson]: ../1-install-copilot-app/#install-and-configure-the-github-copilot-app
-[next-lesson]: ../3-custom-instructions/
+[next-lesson]: ../4-custom-instructions/
+[template-repository]: https://github.com/github-samples/tailspin-toys
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
 [managing-issues-prs]: https://docs.github.com/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests

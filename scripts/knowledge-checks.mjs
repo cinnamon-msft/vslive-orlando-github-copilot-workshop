@@ -44,7 +44,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers'
   },
-  'copilot-app/2-add-star-rating.md': {
+  'copilot-app/3-add-star-rating.md': {
     question:
       "Why does each agent session use its own git worktree, and why should you review the session's diff?",
     answer:
@@ -53,7 +53,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions'
   },
-  'copilot-app/4-build-filtering.md': {
+  'copilot-app/5-build-filtering.md': {
     question:
       'How do Interactive, Plan, and Autopilot modes change the amount of control you keep during a session?',
     answer:
@@ -62,7 +62,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions'
   },
-  'copilot-app/5-mcp-playwright.md': {
+  'copilot-app/6-mcp-playwright.md': {
     question:
       "What does MCP enable, and why should you evaluate a server's trustworthiness before connecting it?",
     answer:
@@ -70,7 +70,7 @@ export const knowledgeChecks = {
     sourceLabel: 'Understand Model Context Protocol',
     sourceUrl: 'https://docs.github.com/en/copilot/concepts/context/mcp'
   },
-  'copilot-app/6-agent-merge.md': {
+  'copilot-app/7-agent-merge.md': {
     question:
       'What does Agent Merge automate, and what responsibility does the developer retain?',
     answer:
@@ -79,7 +79,7 @@ export const knowledgeChecks = {
     sourceUrl:
       'https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests'
   },
-  'copilot-app/7-canvases.md': {
+  'copilot-app/8-canvases.md': {
     question:
       'What distinguishes a canvas from a session chat, and how does its storage location affect who can use it?',
     answer:
@@ -133,4 +133,3 @@ export const knowledgeChecks = {
       'https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent'
   }
 };
-

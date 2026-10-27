@@ -1,5 +1,5 @@
 ---
-title: "Lesson 4 - Building a feature with Autopilot"
+title: "Lesson 5 - Building a feature with Autopilot"
 description: "Use Plan and Autopilot modes in the GitHub Copilot app to build a static, client-side filtering feature, watch it inherit your documentation standard, and verify it with an agent skill."
 authors:
   - geektrainer
@@ -94,7 +94,7 @@ All AI-generated code needs review before it's merged. Let's both review the cod
 
    ![The session panel tabs in the GitHub Copilot app with an arrow pointing to the Changes tab](../_images/app-select-changes.png)
 
-2. Review the changes. You should see new TypeScript and Astro files, and test files. Notice the new helper functions include TSDoc doc comments and a file header comment — the documentation standard you merged in Lesson 3, applied automatically without being asked.
+2. Review the changes. You should see new TypeScript and Astro files, and test files. Notice the new helper functions include TSDoc doc comments and a file header comment — the documentation standard you merged in Lesson 4, applied automatically without being asked.
 3. In the review panel on the right side of Copilot app, select **Terminal**. If there is no **Terminal** button, select the **+** (labeled as **Open in panel**), then select **Terminal**.
 
    ![The Terminal button in the review panel of the GitHub Copilot app](../_images/app-terminal-screenshot.png)
@@ -105,7 +105,7 @@ All AI-generated code needs review before it's merged. Let's both review the cod
    npm run dev
    ```
 
-5. Once the server starts (this will just take a moment), in the review panel on the right side of Copilot app, select the **+**, then select **Browser**.
+5. Once the server starts (this will just take a moment), open a browser window.
 6. Navigate to http://localhost:4321.
 7. You should now see filters available on the landing page!
 8. If anything doesn't look right, you can ask Copilot to make the updates!
@@ -141,7 +141,7 @@ Let's explore the skill to see what it does.
    ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
 
 2. Select the **+** to add a new item to the review panel.
-3. Select **Files**.
+3. Select **File**.
 4. Search for `SKILL.md`.
 5. Select `SKILL.md .github/skills/quality-checks` from the list of files to open it.
 6. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.
@@ -162,10 +162,10 @@ You built a real feature end to end and verified it against the team's bar! Spec
 
 - started a fresh session from the filtering issue on an up-to-date project.
 - used Plan mode to plan the feature and Autopilot to build it.
-- confirmed the generated helper followed the documentation standard you merged in Lesson 3.
+- confirmed the generated helper followed the documentation standard you merged in Lesson 4.
 - verified your work with the `quality-checks` skill.
 
-Next, you'll connect the Playwright MCP server and ask the agent to explore your filtering feature in a real browser. Continue to [Lesson 5 - Testing with the Playwright MCP server][next-lesson].
+Next, you'll connect the Playwright MCP server and ask the agent to explore your filtering feature in a real browser. Continue to [Lesson 6 - Testing with the Playwright MCP server][next-lesson].
 
 ## Check your understanding
 
@@ -188,9 +188,9 @@ Interactive mode pauses for your input as work progresses. Plan mode produces an
 - [About cloud and local sandboxes for GitHub Copilot][sandboxes]
 
 [ex0]: ../0-prerequisites/
-[ex2]: ../2-add-star-rating/
-[ex3]: ../3-custom-instructions/
-[next-lesson]: ../5-mcp-playwright/
+[ex2]: ../3-add-star-rating/
+[ex3]: ../4-custom-instructions/
+[next-lesson]: ../6-mcp-playwright/
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
