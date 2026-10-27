@@ -2,11 +2,11 @@
 
 [Workshop site (after enabling GitHub Pages)](https://cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop/)
 
-This is the unified hands-on workshop for VS Live! Orlando with Kayla Cinnamon and James Montemagno.
+This is the unified hands-on workshop for VS Live! Orlando with Kayla Cinnamon and Jon Galloway.
 It brings four GitHub Copilot experiences into one guided site, so attendees can begin with the
 Copilot app and progress through the terminal, VS Code, and Visual Studio.
 
-Adapted from [James Montemagno's original workshop](https://github.com/jamesmontemagno/vslive-github-copilot-workshop), with its history and source attribution preserved.
+Adapted for the event from the [original workshop](https://github.com/jamesmontemagno/vslive-github-copilot-workshop), with its history and source attribution preserved.
 
 ## Workshop path
 

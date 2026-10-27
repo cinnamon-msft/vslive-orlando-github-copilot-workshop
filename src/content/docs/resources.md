@@ -11,7 +11,7 @@ description: "Official event links, source workshops, and imported-content prove
 ## Presenters
 
 - Kayla Cinnamon
-- James Montemagno
+- Jon Galloway
 
 ## Workshop projects
 

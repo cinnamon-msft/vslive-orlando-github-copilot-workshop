@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Developers attending the VS Live! Orlando 2026 workshop with Kayla Cinnamon and James Montemagno. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
+Developers attending the VS Live! Orlando 2026 workshop with Kayla Cinnamon and Jon Galloway. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
 
 ## Product Purpose
 
