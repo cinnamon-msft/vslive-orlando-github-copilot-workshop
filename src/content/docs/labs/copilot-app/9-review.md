@@ -61,7 +61,7 @@ You've covered the core workflow. A few more features worth a look:
 
 The best way to improve with any tool is to keep using it! Use it for production code, for hobby code, for the little app you've had in mind for years but never got around to building. Share your learnings with your team, and learn from theirs. And, as always, explore the documentation.
 
-If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS Code harness](../../vscode/), the [Copilot CLI harness](../../cli/), or the [Cloud agent harness](../../cloud/).
+If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS Code harness](../../vscode/), the [Copilot CLI harness](../../cli/), or the [Visual Studio lab](../../visual-studio/).
 
 For an optional extension using Microsoft Foundry Canvas, explore [Optional: Incorporate Foundry][foundry-canvas].
 
@@ -84,4 +84,4 @@ For an optional extension using Microsoft Foundry Canvas, explore [Optional: Inc
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
-[foundry-canvas]: ../8-foundry-canvas/
+[foundry-canvas]: https://github.com/github-samples/copilot-workshops/blob/949044f0605f1b17322194baca52bd0586d931c5/docs/app/8-foundry-canvas.md

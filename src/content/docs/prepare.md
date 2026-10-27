@@ -44,7 +44,7 @@ Download the preflight script for your operating system, inspect it if desired, 
   <div role="tabpanel" data-panel="powershell">
 
 ```powershell
-Invoke-WebRequest https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/main/scripts/workshop-doctor.ps1 -OutFile .\workshop-doctor.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/workshop-orlando/scripts/workshop-doctor.ps1 -OutFile .\workshop-doctor.ps1
 .\workshop-doctor.ps1
 ```
 
@@ -53,7 +53,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando
   <div role="tabpanel" data-panel="shell" hidden>
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/main/scripts/workshop-doctor.sh
+curl -fsSLO https://raw.githubusercontent.com/cinnamon-msft/vslive-orlando-github-copilot-workshop/workshop-orlando/scripts/workshop-doctor.sh
 bash ./workshop-doctor.sh
 ```
 

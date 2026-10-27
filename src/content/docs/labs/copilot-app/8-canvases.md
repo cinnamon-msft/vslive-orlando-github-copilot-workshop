@@ -138,7 +138,7 @@ A canvas is a persistent interactive surface that both you and the agent can upd
 - [About the GitHub Copilot app][about-copilot-app]
 
 [next-lesson]: ../9-review/
-[foundry-canvas]: ../8-foundry-canvas/
+[foundry-canvas]: https://github.com/github-samples/copilot-workshops/blob/949044f0605f1b17322194baca52bd0586d931c5/docs/app/8-foundry-canvas.md
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
