@@ -29,7 +29,7 @@ export default defineConfig({
     starlight({
       title: 'VS Live! Orlando × GitHub Copilot',
       description:
-        'Four hands-on GitHub Copilot labs for VS Live! Orlando with Kayla Cinnamon and James Montemagno.',
+        'Four hands-on GitHub Copilot labs for VS Live! Orlando with Kayla Cinnamon and Jon Galloway.',
       favicon: '/favicon.svg',
       logo: {
         src: './src/assets/mark.svg',
