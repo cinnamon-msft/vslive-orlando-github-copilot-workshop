@@ -22,6 +22,17 @@ const cachedRoot =
   sourceRootArg >= 0 && process.argv[sourceRootArg + 1]
     ? resolve(process.argv[sourceRootArg + 1])
     : null;
+const tracksArg = process.argv.indexOf('--tracks');
+const selectedTracks =
+  tracksArg >= 0
+    ? process.argv[tracksArg + 1]?.split(',')
+    : manifest.sources.map((source) => source.key);
+if (
+  !selectedTracks?.length ||
+  selectedTracks.some((key) => !manifest.sources.some((source) => source.key === key))
+) {
+  throw new Error('--tracks must list valid comma-separated workshop source keys.');
+}
 const temporaryRoot = cachedRoot ? null : mkdtempSync(join(tmpdir(), 'vslive-workshops-'));
 const contentRoot = join(root, 'src', 'content', 'docs', 'labs');
 const overlayRoot = join(root, 'scripts', 'workshop-overlays');
@@ -41,13 +52,8 @@ const shiftedCopilotAppRoutes = Object.fromEntries(
   ])
 );
 
-const cleanTargets = [
-  join(contentRoot, 'cli'),
-  join(contentRoot, 'copilot-app'),
-  join(contentRoot, 'vscode'),
-  join(contentRoot, 'visual-studio'),
-  join(contentRoot, '_images')
-];
+const cleanTargets = selectedTracks.map((key) => join(contentRoot, key));
+if (selectedTracks.includes('copilot-app')) cleanTargets.push(join(contentRoot, '_images'));
 
 for (const target of cleanTargets) {
   rmSync(target, { recursive: true, force: true });
@@ -55,35 +61,37 @@ for (const target of cleanTargets) {
 mkdirSync(contentRoot, { recursive: true });
 
 const sources = Object.fromEntries(
-  manifest.sources.map((source) => {
-    const location = cachedRoot
-      ? join(cachedRoot, source.cacheDirectory)
-      : join(temporaryRoot, source.cacheDirectory);
+  manifest.sources
+    .filter((source) => selectedTracks.includes(source.key))
+    .map((source) => {
+      const location = cachedRoot
+        ? join(cachedRoot, source.cacheDirectory)
+        : join(temporaryRoot, source.cacheDirectory);
 
-    if (!cachedRoot) {
-      execFileSync('git', ['clone', '--quiet', '--no-checkout', source.repository, location], {
-        stdio: 'inherit'
-      });
-      execFileSync('git', ['-C', location, 'checkout', '--quiet', source.commit], {
-        stdio: 'inherit'
-      });
-    }
+      if (!cachedRoot) {
+        execFileSync('git', ['clone', '--quiet', '--no-checkout', source.repository, location], {
+          stdio: 'inherit'
+        });
+        execFileSync('git', ['-C', location, 'checkout', '--quiet', source.commit], {
+          stdio: 'inherit'
+        });
+      }
 
-    if (!existsSync(location)) {
-      throw new Error(`Missing source cache for ${source.key}: ${location}`);
-    }
+      if (!existsSync(location)) {
+        throw new Error(`Missing source cache for ${source.key}: ${location}`);
+      }
 
-    const actualCommit = execFileSync('git', ['-C', location, 'rev-parse', 'HEAD'], {
-      encoding: 'utf8'
-    }).trim();
-    if (actualCommit !== source.commit) {
-      throw new Error(
-        `${source.key} cache is at ${actualCommit}, but workshops.sources.json pins ${source.commit}`
-      );
-    }
+      const actualCommit = execFileSync('git', ['-C', location, 'rev-parse', 'HEAD'], {
+        encoding: 'utf8'
+      }).trim();
+      if (actualCommit !== source.commit) {
+        throw new Error(
+          `${source.key} cache is at ${actualCommit}, but workshops.sources.json pins ${source.commit}`
+        );
+      }
 
-    return [source.key, location];
-  })
+      return [source.key, location];
+    })
 );
 
 const copyTree = (from, to) => {
@@ -133,19 +141,14 @@ const normalizeTaskMarkers = (markdown) => {
         return line;
       }
       if (fence) return line;
-      const normalized = line.replace(
-        /^(\s*(?:[-*+]|\d+\.)\s+)\[\](?=\s)/,
-        '$1[ ]'
-      );
+      const normalized = line.replace(/^(\s*(?:[-*+]|\d+\.)\s+)\[\](?=\s)/, '$1[ ]');
       return normalized === line ? line : normalized.trimEnd();
     })
     .join('\n');
 };
 
 const addKnowledgeCheck = (markdown, destinationFile) => {
-  const key = destinationFile
-    .slice(contentRoot.length + 1)
-    .replaceAll('\\', '/');
+  const key = destinationFile.slice(contentRoot.length + 1).replaceAll('\\', '/');
   const check = knowledgeChecks[key];
   if (!check) return markdown;
   if (markdown.includes('## Check your understanding')) return markdown;
@@ -183,9 +186,7 @@ ${check.answer}
 };
 
 const addLessonSections = (markdown, destinationFile) => {
-  const key = destinationFile
-    .slice(contentRoot.length + 1)
-    .replaceAll('\\', '/');
+  const key = destinationFile.slice(contentRoot.length + 1).replaceAll('\\', '/');
   const sections = lessonSections[key];
   if (!sections) return markdown;
 
@@ -233,16 +234,10 @@ const normalizeMarkdown = (sourceFile, destinationFile, options = {}) => {
     markdown = `---\ntitle: "${title}"\n---\n\n${markdown}`;
   }
 
-  markdown = markdown.replace(
-    /^(---\n[\s\S]*?\n---)\n+(?:#\s+[^\n]+\n+(?:---\n+)?)?/,
-    '$1\n\n'
-  );
+  markdown = markdown.replace(/^(---\n[\s\S]*?\n---)\n+(?:#\s+[^\n]+\n+(?:---\n+)?)?/, '$1\n\n');
 
   if (options.intro) {
-    markdown = markdown.replace(
-      /^(---\n[\s\S]*?\n---)\n?/,
-      `$1\n\n${options.intro}\n\n`
-    );
+    markdown = markdown.replace(/^(---\n[\s\S]*?\n---)\n?/, `$1\n\n${options.intro}\n\n`);
   }
 
   markdown = normalizeTaskMarkers(markdown);
@@ -270,17 +265,12 @@ const importMarkdownDirectory = (sourceDirectory, destinationDirectory, options 
   }
 };
 
-importMarkdownDirectory(
-  join(sources.cli, 'workshop'),
-  join(contentRoot, 'cli'),
-  {
+if (sources.cli) {
+  importMarkdownDirectory(join(sources.cli, 'workshop'), join(contentRoot, 'cli'), {
     indexFile: '00-overview.md',
     removeTrack: 'vscode',
     replacements: [
-      [
-        /### Step 1: Create Your Repository/,
-        '### Step 1: Open the CLI Lab'
-      ],
+      [/### Step 1: Create Your Repository/, '### Step 1: Open the CLI Lab'],
       [
         /> \*\*Duration:\*\*.*$/m,
         '> **Duration:** 60–90 minutes for the facilitated core; advanced deep dives are available if time permits.'
@@ -313,10 +303,7 @@ Keep your work in this folder. A direct clone is sufficient for the local lab. F
         /1\. Clone your repo locally and open a terminal in the project root\./,
         '1. In the terminal already open at `workshop-mona-mayhem`, install dependencies and start the app:'
       ],
-      [
-        /2\. Install dependencies and start the app:\n/,
-        ''
-      ],
+      [/2\. Install dependencies and start the app:\n/, ''],
       [
         /3\. Open a \*\*second terminal\*\* in the same repo and start Copilot CLI:/,
         '2. Open a **second terminal** in the same folder and start Copilot CLI:'
@@ -331,80 +318,85 @@ Keep your work in this folder. A direct clone is sufficient for the local lab. F
         'Open the included starter, prepare your environment, and give Copilot the right context'
       ]
     ]
-  }
-);
+  });
+}
 
 const shiftCopilotAppLesson = (markdown) => {
-  const routePattern = new RegExp(
-    `\\b(${Object.keys(shiftedCopilotAppRoutes).join('|')})\\b`,
-    'g'
-  );
+  const routePattern = new RegExp(`\\b(${Object.keys(shiftedCopilotAppRoutes).join('|')})\\b`, 'g');
   return markdown
     .replace(/\bLesson ([2-8])\b/g, (_, lesson) => `Lesson ${Number(lesson) + 1}`)
     .replace(routePattern, (route) => shiftedCopilotAppRoutes[route]);
 };
 
-importMarkdownDirectory(
-  join(sources.vscode, 'workshop'),
-  join(contentRoot, 'vscode'),
-  {
+if (sources.vscode) {
+  importMarkdownDirectory(join(sources.vscode, 'workshop'), join(contentRoot, 'vscode'), {
     indexFile: '00-overview.md',
     exclude: ['GUIDE.md'],
     replacements: [
       [/\[← README\]\(\.\.\/README\.md\)\n?/, ''],
       [/\]\(\.\.\/00-overview\/\)/g, '](../)']
     ]
-  }
-);
+  });
+}
 
-importMarkdownDirectory(
-  join(sources['copilot-app'], 'docs', 'app'),
-  join(contentRoot, 'copilot-app'),
-  {
-    indexFile: 'README.md',
-    destinationNames: copilotAppDestinationNames,
-    introFiles: ['README.md', '0-prerequisites.md'],
-    intro:
-      '> [!NOTE]\n> This lab starts with a standalone `space-quiz` project for a guided tour, then uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys) for the remaining lessons.',
-    transform: shiftCopilotAppLesson
-  }
-);
+if (sources['copilot-app']) {
+  const appSource = manifest.sources.find((source) => source.key === 'copilot-app');
+  const foundryCanvasUrl = `${appSource.repository.replace(/\.git$/, '')}/blob/${appSource.commit}/docs/app/8-foundry-canvas.md`;
+  importMarkdownDirectory(
+    join(sources['copilot-app'], 'docs', 'app'),
+    join(contentRoot, 'copilot-app'),
+    {
+      indexFile: 'README.md',
+      destinationNames: copilotAppDestinationNames,
+      introFiles: ['README.md', '0-prerequisites.md'],
+      intro:
+        '> [!NOTE]\n> This lab starts with a standalone `space-quiz` project for a guided tour, then uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys) for the remaining lessons.',
+      transform: shiftCopilotAppLesson,
+      replacements: [
+        [/\.\.\/8-foundry-canvas\//g, foundryCanvasUrl],
+        [
+          /\[Cloud agent harness\]\(\.\.\/\.\.\/cloud\/\)/g,
+          '[Visual Studio lab](../../visual-studio/)'
+        ]
+      ]
+    }
+  );
 
-importMarkdownDirectory(
-  join(overlayRoot, 'copilot-app'),
-  join(contentRoot, 'copilot-app'),
-  { indexFile: 'README.md' }
-);
+  importMarkdownDirectory(join(overlayRoot, 'copilot-app'), join(contentRoot, 'copilot-app'), {
+    indexFile: 'README.md'
+  });
 
-const appImagesSource = join(sources['copilot-app'], 'docs', '_images');
-const appImagesDestination = join(contentRoot, '_images');
-mkdirSync(appImagesDestination, { recursive: true });
-for (const name of readdirSync(appImagesSource)) {
-  if (name.startsWith('app-')) {
-    cpSync(join(appImagesSource, name), join(appImagesDestination, name));
+  const appImagesSource = join(sources['copilot-app'], 'docs', '_images');
+  const appImagesDestination = join(contentRoot, '_images');
+  mkdirSync(appImagesDestination, { recursive: true });
+  for (const name of readdirSync(appImagesSource)) {
+    if (name.startsWith('app-')) {
+      cpSync(join(appImagesSource, name), join(appImagesDestination, name));
+    }
   }
 }
 
-importMarkdownDirectory(
-  join(sources['visual-studio'], 'lab'),
-  join(contentRoot, 'visual-studio'),
-  {
-    replacements: [
-      [/\(\.\/images\/4-instructions\.png\)/g, '(./images/04-instructions.png)'],
-      [/\(\.\/impags\//g, '(./images/'],
-      [/agent mdoe/g, 'agent mode'],
-      [/Add from MCP MCP/g, 'Add from MCP Registry'],
-      [
-        /> \[!NOTE\]\n> For the hands-on lab exercises that create or modify repository data via cloud agents \(Part 12\), you'll need to fork the lab repo into your own account\. This gives the cloud agent permissions to operate on your fork\./,
-        'Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.'
-      ],
-      [
-        /the \*\*eshop\.png\*\* image found in the root of the cloned repository/,
-        '`eshop.png` from the root of your cloned TinyShop repository'
-      ],
-      [
-        /1\. \[(?: )?\] Navigate to \*\*Tools -> Options -> GitHub -> Copilot -> Source Control Integration\*\*\.\n1\. \[(?: )?\] Update the commit message customization setting to: `Summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions`/,
-        `1. [ ] In **Solution Explorer**, expand the **GitHub Node** and open \`copilot-instructions.md\`.
+if (sources['visual-studio']) {
+  importMarkdownDirectory(
+    join(sources['visual-studio'], 'lab'),
+    join(contentRoot, 'visual-studio'),
+    {
+      replacements: [
+        [/\(\.\/images\/4-instructions\.png\)/g, '(./images/04-instructions.png)'],
+        [/\(\.\/impags\//g, '(./images/'],
+        [/agent mdoe/g, 'agent mode'],
+        [/Add from MCP MCP/g, 'Add from MCP Registry'],
+        [
+          /> \[!NOTE\]\n> For the hands-on lab exercises that create or modify repository data via cloud agents \(Part 12\), you'll need to fork the lab repo into your own account\. This gives the cloud agent permissions to operate on your fork\./,
+          'Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.'
+        ],
+        [
+          /the \*\*eshop\.png\*\* image found in the root of the cloned repository/,
+          '`eshop.png` from the root of your cloned TinyShop repository'
+        ],
+        [
+          /1\. \[(?: )?\] Navigate to \*\*Tools -> Options -> GitHub -> Copilot -> Source Control Integration\*\*\.\n1\. \[(?: )?\] Update the commit message customization setting to: `Summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions`/,
+          `1. [ ] In **Solution Explorer**, expand the **GitHub Node** and open \`copilot-instructions.md\`.
 1. [ ] At the bottom of the file, add:
 
    \`\`\`markdown
@@ -412,10 +404,10 @@ importMarkdownDirectory(
 
    When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions
    \`\`\``
-      ],
-      [
-        /## Clone Lab Repository[\s\S]*?The code is now opened in Visual Studio\. Feel free to take a look at it or skip to the next section to start the app\./,
-        `## Clone and open the lab solution
+        ],
+        [
+          /## Clone Lab Repository[\s\S]*?The code is now opened in Visual Studio\. Feel free to take a look at it or skip to the next section to start the app\./,
+          `## Clone and open the lab solution
 
 Clone the dedicated TinyShop repository:
 
@@ -427,22 +419,23 @@ start src\\TinyShop.sln
 
 1. [ ] In Visual Studio, select **File -> Open -> Project/Solution** if the solution did not open automatically.
 2. [ ] Open \`src/TinyShop.sln\`.`
+        ]
       ]
-    ]
-  }
-);
-copyTree(
-  join(sources['visual-studio'], 'lab', 'images'),
-  join(contentRoot, 'visual-studio', 'images')
-);
+    }
+  );
+  copyTree(
+    join(sources['visual-studio'], 'lab', 'images'),
+    join(contentRoot, 'visual-studio', 'images')
+  );
 
-cpSync(
-  join(root, 'scripts', 'templates', 'visual-studio-index.md'),
-  join(contentRoot, 'visual-studio', 'index.md')
-);
+  cpSync(
+    join(root, 'scripts', 'templates', 'visual-studio-index.md'),
+    join(contentRoot, 'visual-studio', 'index.md')
+  );
+}
 
 if (temporaryRoot) {
   rmSync(temporaryRoot, { recursive: true, force: true });
 }
 
-console.log(`Imported ${manifest.sources.length} pinned workshop sources.`);
+console.log(`Imported ${selectedTracks.length} pinned workshop sources.`);

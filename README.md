@@ -1,6 +1,6 @@
 # VS Live! Orlando · GitHub Copilot Workshop
 
-[Open the live workshop site](https://cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop/)
+[Workshop site (after enabling GitHub Pages)](https://cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop/)
 
 This is the unified hands-on workshop for VS Live! Orlando with Kayla Cinnamon and James Montemagno.
 It brings four GitHub Copilot experiences into one guided site, so attendees can begin with the
@@ -54,14 +54,14 @@ event-specific curriculum additions.
 The Copilot App and VS Code lessons follow the [NDC Oslo workshop](https://github.com/jamesmontemagno/ndc-oslo-copilot-workshop) at commit `b840aa995c1bf3ba7028af30e387ff17c6a3e11b`, including its pinned sources, lesson numbering, and Copilot App guided-tour overlays in `scripts/workshop-overlays/`.
 
 ```console
-npm run import:workshops
+npm run import:workshops -- --tracks copilot-app,vscode
 ```
 
-Review every imported diff and run the full validation after changing a source pin.
+This refreshes the NDC lessons without rewriting the retained CLI and Visual Studio lessons. Omit `--tracks` to regenerate every track from its pinned source. Review every imported diff and run the full validation after changing a source pin.
 
 ## Live workshop
 
-The published workshop is available at
+Enable GitHub Pages in **Settings → Pages**, selecting **GitHub Actions** as the source. The deployment workflow supports the `workshop-orlando` default branch (repository rules prevented creating `main`) and `main`. After deployment, the workshop is available at
 [cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop](https://cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop/).
 
 ## Run locally

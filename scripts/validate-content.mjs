@@ -27,9 +27,17 @@ if (actualLabs.join(',') !== expectedLabs.join(',')) {
   errors.push(`Expected only the four workshop labs, found: ${actualLabs.join(', ')}`);
 }
 const expectedAppLessons = [
-  '0-prerequisites', '1-install-copilot-app', '2-guided-tour', '3-add-star-rating',
-  '4-custom-instructions', '5-build-filtering', '6-mcp-playwright', '7-agent-merge',
-  '8-canvases', '9-review', 'index'
+  '0-prerequisites',
+  '1-install-copilot-app',
+  '2-guided-tour',
+  '3-add-star-rating',
+  '4-custom-instructions',
+  '5-build-filtering',
+  '6-mcp-playwright',
+  '7-agent-merge',
+  '8-canvases',
+  '9-review',
+  'index'
 ];
 const actualAppLessons = readdirSync(join(docsRoot, 'labs', 'copilot-app'))
   .filter((name) => name.endsWith('.md'))
@@ -176,7 +184,9 @@ if (
   errors.push('Visual Studio commit-message custom instructions are missing.');
 }
 if (commitSummaryLesson.includes('Tools -> Options -> GitHub -> Copilot')) {
-  errors.push('Visual Studio commit-message lesson must use copilot-instructions.md, not Tools options.');
+  errors.push(
+    'Visual Studio commit-message lesson must use copilot-instructions.md, not Tools options.'
+  );
 }
 
 if (errors.length) {
