@@ -1,39 +1,24 @@
 ---
-title: "Lesson 3 - Running your first Tailspin agent session"
-description: "Create your Tailspin Toys repository, start an agent session, make a small change to the game cards, and merge it as your first pull request."
+title: "Lesson 3 - Running your first agent session"
+description: "Continue in your space quiz repository, implement an issue in an isolated agent session, review the changes, and merge a pull request."
 authors:
   - geektrainer
-lastUpdated: 2026-08-06
+lastUpdated: 2026-11-06
 ---
 
-In the previous lesson you completed a guided tour with the standalone space quiz. Now you'll create the Tailspin Toys project used through the rest of the workshop, start an **agent session**, and make your first change. You'll keep it small: the games already have a star rating in their data, but the game cards on the home page don't show it yet.
+In the guided tour, you created the `space-quiz` project, published it to GitHub, and shipped one improvement. Now you'll keep working in that same repository, using an issue to start an **agent session** and implement another focused change.
 
 In this lesson, you will:
 
-- start an agent session and learn how a session is structured.
-- create your copy of the Tailspin Toys template and add it to the app.
-- ask the agent to make a small, focused change to the project.
+- start a session from an open issue and learn how a session is structured.
+- ask the agent to make a focused change to the space quiz.
 - review the change in the workspace diff view.
-- run the app locally to confirm the change in the browser.
-- open and merge your first pull request.
+- check the updated quiz in the integrated browser.
+- open and merge a pull request.
 
-## Scenario
+## Choose an issue
 
-Each game in Tailspin Toys can have a star rating, and it already appears on the game details page. The game cards on the home page, though, only show the title, category, publisher, and description. As a warm-up, you'll have the agent display the existing rating on each card — a tiny, self-contained change that's perfect for your first session.
-
-## Set up the Tailspin Toys repository
-
-You'll work against your own copy of the [Tailspin Toys template repository][template-repository].
-
-1. In a browser, navigate to `https://github.com/github-samples/tailspin-toys`.
-2. Select **Use this template**, then **Create a new repository**.
-3. Create the repository in an organization or account where you can use GitHub Copilot.
-4. Keep the repository name `tailspin-toys`, then create the repository.
-5. In the Copilot app, select the **+** next to **Sessions**.
-6. Choose **GitHub repository**, search for `<YOUR_GITHUB_HANDLE>/tailspin-toys`, then select it to clone and add the project.
-
-> [!NOTE]
-> The template creates a backlog of GitHub issues automatically. You'll use those issues throughout the remaining lessons.
+The guided tour created a small backlog of space quiz improvements. In **My work**, choose an open issue that is small enough to complete in one session. If you already implemented all three ideas, create a new issue for a modest improvement, such as adding a question category selector or a restart button. Keep this lesson focused on the session workflow rather than a particular feature.
 
 ## Anatomy of a session
 
@@ -41,101 +26,56 @@ A **session** is a conversation with an agent that runs in its own isolated work
 
 Inside a session you'll see three things: the **conversation** with the agent, the agent's **tool activity** as it explores and edits files, and the list of **changed files** with their diffs.
 
-## Start a session and request our change
+## Start a session and request the change
 
-Let's start a new session to begin exploring the project and implementing our feature. You just added the Tailspin Toys project from its GitHub repository, so we'll create a session for that repository and request our change.
-
-1. Return to (or open) the GitHub Copilot app.
-2. Select the **Home screen**.
-3. Ensure `tailspin-toys` is selected for the repo.
-
-   ![The GitHub Copilot app prompt box with the repository selector set to tailspin-toys and the model selector shown beneath the prompt](../_images/app-2-start-session.png)
-
-4. Use the following prompt to request the change:
+1. In **My work**, open the issue you chose.
+2. Select **New session** in the upper right.
+3. Choose a **new worktree** when the app asks where the session should run.
+4. Confirm `space-quiz` is the selected repository and set the session mode to **Interactive**.
+5. Send the following prompt. The issue is already in the session's context:
 
    ```plaintext
-   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
+   Implement this issue in the space quiz. First inspect the project and identify the smallest appropriate change. Preserve the single-file, dependency-free design in index.html, keep the existing accessibility and color-scheme behavior, and don't add frameworks or dependencies. After implementing it, open the quiz in the integrated browser and verify the behavior against the issue's acceptance criteria. Summarize the files changed and any checks you ran.
    ```
 
-> [!NOTE]
-> Notice how the prompt contained the name of the file for Copilot to update. While it's not required at all to specify which files Copilot should include in its work, pointing it in the right direction both helps Copilot quickly generate code and reduce token usage.
-
-5. Select <kbd>Enter</kbd> to send the prompt to Copilot.
-
-Copilot app begins work by first creating a new worktree, an isolated copy of the project. It then explores the project, locating the necessary files to update to add the new feature. It will then create the necessary code. You've now added a new feature with Copilot app!
+Copilot creates the worktree, explores the repository, and implements the change. Review its plan and tool activity as it works; ask it to narrow the scope if it starts making unrelated changes.
 
 ## Review the diff
 
-All AI-generated changes deserve a review before they're merged, even small ones. Let's explore the changes, right here in Copilot app.
+All AI-generated changes deserve a review before they're merged. Let's explore the changes in the Copilot app.
 
-1. In the upper right-hand corner of the app, select **Toggle review panel**. This will open the diff screen with all the outstanding changes made by Copilot.
+1. In the upper right-hand corner of the app, select **Toggle review panel** to open the diff screen.
 
    ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
 
-2. You should notice code added to `GameCard.astro`, the core file used to display game details. It should be similar to the following — a small block that renders the rating when present and falls back to "No rating yet" when `starRating` is `null`:
+2. Review every changed file. For this project, the feature should normally be contained in `index.html`; check that the agent preserved existing quiz behavior and did not add unnecessary dependencies or files.
+3. Open the integrated browser and try the changed behavior yourself. Check the issue's acceptance criteria, keyboard interaction, and any relevant light or dark theme states.
+4. If something is missing, ask the agent to fix it, then review the updated diff and test again.
 
-   ```astro
-   {game.starRating !== null ? (
-       <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-amber-900/60 text-amber-300" data-testid="game-rating">
-           ★ {game.starRating} / 5
-       </span>
-   ) : (
-       <span class="text-xs font-medium text-slate-500" data-testid="game-rating-empty">
-           No rating yet
-       </span>
-   )}
-   ```
+## Open and merge the pull request
 
-> [!NOTE]
-> Because Copilot, like all generative AI tools, is probabilistic rather than deterministic, the exact code may vary from the above. But it should be relatively similar.
+Your change looks good — now it's time to ship it. Ask the agent to open a pull request, then review and merge it yourself on GitHub.
 
-## Check the changes
-
-Of course we shouldn't just read the code and assume it works. We should visually test everything as well! To do so we'll need to start the app from the terminal, then confirm everything works. Fortunately there's a terminal built into Copilot app!
-
-1. In the review panel on the right side of Copilot app, select **Terminal**. If there is no **Terminal** button, select the **+** (labeled as **Open in panel**), then select **Terminal**.
-
-   ![The Terminal button in the review panel of the GitHub Copilot app](../_images/app-terminal-screenshot.png)
-
-2. Enter the following command in the terminal window to start the web app's dev server:
-
-   ```shell
-   npm run dev
-   ```
-
-3. Once the server starts (this will just take a moment), open a browser window.
-4. Navigate to http://localhost:4321.
-5. You should now see star ratings on all the games on the landing page!
-6. Return to the terminal window.
-7. Select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the dev server.
-
-## Open and merge your first pull request
-
-Your change looks good — now it's time to ship it! You'll ask the agent to open a pull request, then review and merge it yourself on github.com. For now we'll manage this manually. In an upcoming lesson we'll explore how Copilot can handle some of the work for you automatically.
-
-1. In the upper right hand corner, select **Create PR**.
+1. In the upper right-hand corner, select **Create PR**.
 2. If prompted, select **Sign in with your browser** and follow the prompts to authenticate.
-3. Copilot gets to work on creating the PR.
+3. Review the generated title and description, then let the agent create the pull request.
+4. Select the **PR** bubble above chat to open the pull request in the review pane.
+5. Review the pull request and its checks on GitHub.
+6. When you're satisfied, select **Merge pull request**.
 
-Once the PR is created, Copilot will monitor any workflows on the repository that need to run. After a few moments, the button in the upper right will change to **Ready to merge**. This will be your indication your PR is ready to merge!
-
-4. Select the **PR** bubble just above chat to open your PR in the review pane to see your pull request. You can review the PR as needed here.
-5. Once ready, select **Ready to merge**.
-6. Select **Merge pull request** on the new dialog window to merge your pull request!
-
-You've now pushed a new feature to the website!
+You've shipped another improvement to the space quiz!
 
 ## Summary and next steps
 
-You've started your first agent session and shipped your first change! Specifically, you:
+You continued working in the same project and shipped an issue-backed change. Specifically, you:
 
-- started an agent session and learned how sessions are structured.
-- directed the agent to make a small, focused change to the game cards.
+- started an isolated session from an issue.
+- directed the agent to make a small, focused change to `index.html`.
 - reviewed the change in the workspace diff view.
-- ran the app locally to confirm the star rating in the browser.
-- opened a pull request and merged it yourself on github.com.
+- verified the behavior in the integrated browser.
+- opened a pull request and merged it on GitHub.
 
-Next, you'll use the app to add a custom instructions standard to the repository — starting from one of the issues in your backlog. Continue to [Lesson 4 - Guiding Copilot with custom instructions][next-lesson].
+Next, you'll add custom instructions to guide future work in this repository. Continue to [Lesson 4 - Guiding Copilot with custom instructions][next-lesson].
 
 ## Check your understanding
 
@@ -157,7 +97,6 @@ A dedicated worktree and branch isolate one session's edits from other sessions,
 - [Managing issues and pull requests with the GitHub Copilot app][managing-issues-prs]
 
 [next-lesson]: ../4-custom-instructions/
-[template-repository]: https://github.com/github-samples/tailspin-toys
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
 [managing-issues-prs]: https://docs.github.com/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests

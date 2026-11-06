@@ -1,22 +1,22 @@
 ---
 title: "Lesson 7 - Merging with Agent Merge"
-description: "Open the filtering pull request, review it in My work, and let Agent Merge fix what's blocking it and merge it for you — the top rung of the merge-automation ladder."
+description: "Open the space quiz feature pull request, review it in My work, and let Agent Merge address blockers and merge it for you."
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
 ---
 
-Your filtering feature is built, verified, and seen working in a browser. The last step is to merge it. You've merged twice already in this harness — both times you opened the pull request and merged it yourself on github.com. This time you'll let the app do the heavy lifting with **Agent Merge**, which shepherds a pull request through its whole lifecycle from inside the app.
+Your space quiz feature is built, verified, and seen working in a browser. The last step is to merge it. You've opened and merged changes yourself earlier in the lab. This time you'll let the app do the heavy lifting with **Agent Merge**, which shepherds a pull request through its whole lifecycle from inside the app.
 
 In this lesson, you will:
 
 - learn what Agent Merge is and how it automates the merge lifecycle.
-- enable Agent Merge on your filtering session.
+- enable Agent Merge on your space quiz feature session.
 - watch it create the pull request, run CI, and merge when everything is green.
 
 ## Scenario
 
-Over the last few modules you've explored various levels of automation, from creating code to allowing Copilot to validate a UI directly. To further speed development, Tailspin Toys would like to see if there's a way pull requests that have been vetted and validated can automatically be merged.
+Over the last few modules you've explored various levels of automation, from creating code to allowing Copilot to validate a UI directly. Now you'll see how a thoroughly reviewed and validated space quiz change can be merged with **Agent Merge**.
 
 ## Introducing Agent Merge
 
@@ -26,9 +26,9 @@ Up to this point you've been the one clicking **Merge pull request** on github.c
 
 ## Use Agent Merge to manage the PR
 
-You've reviewed the code manually, run tests, and even allowed Copilot to validate the UI. Now it's time to merge the new code into the codebase! Let's allow agent merge to shepherd the PR through continuous integration (CI) and to merge.
+You've reviewed the code manually, checked the available project validations, and allowed Copilot to explore the UI. Now it's time to merge the change! Let's allow Agent Merge to shepherd the PR through its checks and merge process.
 
-1. Return to the session you had open from the previous module where you were adding filtering functionality.
+1. Return to the session you kept open from the previous lesson where you implemented the space quiz feature.
 2. In the upper right-hand corner, select the dropdown next to **Create PR**.
 3. Select **Agent merge** to enable agent merge.
 
@@ -37,22 +37,22 @@ You've reviewed the code manually, run tests, and even allowed Copilot to valida
 4. The button text now changes to **Agent merge**.
 5. Select the **Agent merge** button to start the agent merge process.
 
-Copilot app then begins the process of creating and managing the PR! It starts by exploring the project to determine how best to create a PR, followed by creating the new PR.
+Copilot app begins creating and managing the PR. It explores the project to determine how best to create a PR, then creates it.
 
-After a few moments, you'll notice Copilot starts work again, looking at the PR conditions - the CI process of running all the tests on your repository. It will report back status on any reviews left by other team members, any checks that need to run (the CI process), and if the PR is mergeable.
+After a few moments, Copilot checks the pull request's status, including reviews, configured status checks, and whether GitHub considers the PR mergeable. This small project may not have CI checks configured; Agent Merge can still show the available conditions and whether GitHub allows the merge.
 
 6. Allow agent merge to merge the pull request by selecting the dropdown next to **Agent merge** then **Merge pull request**.
 
    ![The Agent merge dropdown showing the agent's allowed actions — Address reviews, Fix CI failures, Resolve conflicts — with an arrow pointing to Merge pull request](../_images/app-agent-merge-merge.png)
 
-7. Once all CI processes are green (meaning the tests passed), Copilot will merge the pull request!
+7. Once the pull request is mergeable, Copilot will complete the merge. If checks are configured, wait for them to pass before proceeding.
 
 ## Summary and next steps
 
-You've automated several parts of the development process, including generating code, testing and validating code, and now the pull request process. You:
+You've automated several parts of the development process, including generating code, validating the result, and now the pull request process. You:
 
 - learned what Agent Merge is and how it automates the merge lifecycle.
-- enabled Agent Merge on your filtering session.
+- enabled Agent Merge on your space quiz feature session.
 - watched it create the pull request, run CI, and merge when everything was green.
 
 Next, you'll explore **canvases** — a richer way to plan and visualize work with the agent. Continue to [Lesson 8 - Planning with canvases][next-lesson].

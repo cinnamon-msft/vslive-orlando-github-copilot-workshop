@@ -20,7 +20,7 @@ In this lesson, you will:
 
 ## Scenario
 
-Looking at a list of issues can be rather daunting, even in the best of times. Tailspin Toys' developers have been looking for a tool that would allow them to quickly triage issues, and begin work on them in Copilot app. 
+Looking at a list of issues can be rather daunting, even in the best of times. Let's use a canvas to quickly triage the space quiz backlog and start work on an issue in the Copilot app.
 
 ## What is a canvas?
 
@@ -44,11 +44,11 @@ Reach for a canvas when a task needs structure, iteration, and verification, and
 
 ## Create a canvas to track your work
 
-You've shipped a lot: the star rating, the documentation standard, and the filtering feature are all merged. But there's still items on the backlog. Let's create the canvas to help quickly triage the work.
+You've shipped a feature, added repository instructions, and implemented another space quiz improvement. If there are still open issues in the backlog, let's create a canvas to help quickly triage the work.
 
 1. Return to (or open) the GitHub Copilot app.
 2. Select the **Home screen**.
-3. Ensure `tailspin-toys` is selected for the repo.
+3. Ensure your `space-quiz` repository is selected.
 4. In the prompt box, use the following prompt to create our canvas that meets our needs:
 
    ```plaintext
@@ -94,7 +94,7 @@ You've now created a new shared canvas for your team!
 
 With the canvas created, let's start a new session and put it to work!
 
-1. Inside the Copilot app, start a new session by selecting **New session** next to **tailspin-toys**.
+1. Inside the Copilot app, start a new session by selecting **New session** next to your `space-quiz` repository.
 2. Ask Copilot to open the triage canvas by using the following prompt:
 
    ```plaintext

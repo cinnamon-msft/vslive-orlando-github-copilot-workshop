@@ -49,7 +49,7 @@ export default defineConfig({
             { label: 'Prerequisites', link: '/labs/copilot-app/0-prerequisites/' },
             { label: 'Install the app', link: '/labs/copilot-app/1-install-copilot-app/' },
             { label: 'Guided app tour', link: '/labs/copilot-app/2-guided-tour/' },
-            { label: 'First Tailspin session', link: '/labs/copilot-app/3-add-star-rating/' },
+            { label: 'First agent session', link: '/labs/copilot-app/3-add-star-rating/' },
             { label: 'Custom instructions', link: '/labs/copilot-app/4-custom-instructions/' },
             { label: 'Build with Autopilot', link: '/labs/copilot-app/5-build-filtering/' },
             { label: 'Playwright MCP', link: '/labs/copilot-app/6-mcp-playwright/' },
@@ -59,22 +59,7 @@ export default defineConfig({
           ]
         },
         {
-          label: '2 · Copilot CLI',
-          items: [
-            { label: 'Lab overview', link: '/labs/cli/' },
-            { label: 'Setup & context', link: '/labs/cli/01-setup/' },
-            { label: 'Plan & scaffold', link: '/labs/cli/02-plan-and-scaffold/' },
-            { label: 'Build the game', link: '/labs/cli/03-agent-mode/' },
-            { label: 'Design-first theming', link: '/labs/cli/04-design-vibes/' },
-            { label: 'Polish & parallel work', link: '/labs/cli/05-polish/' },
-            { label: 'Specialized agents', link: '/labs/cli/06-agents/' },
-            { label: 'Skills', link: '/labs/cli/07-skills/' },
-            { label: 'MCP servers', link: '/labs/cli/08-mcp/' },
-            { label: 'Bonus', link: '/labs/cli/09-bonus/' }
-          ]
-        },
-        {
-          label: '3 · VS Code',
+          label: '2 · VS Code',
           items: [
             { label: 'Lab overview', link: '/labs/vscode/' },
             { label: 'Setup & context engineering', link: '/labs/vscode/01-setup/' },
@@ -85,7 +70,7 @@ export default defineConfig({
           ]
         },
         {
-          label: '4 · Visual Studio 2026',
+          label: '3 · Visual Studio 2026',
           items: [
             { label: 'Lab overview', link: '/labs/visual-studio/' },
             { label: 'Setup', link: '/labs/visual-studio/setup/' },
@@ -102,6 +87,21 @@ export default defineConfig({
             { label: 'Planning mode', link: '/labs/visual-studio/part10-planning-mode/' },
             { label: 'Prompt files', link: '/labs/visual-studio/part11-reusable-prompts/' },
             { label: 'Delegate to cloud', link: '/labs/visual-studio/part12-delegate-to-cloud/' }
+          ]
+        },
+        {
+          label: 'Bonus · Copilot CLI',
+          items: [
+            { label: 'Lab overview', link: '/labs/cli/' },
+            { label: 'Setup & context', link: '/labs/cli/01-setup/' },
+            { label: 'Plan & scaffold', link: '/labs/cli/02-plan-and-scaffold/' },
+            { label: 'Build the game', link: '/labs/cli/03-agent-mode/' },
+            { label: 'Design-first theming', link: '/labs/cli/04-design-vibes/' },
+            { label: 'Polish & parallel work', link: '/labs/cli/05-polish/' },
+            { label: 'Specialized agents', link: '/labs/cli/06-agents/' },
+            { label: 'Skills', link: '/labs/cli/07-skills/' },
+            { label: 'MCP servers', link: '/labs/cli/08-mcp/' },
+            { label: 'Bonus & extensions', link: '/labs/cli/09-bonus/' }
           ]
         },
         { label: 'Resources & attribution', link: '/resources/' }

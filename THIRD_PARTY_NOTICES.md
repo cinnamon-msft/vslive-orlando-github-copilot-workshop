@@ -18,10 +18,6 @@ Copyright its contributors. Source: <https://github.com/cinnamon-msft/kayla-chao
 
 Copyright GitHub and its contributors. Source: <https://github.com/github-samples/copilot-workshops>. Distributed under the MIT License.
 
-## Tailspin Toys
-
-The Copilot app lab uses the separate Tailspin Toys template at <https://github.com/github-samples/tailspin-toys>. Its source code is not redistributed in this repository.
-
 ## Visual Studio GitHub Copilot Lab
 
 Copyright its contributors. Source: <https://github.com/dotnet-presentations/visual-studio-github-copilot-lab>. Distributed under the MIT License. The upstream `LICENSE` is preserved in the standalone <https://github.com/jamesmontemagno/workshop-tinyshop> repository.

@@ -74,20 +74,38 @@ for (const path of required) {
   if (!existsSync(join(docsRoot, path))) errors.push(`Missing required page: ${path}`);
 }
 
-if (
-  astroConfig.indexOf("label: '1 · Copilot App'") < 0 ||
-  astroConfig.indexOf("label: '2 · Copilot CLI'") < 0 ||
-  astroConfig.indexOf("label: '1 · Copilot App'") > astroConfig.indexOf("label: '2 · Copilot CLI'")
-) {
-  errors.push('The sidebar must present the Copilot app before Copilot CLI.');
+const sidebarOrder = [
+  "label: '1 · Copilot App'",
+  "label: '2 · VS Code'",
+  "label: '3 · Visual Studio 2026'",
+  "label: 'Bonus · Copilot CLI'"
+].map((label) => astroConfig.indexOf(label));
+if (sidebarOrder.some((position) => position < 0) || !sidebarOrder.every((position, index) =>
+  index === 0 || sidebarOrder[index - 1] < position
+)) {
+  errors.push('The sidebar must present the CLI last as a bonus after the core labs.');
 }
 
+const landingOrder = ["key: 'copilot-app'", "key: 'vscode'", "key: 'visual-studio'", "key: 'cli'"]
+  .map((key) => landingPage.indexOf(key));
 if (
-  landingPage.indexOf("key: 'copilot-app'") < 0 ||
-  landingPage.indexOf("key: 'cli'") < 0 ||
-  landingPage.indexOf("key: 'copilot-app'") > landingPage.indexOf("key: 'cli'")
+  landingOrder.some((position) => position < 0) ||
+  !landingOrder.every((position, index) => index === 0 || landingOrder[index - 1] < position) ||
+  !landingPage.includes("title: 'Bonus: Copilot CLI'")
 ) {
-  errors.push('The landing page must present the Copilot app before Copilot CLI.');
+  errors.push('The landing page must present the CLI last as a bonus after the core labs.');
+}
+
+for (const appLessonsRoot of [
+  join(docsRoot, 'labs', 'copilot-app'),
+  join(root, 'scripts', 'workshop-overlays', 'copilot-app')
+]) {
+  for (const name of readdirSync(appLessonsRoot).filter((name) => name.endsWith('.md'))) {
+    const markdown = readFileSync(join(appLessonsRoot, name), 'utf8');
+    if (/tailspin/i.test(markdown)) {
+      errors.push(`The Copilot App lab should use only the space quiz project: ${name}`);
+    }
+  }
 }
 
 for (const script of ['workshop-doctor.ps1', 'workshop-doctor.sh']) {

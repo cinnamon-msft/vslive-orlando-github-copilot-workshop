@@ -4,7 +4,7 @@
 
 This is the unified hands-on workshop for VS Live! Orlando with Kayla Cinnamon and Jon Galloway.
 It brings four GitHub Copilot experiences into one guided site, so attendees can begin with the
-Copilot app and progress through the terminal, VS Code, and Visual Studio.
+Copilot app, continue through VS Code and Visual Studio, and finish with an optional CLI bonus lab.
 
 Adapted for the event from the [original workshop](https://github.com/jamesmontemagno/vslive-github-copilot-workshop), with its history and source attribution preserved.
 
@@ -15,16 +15,16 @@ The workshop is designed as a progressive, practical day of learning:
 1. **Kickoff** — A short look at the state of GitHub Copilot and what is now possible.
 2. **GitHub Copilot app** — Practice the software development lifecycle with the Copilot app,
    including planning, agent work, code review, and extensibility.
-3. **GitHub Copilot CLI** — Use Copilot from the terminal to plan, scaffold, refine, and automate
-   software work.
-4. **VS Code** — Transform Bingo Mixer with context engineering, design-first development,
+3. **VS Code** — Transform Bingo Mixer with context engineering, design-first development,
    custom agents, and multi-agent workflows.
-5. **Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
+4. **Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
    chat through MCP, planning, and cloud delegation.
+5. **Bonus: GitHub Copilot CLI** — Use Copilot from the terminal to plan, scaffold, refine, and
+   automate software work.
 
 Each lesson includes prerequisites, hands-on instructions, progress tracking, and selected
-knowledge checks. Complete the tracks in order for the intended progression, or use the navigation
-to revisit a specific capability.
+knowledge checks. Complete the core labs in order for the intended progression, then explore the
+CLI bonus lab or use the navigation to revisit a specific capability.
 
 ## What you need
 
@@ -43,7 +43,7 @@ The workshop pages contain the current product and installation links for each t
 | `src/content/docs/` | The published workshop lessons and supporting pages. |
 | `scripts/` | Content validation and reproducible workshop-import tooling. |
 
-The runnable projects live in their own public repositories: [Mona Mayhem](https://github.com/jamesmontemagno/workshop-mona-mayhem), [Bingo Mixer](https://github.com/copilot-dev-days/agent-lab-typescript), and [TinyShop](https://github.com/jamesmontemagno/workshop-tinyshop). The Copilot app lab starts with a standalone `space-quiz` guided tour, then uses the separate [Tailspin Toys template](https://github.com/github-samples/tailspin-toys).
+The runnable projects live in their own public repositories: [Mona Mayhem](https://github.com/jamesmontemagno/workshop-mona-mayhem), [Bingo Mixer](https://github.com/copilot-dev-days/agent-lab-typescript), and [TinyShop](https://github.com/jamesmontemagno/workshop-tinyshop). The Copilot app lab creates a standalone `space-quiz` project and uses that same repository throughout.
 
 ## Workshop sources
 

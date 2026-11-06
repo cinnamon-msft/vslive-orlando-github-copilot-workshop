@@ -1,18 +1,19 @@
 ---
-title: "Lab 2 · Mona Mayhem — GitHub Copilot CLI"
+title: "Bonus lab · Mona Mayhem — GitHub Copilot CLI"
 ---
 
-> **Duration:** 60–90 minutes for the facilitated core; advanced deep dives are available if time permits.
+> **Bonus lab:** Explore the terminal-first workflow after the core workshop labs.
+> **Duration:** 60–90 minutes for this bonus lab; advanced deep dives are available if time permits.
 > **Level:** Intermediate  
 > **Stack:** Astro / Node.js / TypeScript
 
-Build a retro arcade GitHub contribution comparison app — **Mona Mayhem** — while learning the full spectrum of GitHub Copilot workflows. This VS Live! Orlando edition is the second hands-on lab and focuses on the GitHub Copilot CLI experience.
+Build a retro arcade GitHub contribution comparison app — **Mona Mayhem** — while exploring the GitHub Copilot CLI. This optional bonus lab follows the core workshop and focuses on terminal-first agent workflows.
 
 ---
 
 ## Workshop path
 
-Follow the CLI instructions throughout this edition. Parts 1–5 form the facilitated core; Parts 6–8 are advanced deep dives, and Part 9 is optional.
+Follow the CLI instructions throughout this bonus lab. Parts 1–5 form its guided path; Parts 6–8 are advanced deep dives, and Part 9 is optional.
 
 ---
 
