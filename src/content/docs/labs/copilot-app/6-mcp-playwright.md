@@ -1,22 +1,22 @@
 ---
 title: "Lesson 6 - Testing with the Playwright MCP server"
-description: "Add the Playwright MCP server to the GitHub Copilot app and ask the agent to manually test your filtering feature in a real browser."
+description: "Add the Playwright MCP server to the GitHub Copilot app and ask the agent to manually test your space quiz feature in a real browser."
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
 ---
 
-In the previous lesson you created and verified the filtering feature with the project's automated test suite. Tests automate validation of code, but allowing the agent to confirm behavior is powerful. It allows an agent to respond to issues it sees in the actual UI it's creating. Let's explore how MCP allows access to external capabilities to AI agents, and add the Playwright MCP server to allow Copilot to interact with the site you're building directly.
+In the previous lesson you planned and built a space quiz feature, then reviewed it and checked it in the integrated browser. Letting the agent interact with the site through a separate browser automation tool provides another way to explore its behavior. Let's explore how MCP gives agents access to external capabilities and add the Playwright MCP server.
 
 In this lesson, you will:
 
 - understand what Model Context Protocol (MCP) is and how the GitHub Copilot app uses it.
 - add the Playwright MCP server from the app settings.
-- ask the agent to drive a browser and explore your filtering feature.
+- ask the agent to drive a browser and explore your space quiz feature.
 
 ## Scenario
 
-While unit and end-to-end tests are important, validating updates to the UI requires actually interacting with the UI. You want to allow Copilot to use the website you're working on as a user would to further automate how changes are made, providing more confidence the updates perform as expected.
+While automated tests are useful, validating updates to the UI also means interacting with it as a user would. You want to allow Copilot to use the space quiz directly to further automate how changes are checked and provide more confidence the updates perform as expected.
 
 ## What is Model Context Protocol (MCP)?
 
@@ -36,14 +36,13 @@ There are many other MCP servers available that provide access to different tool
 
 ## Add the Playwright MCP server
 
-You add and manage MCP servers from the app settings. The app includes a catalog of popular servers, so the [Playwright MCP server][playwright-mcp-server] is just a couple of clicks away.
+The [Playwright MCP server][playwright-mcp-server] runs locally and requires Node.js 20 or newer. You installed Node.js 22 or newer in Lesson 0. The app's current customization area provides a catalog for adding it.
 
-1. Select <kbd>Ctrl</kbd>+<kbd>,</kbd> to open the Copilot app settings page.
-2. Select **MCP servers**.
-3. In the search dialog, type `Playwright`.
-4. Select **Playwright** from the list of **Popular MCP servers**.
-5. Select **Add server** to add it to the list of available MCP servers.
-6. Select <kbd>Esc</kbd> to close the settings dialog.
+1. Select **Customize** in the sidebar.
+2. Select **MCP**.
+3. Search for `Playwright`.
+4. Select the Playwright MCP server and follow the prompts to install it.
+5. Open **Installed** and confirm the server is available.
 
 You've now added the Playwright MCP server!
 
@@ -51,26 +50,36 @@ You've now added the Playwright MCP server!
 
 Let's ask Copilot to test the feature manually by using the Playwright MCP server.
 
-1. Use the following prompt to ask Copilot to validate the new functionality:
+1. In the Copilot app's integrated terminal, confirm the working directory is the root of your `space-quiz` repository, where `index.html` is located.
+2. Start a temporary static server using Node.js's built-in modules; this does not install dependencies or add files:
 
-   ```plaintext
-   Start the dev server then use the Playwright MCP server to validate the functionality you just added exists. Use the details in the issue to ensure the newly added behavior matches the specs.
+   ```shell
+   node -e "const http = require('node:http'); const fs = require('node:fs'); http.createServer((request, response) => { if (request.url !== '/') { response.writeHead(404).end(); return; } response.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); fs.createReadStream('index.html').pipe(response); }).listen(4173, '127.0.0.1');"
    ```
 
-Copilot will launch a browser through the Playwright MCP server, walk through each step, and report back what it found. You'll actually see it open a browser on your system to perform the tasks!
+   Keep this terminal open while Playwright is testing the page. If port `4173` is already in use, choose another port in the command and use that same port in the prompt below.
 
-2. Read its summary against the acceptance criteria in the issue. If something looks off, ask follow-up questions or send it back to fix the code before you open a pull request.
-3. Leave this session open as we're going to close it out in the next lesson!
+3. In the session, use the following prompt to ask Copilot to validate the new functionality:
+
+   ```plaintext
+   Use the Playwright MCP server to navigate to http://127.0.0.1:4173 and test the space quiz feature from this issue in the same way a user would. Compare the behavior with each acceptance criterion. Report what you verified and any problems you found. Do not change files unless I ask you to fix an issue.
+   ```
+
+Copilot will use the Playwright MCP server to interact with the space quiz and report back what it found.
+
+4. Read its summary against the acceptance criteria in the issue. If something looks off, ask follow-up questions or send it back to fix the code before you open a pull request.
+5. In the terminal, select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the temporary server.
+6. Leave this session open as we're going to close it out in the next lesson!
 
 Copilot has now also validated the functionality in the browser by exploring the feature like a user would.
 
 ## Summary and next steps
 
-Congratulations, you used the Playwright MCP server to explore your feature in a real browser from the GitHub Copilot app! To recap, you:
+Congratulations, you used the Playwright MCP server to explore your space quiz feature in a real browser from the GitHub Copilot app! To recap, you:
 
 - learned what Model Context Protocol (MCP) is and how the app makes MCP tools available.
 - added the Playwright MCP server from the app settings.
-- asked the agent to drive a browser and explore your filtering feature.
+- asked the agent to drive a browser and explore your space quiz feature.
 
 Your feature is built, verified, and seen working. Now it's time to ship it — using **Agent Merge** to open and merge the pull request for you. Continue to [Lesson 7 - Merging with Agent Merge][next-lesson].
 

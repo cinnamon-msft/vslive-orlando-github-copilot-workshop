@@ -15,7 +15,7 @@ description: "Official event links, source workshops, and imported-content prove
 
 ## Workshop projects
 
-- [Mona Mayhem · Copilot CLI](https://github.com/jamesmontemagno/workshop-mona-mayhem)
+- [Mona Mayhem · Bonus Copilot CLI](https://github.com/jamesmontemagno/workshop-mona-mayhem)
 - [Bingo Mixer · VS Code](https://github.com/copilot-dev-days/agent-lab-typescript)
 - [TinyShop · Visual Studio](https://github.com/jamesmontemagno/workshop-tinyshop)
 
@@ -25,7 +25,6 @@ The Copilot App and VS Code lessons are adapted from the [NDC Oslo workshop](htt
 
 - [Mona Mayhem source](https://github.com/cinnamon-msft/kayla-chaos)
 - [Copilot Workshops · Copilot app track](https://github.com/github-samples/copilot-workshops)
-- [Tailspin Toys starter](https://github.com/github-samples/tailspin-toys)
 - [Visual Studio GitHub Copilot Lab](https://github.com/dotnet-presentations/visual-studio-github-copilot-lab)
 - [VS Code GitHub Copilot Agent Lab](https://github.com/copilot-dev-days/agent-lab-typescript)
 

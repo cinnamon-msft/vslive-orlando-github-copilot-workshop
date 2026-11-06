@@ -7,9 +7,9 @@ lastUpdated: 2026-07-09
 next: false
 ---
 
-Over the last several lessons, you took a feature from idea to merge with the GitHub Copilot app, including:
+Over the last several lessons, you took space quiz improvements from idea to merge with the GitHub Copilot app, including:
 
-- connecting a repository and orienting to the app's workspace and your seeded backlog.
+- creating and connecting the space quiz repository, then using its issue backlog.
 - starting sessions from a direct task and from issues, and using Plan and Autopilot modes to control how the agent works.
 - guiding the agent with custom instructions and a reusable skill.
 - testing your work with the Playwright MCP server in a real browser.
@@ -31,7 +31,7 @@ The app can run agents for you on a schedule or on demand through **automations*
    Summarize the pull requests merged in this repository over the last week, and list any issues still open in the backlog.
    ```
 
-5. Pick the project (your Tailspin Toys repository) and create the automation.
+5. Pick your `space-quiz` project and create the automation.
 6. Run it on demand to see the result.
 
 > [!TIP]
@@ -61,7 +61,7 @@ You've covered the core workflow. A few more features worth a look:
 
 The best way to improve with any tool is to keep using it! Use it for production code, for hobby code, for the little app you've had in mind for years but never got around to building. Share your learnings with your team, and learn from theirs. And, as always, explore the documentation.
 
-If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS Code harness](../../vscode/), the [Copilot CLI harness](../../cli/), or the [Visual Studio lab](../../visual-studio/).
+If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS Code harness](../../vscode/), the [Visual Studio lab](../../visual-studio/), or the [bonus Copilot CLI lab](../../cli/).
 
 For an optional extension using Microsoft Foundry Canvas, explore [Optional: Incorporate Foundry][foundry-canvas].
 

@@ -86,7 +86,7 @@ Clone only the project for the lab you are starting. Use [Visual Studio Code](ht
 
 | Lab | Clone and open |
 |---|---|
-| Copilot app | No initial clone: create a local `space-quiz` folder for the guided tour, then create a repository from the [Tailspin Toys template](https://github.com/github-samples/tailspin-toys) in Lesson 3 |
+| Copilot app | No initial clone: create a local `space-quiz` folder for the guided tour and publish it to GitHub; keep using that same repository throughout the lab |
 | Copilot CLI | `git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git` then `cd workshop-mona-mayhem` and run `copilot` |
 | VS Code | `git clone https://github.com/copilot-dev-days/agent-lab-typescript.git` then `cd agent-lab-typescript` and run `code .` |
 | Visual Studio 2026 | `git clone https://github.com/jamesmontemagno/workshop-tinyshop.git`, then open `workshop-tinyshop/src/TinyShop.sln` |
@@ -97,8 +97,6 @@ Mona Mayhem and TinyShop have their workshop starters on `main` and a `completed
 
 Direct cloning is enough for all local exercises. Fork the individual project only when a lesson needs you to push changes, create an issue or pull request, or delegate work to a cloud agent. If an enterprise-managed account prevents forking, remain on a direct clone and complete the local exercises; the repository-backed actions will be unavailable.
 
-Tailspin Toys intentionally uses its template flow because its Copilot app lessons depend on pre-seeded issues, branches, and pull requests.
-
 ## Quick preflight
 
 Before arriving, confirm:
@@ -106,8 +104,7 @@ Before arriving, confirm:
 1. `workshop doctor` reports the labs you plan to attend as ready.
 2. You can authenticate with GitHub and Copilot.
 3. Visual Studio 2026 opens `workshop-tinyshop/src/TinyShop.sln` if you are attending that Windows-only lab.
-4. You can access the separate Tailspin Toys template repository.
-5. VS Code 1.135+ opens `agent-lab-typescript`, and Copilot Chat is signed in with **Local** selected.
+4. VS Code 1.135+ opens `agent-lab-typescript`, and Copilot Chat is signed in with **Local** selected.
 
 When everything is ready, [begin with the Copilot app lab](/labs/copilot-app/).
 

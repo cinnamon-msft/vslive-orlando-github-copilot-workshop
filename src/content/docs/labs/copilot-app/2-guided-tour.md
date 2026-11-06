@@ -6,7 +6,7 @@ authors:
 lastUpdated: 2026-09-16
 ---
 
-Before working in the Tailspin Toys project, you'll take a fast, end-to-end tour of the GitHub Copilot app. You'll create a standalone site in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, carry one idea through a pull request and code review, create and run a weekly issue-review automation, and install a Canvas extension to start work by moving a card on the canvas.
+You'll take a fast, end-to-end tour of the GitHub Copilot app using one project: a standalone space quiz. You'll create it in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, carry one idea through a pull request and code review, create and run a weekly issue-review automation, and install a Canvas extension to start work by moving a card on the canvas. The same repository will be the workspace for every later lesson in this lab.
 
 In this lesson, you will:
 
@@ -192,7 +192,7 @@ You've completed a full tour of the GitHub Copilot app:
 - created and ran a weekly issue-review automation.
 - installed a Canvas extension and used its Kanban board to create a session from an issue.
 
-Next, you'll create your Tailspin Toys repository and begin the main workshop scenario. Continue to [Lesson 3 - Running your first Tailspin agent session][next-lesson].
+Next, you'll continue in the same space quiz repository, start a session, and ship another issue-backed change. Continue to [Lesson 3 - Running your first agent session][next-lesson].
 
 ## Resources
 

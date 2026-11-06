@@ -6,12 +6,12 @@ authors:
 lastUpdated: 2026-08-06
 ---
 
-The GitHub Copilot app is a desktop hub for working with Copilot and GitHub. During this workshop you'll build a small standalone web app, then work locally with the Tailspin Toys Astro project. Before you install the app, make sure the local tools used by the lessons are ready.
+The GitHub Copilot app is a desktop hub for working with Copilot and GitHub. During this workshop you'll build and extend a small standalone space quiz in one repository. Before you install the app, make sure the local tools used by the lessons are ready.
 
 In this lesson, you will:
 
 - confirm Git is installed.
-- install Node.js so the workshop projects can run on your machine.
+- install Node.js for the Playwright MCP server used later in the lab.
 
 ## Confirm Git is installed
 
@@ -25,7 +25,7 @@ If the command is not found, [install Git][install-git], open a new terminal, an
 
 ## Install Node.js
 
-Several lessons ask an agent to build features and run the Tailspin Toys test suite locally, which needs **[Node.js][nodejs]** — the only runtime the project requires. Install version **22 or newer**; the current **LTS** release is a safe choice.
+The quiz itself is a dependency-free HTML project, but the Playwright MCP server used later in this lab runs on Node.js. Install **[Node.js][nodejs] 22 or newer** before the workshop; the current **LTS** release is a safe choice. You do not need to install packages for the space quiz or add a package manifest.
 
 The simplest option on every platform is the official installer:
 
@@ -58,7 +58,7 @@ The simplest option on every platform is the official installer:
 
 ## Summary and next steps
 
-You're set up! Git and Node.js are available for the projects you'll build during the workshop.
+You're set up! Git and Node.js are ready for the space quiz workflow and the Playwright MCP lesson.
 
 Next, you'll install the GitHub Copilot app, sign in, and get oriented in the workspace. Continue to [Lesson 1 - Installing the GitHub Copilot app][next-lesson].
 

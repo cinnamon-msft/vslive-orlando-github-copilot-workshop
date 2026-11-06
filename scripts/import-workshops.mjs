@@ -273,7 +273,15 @@ if (sources.cli) {
       [/### Step 1: Create Your Repository/, '### Step 1: Open the CLI Lab'],
       [
         /> \*\*Duration:\*\*.*$/m,
-        '> **Duration:** 60–90 minutes for the facilitated core; advanced deep dives are available if time permits.'
+        '> **Duration:** 60–90 minutes for this bonus lab; advanced deep dives are available if time permits.'
+      ],
+      [
+        /title: "[^"]*Mona Mayhem[^"]*"/,
+        'title: "Bonus lab · Mona Mayhem — GitHub Copilot CLI"'
+      ],
+      [
+        /This VS Live! Orlando edition is the second hands-on lab and focuses on the GitHub Copilot CLI experience\./,
+        'This optional bonus lab follows the core workshop and focuses on terminal-first agent workflows.'
       ],
       [
         /The workshop supports \*\*two tracks\*\*: a VS Code experience and a GitHub Copilot CLI experience\./,
@@ -281,7 +289,7 @@ if (sources.cli) {
       ],
       [
         /## 🎯 Choose Your Track[\s\S]*?---/,
-        '## Workshop path\n\nFollow the CLI instructions throughout this edition. Parts 1–5 form the facilitated core; Parts 6–8 are advanced deep dives, and Part 9 is optional.\n\n---'
+        '## Workshop path\n\nFollow the CLI instructions throughout this bonus lab. Parts 1–5 form its guided path; Parts 6–8 are advanced deep dives, and Part 9 is optional.\n\n---'
       ],
       [
         /> 💡 \*\*Tip:\*\* Use the DevContainer for a pre-configured environment if you want a fast start in VS Code\./,
@@ -350,7 +358,7 @@ if (sources['copilot-app']) {
       destinationNames: copilotAppDestinationNames,
       introFiles: ['README.md', '0-prerequisites.md'],
       intro:
-        '> [!NOTE]\n> This lab starts with a standalone `space-quiz` project for a guided tour, then uses the separate [Tailspin Toys template repository](https://github.com/github-samples/tailspin-toys) for the remaining lessons.',
+        '> [!NOTE]\n> Build one `space-quiz` project in the guided tour and keep using that same repository throughout this lab.',
       transform: shiftCopilotAppLesson,
       replacements: [
         [/\.\.\/8-foundry-canvas\//g, foundryCanvasUrl],
@@ -370,7 +378,7 @@ if (sources['copilot-app']) {
   const appImagesDestination = join(contentRoot, '_images');
   mkdirSync(appImagesDestination, { recursive: true });
   for (const name of readdirSync(appImagesSource)) {
-    if (name.startsWith('app-')) {
+    if (name.startsWith('app-') && name !== 'app-2-start-session.png') {
       cpSync(join(appImagesSource, name), join(appImagesDestination, name));
     }
   }
