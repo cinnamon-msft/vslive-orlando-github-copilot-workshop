@@ -13,7 +13,7 @@ Across these lessons you'll build one **space quiz** project and use it througho
 
 | Lesson | Topic | Description |
 |--------|-------|-------------|
-| [0. Prerequisites][ex0] | Setup | Confirm Git and install Node.js |
+| [0. Prerequisites][ex0] | Setup | Confirm Git and install Node.js for the Playwright MCP lesson |
 | [1. Install the Copilot app][ex1] | Setup | Install the app, sign in, and get oriented in the workspace |
 | [2. Guided tour of the Copilot app][tour] | Guided tour | Build, polish, publish, and review a standalone space quiz |
 | [3. Running your first agent session][ex3] | First change | Continue in the space quiz and ship an issue-backed change |
@@ -40,7 +40,7 @@ Before attending this workshop, please ensure you have:
 > Because the Copilot app runs on your own machine rather than in a codespace, [Lesson 0][ex0] walks you through installing the local prerequisites before you install the app.
 
 > [!NOTE]
-> If you are using Copilot Business or Copilot Enterprise, your administrator must enable the **Copilot CLI** policy before you can use the app.
+> If you are using Copilot Business or Copilot Enterprise, your administrator must enable the **Copilot CLI** policy before you can use the app. The Playwright MCP lesson also requires Node.js 22 or newer to run its local MCP server.
 
 ## Get Started
 

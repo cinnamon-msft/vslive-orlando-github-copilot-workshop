@@ -44,7 +44,7 @@ Reach for a canvas when a task needs structure, iteration, and verification, and
 
 ## Create a canvas to track your work
 
-You've shipped a feature, added repository instructions, and implemented another space quiz improvement. If there are still open issues in the backlog, let's create a canvas to help quickly triage the work.
+You've shipped a feature, added repository instructions, and implemented another space quiz improvement. Those lessons may use up the original backlog. Before building the canvas, make sure the repository has at least three open issues: if fewer remain, ask Copilot to suggest and create enough small, independent space quiz improvements to bring the open-issue count to three. Review the issue titles and acceptance criteria before using them.
 
 1. Return to (or open) the GitHub Copilot app.
 2. Select the **Home screen**.

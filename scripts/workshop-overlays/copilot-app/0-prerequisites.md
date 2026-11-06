@@ -11,7 +11,7 @@ The GitHub Copilot app is a desktop hub for working with Copilot and GitHub. Dur
 In this lesson, you will:
 
 - confirm Git is installed.
-- install Node.js so the workshop projects can run on your machine.
+- install Node.js for the Playwright MCP server used later in the lab.
 
 ## Confirm Git is installed
 
@@ -25,7 +25,7 @@ If the command is not found, [install Git][install-git], open a new terminal, an
 
 ## Install Node.js
 
-The space quiz is a dependency-free HTML project, so Node.js is not required for the core app lessons. Install **[Node.js][nodejs] 22 or newer** if you plan to complete the optional Copilot CLI lab or use Node-based tools during the workshop; the current **LTS** release is a safe choice.
+The quiz itself is a dependency-free HTML project, but the Playwright MCP server used later in this lab runs on Node.js. Install **[Node.js][nodejs] 22 or newer** before the workshop; the current **LTS** release is a safe choice. You do not need to install packages for the space quiz or add a package manifest.
 
 The simplest option on every platform is the official installer:
 
@@ -58,7 +58,7 @@ The simplest option on every platform is the official installer:
 
 ## Summary and next steps
 
-You're set up! Git is available for the space quiz repository. Node.js is optional for the core Copilot app lessons.
+You're set up! Git and Node.js are ready for the space quiz workflow and the Playwright MCP lesson.
 
 Next, you'll install the GitHub Copilot app, sign in, and get oriented in the workspace. Continue to [Lesson 1 - Installing the GitHub Copilot app][next-lesson].
 
