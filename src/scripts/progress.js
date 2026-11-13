@@ -3,36 +3,6 @@
   const taskStorageKey = 'vslive-workshop-task-progress-v1';
   const base = document.querySelector('meta[name="workshop-base"]')?.content || '/';
   const labs = {
-    'copilot-app': [
-      '0-prerequisites',
-      '1-install-copilot-app',
-      '2-guided-tour',
-      '3-add-star-rating',
-      '4-custom-instructions',
-      '5-build-filtering',
-      '6-mcp-playwright',
-      '7-agent-merge',
-      '8-canvases',
-      '9-review'
-    ],
-    cli: [
-      '01-setup',
-      '02-plan-and-scaffold',
-      '03-agent-mode',
-      '04-design-vibes',
-      '05-polish',
-      '06-agents',
-      '07-skills',
-      '08-mcp',
-      '09-bonus'
-    ],
-    vscode: [
-      '01-setup',
-      '02-design',
-      '03-quiz-master',
-      '04-multi-agent',
-      '05-complete'
-    ],
     'visual-studio': [
       'setup',
       'part00-exploring-codebase',
@@ -48,6 +18,36 @@
       'part10-planning-mode',
       'part11-reusable-prompts',
       'part12-delegate-to-cloud'
+    ],
+    'copilot-app': [
+      '0-prerequisites',
+      '1-install-copilot-app',
+      '2-guided-tour',
+      '3-add-star-rating',
+      '4-custom-instructions',
+      '5-build-filtering',
+      '6-mcp-playwright',
+      '7-agent-merge',
+      '8-canvases',
+      '9-review'
+    ],
+    vscode: [
+      '01-setup',
+      '02-design',
+      '03-quiz-master',
+      '04-multi-agent',
+      '05-complete'
+    ],
+    cli: [
+      '01-setup',
+      '02-plan-and-scaffold',
+      '03-agent-mode',
+      '04-design-vibes',
+      '05-polish',
+      '06-agents',
+      '07-skills',
+      '08-mcp',
+      '09-bonus'
     ]
   };
 
@@ -103,7 +103,7 @@
   const updateLanding = () => {
     let completed = 0;
     let total = 0;
-    let resumeHref = `${base}labs/copilot-app/0-prerequisites/`;
+    let resumeHref = `${base}labs/visual-studio/setup/`;
     let foundResume = false;
 
     Object.entries(labs).forEach(([lab, steps]) => {

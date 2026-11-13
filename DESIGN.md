@@ -2,30 +2,30 @@
 
 ## Overview
 
-The site combines a high-energy VS Live! Orlando event landing page with a quiet, dependable lesson reader. Its visual reference is a live technical production desk: near-black equipment, burnt-orange status lamps, cyan monitor traces, and carefully labeled controls. The composition is bold at the entry point and progressively calmer as learners move into instructions.
+The site combines a high-energy Live! 360 Tech Con 2026 event landing page with a quiet, dependable lesson reader. Its visual identity follows the event badge: confident teal lettering, warm neutral accents, and a 360-degree mark. The composition is bold at the entry point and progressively calmer as learners move into instructions.
 
 ## Color
 
-Use a full-palette strategy, with pure near-black carrying the dark theme and a seed-anchored burnt orange as the primary brand color.
+Use a full-palette strategy, with near-black carrying the dark theme and event teal as the primary brand color.
 
 ```css
 :root {
-  --color-bg: oklch(0.09 0 0);
-  --color-surface: oklch(0.145 0.008 260);
-  --color-surface-raised: oklch(0.19 0.012 260);
+  --color-bg: oklch(0.12 0.012 190);
+  --color-surface: oklch(0.17 0.014 190);
+  --color-surface-raised: oklch(0.21 0.016 190);
   --color-ink: oklch(0.965 0.006 80);
-  --color-muted: oklch(0.73 0.018 255);
-  --color-primary: oklch(0.62 0.18 40);
-  --color-primary-strong: oklch(0.55 0.17 40);
-  --color-accent: oklch(0.82 0.15 205);
+  --color-muted: oklch(0.76 0.018 190);
+  --color-primary: oklch(0.74 0.095 188);
+  --color-primary-strong: oklch(0.66 0.1 188);
+  --color-accent: oklch(0.82 0.075 188);
   --color-violet: oklch(0.70 0.16 300);
   --color-success: oklch(0.78 0.15 145);
-  --color-focus: oklch(0.88 0.16 95);
-  --color-border: oklch(0.30 0.018 260);
+  --color-focus: oklch(0.88 0.08 188);
+  --color-border: oklch(0.32 0.018 190);
 }
 ```
 
-The light theme uses pure white, deep warm-black ink, darker orange actions, and a darker cyan for links. Text on saturated orange or violet fills is near-white. Never use gradient text.
+The light theme uses warm off-white, deep ink, dark teal actions, and teal links. Use dark text on bright teal fills and light text on dark teal fills. Never use gradient text.
 
 ## Typography
 
