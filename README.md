@@ -10,21 +10,21 @@ Adapted for Live! 360 Tech Con 2026 from the [original workshop](https://github.
 
 ## Workshop path
 
-The workshop is designed as a progressive, practical day of learning:
+The day opens with a short kickoff on the state of GitHub Copilot, followed by three numbered core
+labs in this order:
 
-1. **Kickoff** — A short look at the state of GitHub Copilot and what is now possible.
-2. **Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
+1. **Lab 1 · Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
    chat through MCP, planning, and cloud delegation.
-3. **GitHub Copilot app** — Practice the software development lifecycle with the Copilot app,
+2. **Lab 2 · GitHub Copilot app** — Practice the software development lifecycle with the Copilot app,
    including planning, agent work, code review, and extensibility.
-4. **VS Code** — Transform Bingo Mixer with context engineering, design-first development,
+3. **Lab 3 · VS Code** — Transform Bingo Mixer with context engineering, design-first development,
    custom agents, and multi-agent workflows.
-5. **Bonus: GitHub Copilot CLI** — Use Copilot from the terminal to plan, scaffold, refine, and
+**Bonus · GitHub Copilot CLI** — Use Copilot from the terminal to plan, scaffold, refine, and
    automate software work.
 
-Each lesson includes prerequisites, hands-on instructions, progress tracking, and selected
-knowledge checks. Complete the three core labs in order for the intended progression, then explore the
-CLI bonus lab or use the navigation to revisit a specific capability.
+Each lab includes hands-on instructions and progress tracking; selected lessons also include
+knowledge checks. Complete Labs 1–3 in order for the intended progression, then explore the CLI
+bonus lab or use the navigation to revisit a specific capability.
 
 ## What you need
 
@@ -51,13 +51,17 @@ The combined content is based on pinned upstream workshop sources listed in
 `workshops.sources.json`. The import process normalizes them for this event and preserves
 event-specific curriculum additions.
 
-The Copilot App and VS Code lessons follow the [NDC Oslo workshop](https://github.com/jamesmontemagno/ndc-oslo-copilot-workshop) at commit `b840aa995c1bf3ba7028af30e387ff17c6a3e11b`, including its pinned sources, lesson numbering, and Copilot App guided-tour overlays in `scripts/workshop-overlays/`.
+The pinned repositories and commits for all four tracks are recorded in `workshops.sources.json`.
+The Copilot app lessons adapt the pinned `github-samples/copilot-workshops` source and include
+event-specific guided-tour overlays in `scripts/workshop-overlays/copilot-app/`.
 
 ```console
 npm run import:workshops -- --tracks copilot-app,vscode
 ```
 
-This refreshes the NDC lessons without rewriting the retained CLI and Visual Studio lessons. Omit `--tracks` to regenerate every track from its pinned source. Review every imported diff and run the full validation after changing a source pin.
+This refreshes the Copilot app and VS Code lessons without rewriting the CLI and Visual Studio
+lessons. Omit `--tracks` to regenerate every track from its pinned source. Review every imported diff
+and run the full validation after changing a source pin.
 
 ## Live workshop
 
