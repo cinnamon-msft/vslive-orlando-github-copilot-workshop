@@ -3,10 +3,10 @@ title: "Resources and attribution"
 description: "Official event links, source workshops, and imported-content provenance."
 ---
 
-## VS Live! Orlando
+## Live! 360 Tech Con 2026 · Orlando, Florida
 
 - [Event home](https://live360events.com/events/orlando-2026/home.aspx)
-- [Visual Studio Live! agenda](https://live360events.com/events/orlando-2026/sessions/pages/vslive.aspx)
+- [Workshop session details](https://live360events.com/events/orlando-2026/sessions/pages/vslive.aspx)
 
 ## Presenters
 
@@ -15,9 +15,9 @@ description: "Official event links, source workshops, and imported-content prove
 
 ## Workshop projects
 
-- [Mona Mayhem · Bonus Copilot CLI](https://github.com/jamesmontemagno/workshop-mona-mayhem)
-- [Bingo Mixer · VS Code](https://github.com/copilot-dev-days/agent-lab-typescript)
 - [TinyShop · Visual Studio](https://github.com/jamesmontemagno/workshop-tinyshop)
+- [Bingo Mixer · VS Code](https://github.com/copilot-dev-days/agent-lab-typescript)
+- [Mona Mayhem · Bonus Copilot CLI](https://github.com/jamesmontemagno/workshop-mona-mayhem)
 
 ## Source workshops
 

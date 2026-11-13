@@ -8,6 +8,7 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const docsRoot = join(root, 'src', 'content', 'docs');
 const astroConfig = readFileSync(join(root, 'astro.config.mjs'), 'utf8');
 const landingPage = readFileSync(join(root, 'src', 'pages', 'index.astro'), 'utf8');
+const progressScript = readFileSync(join(root, 'src', 'scripts', 'progress.js'), 'utf8');
 const required = [
   'prepare.md',
   'resources.md',
@@ -75,9 +76,9 @@ for (const path of required) {
 }
 
 const sidebarOrder = [
-  "label: '1 · Copilot App'",
-  "label: '2 · VS Code'",
-  "label: '3 · Visual Studio 2026'",
+  "label: '1 · Visual Studio 2026'",
+  "label: '2 · Copilot App'",
+  "label: '3 · VS Code'",
   "label: 'Bonus · Copilot CLI'"
 ].map((label) => astroConfig.indexOf(label));
 if (sidebarOrder.some((position) => position < 0) || !sidebarOrder.every((position, index) =>
@@ -86,7 +87,7 @@ if (sidebarOrder.some((position) => position < 0) || !sidebarOrder.every((positi
   errors.push('The sidebar must present the CLI last as a bonus after the core labs.');
 }
 
-const landingOrder = ["key: 'copilot-app'", "key: 'vscode'", "key: 'visual-studio'", "key: 'cli'"]
+const landingOrder = ["key: 'visual-studio'", "key: 'copilot-app'", "key: 'vscode'", "key: 'cli'"]
   .map((key) => landingPage.indexOf(key));
 if (
   landingOrder.some((position) => position < 0) ||
@@ -94,6 +95,17 @@ if (
   !landingPage.includes("title: 'Bonus: Copilot CLI'")
 ) {
   errors.push('The landing page must present the CLI last as a bonus after the core labs.');
+}
+
+const resumeOrder = ["'visual-studio':", "'copilot-app':", 'vscode:', 'cli:'].map((key) =>
+  progressScript.indexOf(key)
+);
+if (
+  resumeOrder.some((position) => position < 0) ||
+  !resumeOrder.every((position, index) => index === 0 || resumeOrder[index - 1] < position) ||
+  !progressScript.includes('labs/visual-studio/setup/')
+) {
+  errors.push('Workshop resume order must begin with Visual Studio and end with the CLI bonus.');
 }
 
 for (const appLessonsRoot of [

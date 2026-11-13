@@ -2,7 +2,7 @@
 
 This repository combines selected educational content and starter materials from the sources below. Imported versions are pinned in `workshops.sources.json`; canonical repositories remain the source of truth.
 
-The VS Live! Orlando edition is adapted from <https://github.com/jamesmontemagno/vslive-github-copilot-workshop>. Copyright its contributors; original history and attribution are preserved.
+The Live! 360 Tech Con 2026 edition is adapted from the VS Live! Orlando workshop at <https://github.com/jamesmontemagno/vslive-github-copilot-workshop>. Copyright its contributors; original history and attribution are preserved.
 
 The Copilot App overlays and VS Code curriculum integration are adapted from <https://github.com/jamesmontemagno/ndc-oslo-copilot-workshop> at commit `b840aa995c1bf3ba7028af30e387ff17c6a3e11b`. Copyright its contributors; upstream attribution and canonical source links are preserved.
 

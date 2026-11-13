@@ -1,16 +1,16 @@
 # Product
 
-## Register
+## Brand
 
-brand
+Live! 360 Tech Con 2026 × GitHub Copilot
 
 ## Users
 
-Developers attending the VS Live! Orlando 2026 workshop with Kayla Cinnamon and Jon Galloway. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
+Developers attending the Live! 360 Tech Con 2026 workshop in Orlando, Florida, with Kayla Cinnamon and Jon Galloway. They will work from laptops in a conference room, move between instructor-led and self-guided exercises, and may return later to finish. Most can use Windows, macOS, or Linux; the Visual Studio 2026 lab requires Windows.
 
 ## Product Purpose
 
-Provide one trusted path through four GitHub Copilot experiences: Copilot app, CLI, VS Code, and Visual Studio 2026. Success means attendees can prepare once, understand where they are in the day, launch the correct starter project, complete each lesson in sequence, and resume without searching across separate repositories.
+Provide one trusted path through four GitHub Copilot experiences: Visual Studio 2026, Copilot app, VS Code, and the CLI bonus. Success means attendees can prepare once, understand where they are in the day, launch the correct starter project, complete each lesson in sequence, and resume without searching across separate repositories.
 
 ## Brand Personality
 

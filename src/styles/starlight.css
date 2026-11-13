@@ -20,7 +20,7 @@
 
 .sidebar-content a[aria-current='page'] {
   background: var(--workshop-primary);
-  color: oklch(0.98 0.004 80);
+  color: var(--workshop-on-primary);
 }
 
 .sidebar-content a[aria-current='page'] span {
@@ -52,7 +52,7 @@
 }
 
 :root[data-theme='light'] .lesson-complete-indicator {
-  color: oklch(0.98 0.004 80);
+  color: var(--workshop-on-primary);
 }
 
 .sidebar-content a[data-lesson-complete='true'] .lesson-complete-indicator {

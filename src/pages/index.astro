@@ -4,8 +4,18 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 const base = import.meta.env.BASE_URL;
 const labs = [
   {
-    key: 'copilot-app',
+    key: 'visual-studio',
     number: '01',
+    title: 'Visual Studio 2026',
+    duration: '90 min',
+    platform: 'Windows required',
+    description: 'Explore advanced Copilot features while completing and improving the TinyShop solution.',
+    outcome: 'Use Copilot across coding, debugging, planning, and delegation.',
+    href: `${base}labs/visual-studio/`
+  },
+  {
+    key: 'copilot-app',
+    number: '02',
     title: 'Copilot App',
     duration: '90 min',
     platform: 'Windows · macOS · Linux',
@@ -15,23 +25,13 @@ const labs = [
   },
   {
     key: 'vscode',
-    number: '02',
+    number: '03',
     title: 'VS Code',
     duration: '90 min',
     platform: 'Windows · macOS · Linux',
     description: 'Transform Bingo Mixer with context engineering, design-first development, custom agents, and multi-agent workflows.',
     outcome: 'Build with GitHub Copilot Agent Mode in VS Code.',
     href: `${base}labs/vscode/`
-  },
-  {
-    key: 'visual-studio',
-    number: '03',
-    title: 'Visual Studio 2026',
-    duration: '90 min',
-    platform: 'Windows required',
-    description: 'Explore advanced Copilot features while completing and improving the TinyShop solution.',
-    outcome: 'Use Copilot across coding, debugging, planning, and delegation.',
-    href: `${base}labs/visual-studio/`
   },
   {
     key: 'cli',
@@ -47,25 +47,33 @@ const labs = [
 ---
 
 <LandingLayout
-  title="VS Live! Orlando · GitHub Copilot Workshop"
-  description="Four hands-on GitHub Copilot labs with Kayla Cinnamon and Jon Galloway at VS Live! Orlando 2026."
+  title="Live! 360 Tech Con 2026 · GitHub Copilot Workshop"
+  description="Four hands-on GitHub Copilot labs with Kayla Cinnamon and Jon Galloway at Live! 360 Tech Con 2026 in Orlando, Florida."
 >
   <section class="hero">
     <div class="hero-copy">
-      <p class="event-line">
-        <span>VS Live! Orlando</span>
-        <span aria-hidden="true">/</span>
-        <time datetime="2026">2026</time>
-      </p>
+      <div class="event-lockup">
+        <img
+          class="event-logo"
+          src={`${base}live360-orlando-2026.png`}
+          alt="Live! 360 Tech Con 2026, Orlando, Florida"
+          width="76"
+          height="76"
+        />
+        <p class="event-line">
+          <span>Live! 360 Tech Con</span>
+          <span>Orlando, Florida · <time datetime="2026">2026</time></span>
+        </p>
+      </div>
       <h1>One day.<br /><strong>Four ways to build.</strong></h1>
       <p class="hero-lede">
-        Start in the desktop app, then go deep into VS Code and Visual Studio. Explore the terminal-first CLI lab as a bonus.
+        Start in Visual Studio, then move through the Copilot app and VS Code. Explore the terminal-first CLI lab as a bonus.
         A hands-on workshop with Kayla Cinnamon and Jon Galloway.
       </p>
       <div class="hero-actions">
         <a class="primary-action" href={`${base}prepare/`}>Prepare your machine</a>
-        <a class="resume-action" href={`${base}labs/copilot-app/`} data-workshop-resume>
-          Start with Copilot App <span aria-hidden="true">→</span>
+        <a class="resume-action" href={`${base}labs/visual-studio/`} data-workshop-resume>
+          Start with Visual Studio <span aria-hidden="true">→</span>
         </a>
       </div>
       <p class="progress-summary" data-workshop-summary aria-live="polite">
@@ -73,7 +81,7 @@ const labs = [
       </p>
     </div>
 
-    <div class="signal-board" aria-label="The Copilot app, VS Code, Visual Studio, and the optional Copilot CLI">
+    <div class="signal-board" aria-label="Visual Studio, the Copilot app, VS Code, and the optional Copilot CLI">
       <div class="signal-top">
         <span>WORKSHOP_SIGNAL</span>
         <span class="signal-live"><i></i> LIVE PATH</span>
@@ -84,11 +92,11 @@ const labs = [
         <p><span class="tool">●</span> Reading instructions…</p>
       </div>
       <div class="surface-row">
+        <div><span>IDE</span><strong>TinyShop</strong><i>agent</i></div>
         <div><span>APP</span><strong>Autopilot</strong><i>working</i></div>
         <div><span>VS CODE</span><strong>Bingo Mixer</strong><i>agent</i></div>
-        <div><span>IDE</span><strong>TinyShop</strong><i>agent</i></div>
       </div>
-      <svg class="signal-trace" viewBox="0 0 520 130" role="img" aria-label="Signal flowing through the Copilot app, VS Code, Visual Studio, and the bonus CLI lab">
+      <svg class="signal-trace" viewBox="0 0 520 130" role="img" aria-label="Signal flowing through Visual Studio, the Copilot app, VS Code, and the bonus CLI lab">
         <path d="M12 100 C90 100 82 28 166 28 S238 103 322 103 400 42 508 42" />
         <circle cx="12" cy="100" r="6" />
         <circle cx="166" cy="28" r="6" />
@@ -100,7 +108,7 @@ const labs = [
 
   <section class="day-intro" aria-labelledby="day-heading">
     <div>
-      <p>Hands-on workshop · Orlando</p>
+      <p>Live! 360 Tech Con 2026 · Orlando, Florida</p>
       <h2 id="day-heading">A complete Copilot field guide.</h2>
     </div>
     <p>
@@ -165,10 +173,24 @@ const labs = [
 
   .event-line {
     display: flex;
-    gap: 0.7rem;
-    margin: 0 0 1.25rem;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0;
     color: var(--workshop-accent);
     font: 600 0.76rem/1.2 var(--font-mono);
+  }
+
+  .event-lockup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .event-logo {
+    flex: none;
+    border-radius: 0.8rem;
+    box-shadow: var(--workshop-shadow);
   }
 
   h1 {
@@ -208,7 +230,7 @@ const labs = [
     border-radius: 0.6rem;
     background: var(--workshop-primary);
     box-shadow: 0 14px 36px color-mix(in oklch, var(--workshop-primary) 24%, transparent);
-    color: oklch(0.98 0.004 80);
+    color: var(--workshop-on-primary);
     font-weight: 750;
     text-decoration: none;
     transition: box-shadow 180ms var(--workshop-ease), transform 180ms var(--workshop-ease);

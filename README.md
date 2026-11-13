@@ -1,29 +1,29 @@
-# VS Live! Orlando · GitHub Copilot Workshop
+# Live! 360 Tech Con 2026 · GitHub Copilot Workshop
 
 [Workshop site (after enabling GitHub Pages)](https://cinnamon-msft.github.io/vslive-orlando-github-copilot-workshop/)
 
-This is the unified hands-on workshop for VS Live! Orlando with Kayla Cinnamon and Jon Galloway.
-It brings four GitHub Copilot experiences into one guided site, so attendees can begin with the
-Copilot app, continue through VS Code and Visual Studio, and finish with an optional CLI bonus lab.
+This is the unified hands-on workshop for Live! 360 Tech Con 2026 in Orlando, Florida, with Kayla Cinnamon and Jon Galloway.
+It brings four GitHub Copilot experiences into one guided site, starting with Visual Studio,
+continuing through the Copilot app and VS Code, and finishing with an optional CLI bonus lab.
 
-Adapted for the event from the [original workshop](https://github.com/jamesmontemagno/vslive-github-copilot-workshop), with its history and source attribution preserved.
+Adapted for Live! 360 Tech Con 2026 from the [original workshop](https://github.com/jamesmontemagno/vslive-github-copilot-workshop), with its history and source attribution preserved.
 
 ## Workshop path
 
 The workshop is designed as a progressive, practical day of learning:
 
 1. **Kickoff** — A short look at the state of GitHub Copilot and what is now possible.
-2. **GitHub Copilot app** — Practice the software development lifecycle with the Copilot app,
-   including planning, agent work, code review, and extensibility.
-3. **VS Code** — Transform Bingo Mixer with context engineering, design-first development,
-   custom agents, and multi-agent workflows.
-4. **Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
+2. **Visual Studio 2026** — Explore GitHub Copilot features in Visual Studio, from completions and
    chat through MCP, planning, and cloud delegation.
+3. **GitHub Copilot app** — Practice the software development lifecycle with the Copilot app,
+   including planning, agent work, code review, and extensibility.
+4. **VS Code** — Transform Bingo Mixer with context engineering, design-first development,
+   custom agents, and multi-agent workflows.
 5. **Bonus: GitHub Copilot CLI** — Use Copilot from the terminal to plan, scaffold, refine, and
    automate software work.
 
 Each lesson includes prerequisites, hands-on instructions, progress tracking, and selected
-knowledge checks. Complete the core labs in order for the intended progression, then explore the
+knowledge checks. Complete the three core labs in order for the intended progression, then explore the
 CLI bonus lab or use the navigation to revisit a specific capability.
 
 ## What you need

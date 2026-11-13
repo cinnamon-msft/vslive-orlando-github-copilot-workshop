@@ -285,7 +285,7 @@ if (sources.cli) {
       ],
       [
         /The workshop supports \*\*two tracks\*\*: a VS Code experience and a GitHub Copilot CLI experience\./,
-        'This VS Live! Orlando edition focuses on the GitHub Copilot CLI experience.'
+        'This Live! 360 Tech Con 2026 edition focuses on the GitHub Copilot CLI experience.'
       ],
       [
         /## 🎯 Choose Your Track[\s\S]*?---/,

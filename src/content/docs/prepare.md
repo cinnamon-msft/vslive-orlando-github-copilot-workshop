@@ -1,6 +1,6 @@
 ---
 title: "Prepare for the workshop"
-description: "Install and verify everything needed for the four VS Live! Orlando GitHub Copilot labs."
+description: "Install and verify everything needed for the four Live! 360 Tech Con 2026 GitHub Copilot labs."
 ---
 
 Complete this checklist before the workshop. Copilot app, Copilot CLI, and VS Code work on Windows, macOS, or Linux. **Visual Studio 2026 requires Windows.**
@@ -23,8 +23,8 @@ Complete this checklist before the workshop. Copilot app, Copilot CLI, and VS Co
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) | CLI | `copilot --version` |
 | [Visual Studio Code 1.135 or later](https://code.visualstudio.com/) | CLI and VS Code | `code --version` |
 | [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) | VS Code | Sign in and open Copilot Chat with **Local** selected |
-| [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) | Lab 4 | `dotnet --version` |
-| [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 4 | Open Visual Studio |
+| [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) | Lab 1 | `dotnet --version` |
+| [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 1 | Open Visual Studio |
 | Edge or Chrome | Browser-based verification | Open the browser once |
 
 ## Visual Studio 2026 setup
@@ -86,10 +86,10 @@ Clone only the project for the lab you are starting. Use [Visual Studio Code](ht
 
 | Lab | Clone and open |
 |---|---|
-| Copilot app | No initial clone: create a local `space-quiz` folder for the guided tour and publish it to GitHub; keep using that same repository throughout the lab |
-| Copilot CLI | `git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git` then `cd workshop-mona-mayhem` and run `copilot` |
-| VS Code | `git clone https://github.com/copilot-dev-days/agent-lab-typescript.git` then `cd agent-lab-typescript` and run `code .` |
 | Visual Studio 2026 | `git clone https://github.com/jamesmontemagno/workshop-tinyshop.git`, then open `workshop-tinyshop/src/TinyShop.sln` |
+| Copilot app | No initial clone: create a local `space-quiz` folder for the guided tour and publish it to GitHub; keep using that same repository throughout the lab |
+| VS Code | `git clone https://github.com/copilot-dev-days/agent-lab-typescript.git` then `cd agent-lab-typescript` and run `code .` |
+| Copilot CLI bonus | `git clone https://github.com/jamesmontemagno/workshop-mona-mayhem.git` then `cd workshop-mona-mayhem` and run `copilot` |
 
 Mona Mayhem and TinyShop have their workshop starters on `main` and a `completed` branch for reference. For Bingo Mixer, follow the VS Code lab's source repository and install its recommended extensions.
 
@@ -106,7 +106,7 @@ Before arriving, confirm:
 3. Visual Studio 2026 opens `workshop-tinyshop/src/TinyShop.sln` if you are attending that Windows-only lab.
 4. VS Code 1.135+ opens `agent-lab-typescript`, and Copilot Chat is signed in with **Local** selected.
 
-When everything is ready, [begin with the Copilot app lab](/labs/copilot-app/).
+When everything is ready, [begin with the Visual Studio lab](/labs/visual-studio/).
 
 ## Resources
 
