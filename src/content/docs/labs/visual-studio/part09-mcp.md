@@ -49,8 +49,12 @@ You will see a **Authentication required** message. Click on it and click Authen
 Now that you have the Microsoft Learn and GitHub MCP servers installed, let's use them to get information about optimizing asset loading in the application.
 
 1. [ ] In Copilot Chat, switch to **Agent** mode.
-1. [ ] Ensure that the Microsoft Learn MCP server is selected as an active tool. If you don't see it click on a new chat session or toggle modes:
-  ![Select MCP server](./images/9-select-mcp-server.png)
+1. [ ] Open **AI Customization**, select **MCP Servers > Microsoft Learn**, and open the **Tools** tab.
+1. [ ] Click **Select all** to make all Microsoft Learn tools available to agents.
+
+   ![Microsoft Learn MCP server Tools tab in AI Customization with Select all highlighted](./images/9-select-mcp-server.png)
+
+1. [ ] Click **Close** to return to Copilot Chat.
 1. [ ] Type the following prompt: `Using the Microsoft Learn docs mcp, what are the best practices for optimizing image loading and asset delivery in a Blazor Server application?`
 1. Copilot will ask for permission for each request. You can approve each manually or **Allow in this session**
 1. ![Allow MCP](./images/9-allow-mcp.png)
