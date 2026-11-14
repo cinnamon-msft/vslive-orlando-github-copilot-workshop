@@ -27,7 +27,7 @@ Complete this checklist before the workshop. Copilot app, Copilot CLI, and VS Co
 | [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) | Lab 1 | Open Visual Studio |
 | Edge or Chrome | Browser-based verification | Open the browser once |
 
-The TinyShop solution targets .NET 10. The .NET 11 SDK can build it, but running the framework-dependent app also requires the [.NET 10 ASP.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet/10.0). Check for it with `dotnet --list-runtimes`; install it if `Microsoft.AspNetCore.App 10.x` is not listed.
+The TinyShop starter on `main` targets .NET 10 and rolls forward to .NET 11 when the .NET 10 runtime is unavailable. The SDK includes its corresponding ASP.NET Core runtime; check for a released `Microsoft.AspNetCore.App 10.x` or `11.x` with `dotnet --list-runtimes`. If you cloned TinyShop before [.NET 11 support](https://github.com/jamesmontemagno/workshop-tinyshop/pull/2) was merged, update your copy of `main`.
 
 ## Visual Studio 2026 setup
 

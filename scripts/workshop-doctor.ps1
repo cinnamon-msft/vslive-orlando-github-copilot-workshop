@@ -57,7 +57,7 @@ function Get-LabState {
 
 Write-Output 'GitHub Copilot workshop doctor'
 Write-Output 'This report checks local tooling and sends one small Auto-model prompt to validate Copilot CLI sign-in and connectivity.'
-Write-Output 'It checks Git, Node.js 22+, npm, Copilot CLI, Copilot CLI sign-in and connectivity, .NET SDK 10 or 11, the .NET 10 ASP.NET Core Runtime, GitHub Copilot app, VS Code or VS Code Insiders, and Visual Studio 2026.'
+Write-Output 'It checks Git, Node.js 22+, npm, Copilot CLI, Copilot CLI sign-in and connectivity, .NET SDK 10 or 11, the .NET 10 or 11 ASP.NET Core Runtime, GitHub Copilot app, VS Code or VS Code Insiders, and Visual Studio 2026.'
 Write-Output ''
 
 Start-Check 'Git'
@@ -110,16 +110,16 @@ if ($dotnetPath) {
     Write-Check '.NET SDK 10 or 11' 'Missing' 'Install the .NET 10 SDK from https://dotnet.microsoft.com/download/dotnet/10.0 or the .NET 11 SDK from https://dotnet.microsoft.com/download/dotnet/11.0.'
 }
 
-Start-Check '.NET 10 ASP.NET Core Runtime'
+Start-Check '.NET 10 or 11 ASP.NET Core Runtime'
 if ($dotnetPath) {
     $dotnetRuntimes = @(& dotnet --list-runtimes 2>$null)
-    if ($dotnetRuntimes -match '^Microsoft\.AspNetCore\.App 10\.') {
-        Write-Check '.NET 10 ASP.NET Core Runtime' 'Ready' 'The .NET 10 ASP.NET Core Runtime is installed.'
+    if ($dotnetRuntimes -match '^Microsoft\.AspNetCore\.App (10|11)\.\d+\.\d+(\s|$)') {
+        Write-Check '.NET 10 or 11 ASP.NET Core Runtime' 'Ready' 'A released .NET 10 or .NET 11 ASP.NET Core Runtime is installed.'
     } else {
-        Write-Check '.NET 10 ASP.NET Core Runtime' 'Missing' 'Install the .NET 10 ASP.NET Core Runtime from https://dotnet.microsoft.com/download/dotnet/10.0.'
+        Write-Check '.NET 10 or 11 ASP.NET Core Runtime' 'Missing' 'Install a released .NET 10 or .NET 11 ASP.NET Core Runtime from https://dotnet.microsoft.com/download/dotnet/.'
     }
 } else {
-    Write-Check '.NET 10 ASP.NET Core Runtime' 'Missing' 'Install the .NET 10 ASP.NET Core Runtime from https://dotnet.microsoft.com/download/dotnet/10.0.'
+    Write-Check '.NET 10 or 11 ASP.NET Core Runtime' 'Missing' 'Install a released .NET 10 or .NET 11 ASP.NET Core Runtime from https://dotnet.microsoft.com/download/dotnet/.'
 }
 
 Start-Check 'GitHub Copilot app'
@@ -223,7 +223,7 @@ Write-Output 'Lab readiness'
 $appLab = Get-LabState @('Git', 'Node.js', 'GitHub Copilot app')
 $cliLab = Get-LabState @('Git', 'Node.js', 'npm', 'Copilot CLI', 'Copilot CLI connectivity', 'VS Code or VS Code Insiders')
 $vscodeLab = Get-LabState @('Git', 'Node.js', 'npm', 'VS Code or VS Code Insiders')
-$visualStudioLab = Get-LabState @('Git', '.NET SDK 10 or 11', '.NET 10 ASP.NET Core Runtime', 'Visual Studio')
+$visualStudioLab = Get-LabState @('Git', '.NET SDK 10 or 11', '.NET 10 or 11 ASP.NET Core Runtime', 'Visual Studio')
 Write-Output "Copilot app: $appLab"
 Write-Output "Copilot CLI: $cliLab"
 Write-Output "VS Code: $vscodeLab (also verify VS Code 1.135+, the Copilot extension, and Local session sign-in)"

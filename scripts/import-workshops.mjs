@@ -392,7 +392,7 @@ if (sources['visual-studio']) {
       replacements: [
         [
           /To complete this workshop you will need Visual Studio 2026, the \.NET 10 SDK, and a GitHub account with access to GitHub Copilot\./,
-          'To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.\n\n> [!NOTE]\n> The TinyShop solution targets .NET 10. The .NET 11 SDK can build it, but running the framework-dependent app also requires the [.NET 10 ASP.NET Core Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/10.0). Check for `Microsoft.AspNetCore.App 10.x` with `dotnet --list-runtimes`.'
+          'To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.\n\n> [!NOTE]\n> The TinyShop starter on `main` targets .NET 10 and rolls forward to .NET 11 when the .NET 10 runtime is unavailable. The SDK includes its corresponding ASP.NET Core runtime; check for a released `Microsoft.AspNetCore.App 10.x` or `11.x` with `dotnet --list-runtimes`. If you cloned TinyShop before [.NET 11 support](https://github.com/jamesmontemagno/workshop-tinyshop/pull/2) was merged, update your copy of `main`.'
         ],
         [
           /- \*\*\.NET 10 SDK\*\* installed/,
