@@ -41,7 +41,7 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
    - We can continue to use suggestions OR we could open GitHub Copilot Chat and work with Agent mode:
      - Open GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
      - Switch to **Agent** mode.
-     - ![Switch to agent mode](./images/1-agent.png)]
+     - ![Switch to agent mode](./images/1-agent.png)
      - Attach the current document:
      - ![Attach document](./images/1-attach-document.png)
      - Ask the agent: `Can you implement the rest of the endpoints for the Product API and also implement the ProductService to call these new endpoints in the Store project?`
