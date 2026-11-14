@@ -6,6 +6,9 @@ Model Context Protocol (MCP) is an open protocol that standardizes how applicati
 
 In this part, you'll learn how to add MCP servers to Visual Studio and use them to get information about optimizing your application.
 
+> [!NOTE]
+> These steps use the MCP Server Manager and AI Customization window in Visual Studio 2026. See the [Visual Studio 2026 release notes](https://learn.microsoft.com/en-us/visualstudio/releases/2026/release-notes) for details about MCP server management and tool selection, including additional screenshots of the UI.
+
 ## Adding MCP Servers from the Gallery
 
 Visual Studio provides a gallery of pre-configured MCP servers that you can easily add to your project.
@@ -16,6 +19,10 @@ To install the GitHub MCP server:
    ![MCP Registries menu](./images/9-mcp-registries-menu.png)
 
 1. [ ] Select the **Browse** tab and search for `github.github`.
+
+   > [!TIP]
+   > Use `github.github` to target the GitHub MCP server's package identifier (`io.github.github/github-mcp-server`). Searching for just `GitHub` can return unrelated servers from the GitHub registry, making the server harder to find.
+
 1. [ ] Select the **GitHub** server published by **github**, then click **Install**.
 
    ![GitHub MCP server in the MCP Server Manager Browse tab](./images/9-add-mcp-server.png)
