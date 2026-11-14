@@ -19,7 +19,7 @@ command_version() {
 
 printf '%s\n' 'GitHub Copilot workshop doctor'
 printf '%s\n' 'This report checks local tooling and sends one small Auto-model prompt to validate Copilot CLI sign-in and connectivity.'
-printf '%s\n' 'It checks Git, Node.js 22+, npm, Copilot CLI, Copilot CLI sign-in and connectivity, .NET SDK 10, GitHub Copilot app, VS Code or VS Code Insiders, and Visual Studio 2026 availability.'
+printf '%s\n' 'It checks Git, Node.js 22+, npm, Copilot CLI, Copilot CLI sign-in and connectivity, .NET SDK 10 or 11, the .NET 10 ASP.NET Core Runtime, GitHub Copilot app, VS Code or VS Code Insiders, and Visual Studio 2026 availability.'
 printf '\n'
 
 start_check 'Git'
@@ -65,13 +65,22 @@ else
   check 'Copilot CLI' "$copilot_state" 'Install from https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli.'
 fi
 
-start_check '.NET SDK 10'
-if command -v dotnet >/dev/null 2>&1 && dotnet --list-sdks 2>/dev/null | grep -q '^10\.'; then
+start_check '.NET SDK 10 or 11'
+if command -v dotnet >/dev/null 2>&1 && dotnet --list-sdks 2>/dev/null | grep -Eq '^(10|11)\.'; then
   dotnet_state='READY'
-  check '.NET SDK 10' "$dotnet_state" 'A .NET 10 SDK is installed.'
+  check '.NET SDK 10 or 11' "$dotnet_state" 'A .NET 10 or .NET 11 SDK is installed.'
 else
   dotnet_state='MISSING'
-  check '.NET SDK 10' "$dotnet_state" 'Install the .NET 10 SDK from https://dotnet.microsoft.com/download/dotnet/10.0.'
+  check '.NET SDK 10 or 11' "$dotnet_state" 'Install the .NET 10 SDK from https://dotnet.microsoft.com/download/dotnet/10.0 or the .NET 11 SDK from https://dotnet.microsoft.com/download/dotnet/11.0.'
+fi
+
+start_check '.NET 10 ASP.NET Core Runtime'
+if command -v dotnet >/dev/null 2>&1 && dotnet --list-runtimes 2>/dev/null | grep -Eq '^Microsoft\.AspNetCore\.App 10\.'; then
+  aspnet_runtime_state='READY'
+  check '.NET 10 ASP.NET Core Runtime' "$aspnet_runtime_state" 'The .NET 10 ASP.NET Core Runtime is installed.'
+else
+  aspnet_runtime_state='MISSING'
+  check '.NET 10 ASP.NET Core Runtime' "$aspnet_runtime_state" 'Install the .NET 10 ASP.NET Core Runtime from https://dotnet.microsoft.com/download/dotnet/10.0.'
 fi
 
 start_check 'GitHub Copilot app'
