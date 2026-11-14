@@ -2,14 +2,17 @@
 title: "Workshop Setup"
 ---
 
-To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0), and a GitHub account with access to GitHub Copilot.
+To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.
+
+> [!NOTE]
+> The TinyShop starter on `main` targets .NET 10 and rolls forward to .NET 11 when the .NET 10 runtime is unavailable. The SDK includes its corresponding ASP.NET Core runtime; check for a released `Microsoft.AspNetCore.App 10.x` or `11.x` with `dotnet --list-runtimes`. If you cloned TinyShop before [.NET 11 support](https://github.com/jamesmontemagno/workshop-tinyshop/pull/2) was merged, update your copy of `main`.
 
 ## Prerequisites
 
 Before starting, ensure you have:
 
 - [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) with the GitHub Copilot extension installed
-- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed
+- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0) installed
 - **GitHub account** with one of the following:
   - [GitHub Copilot Free](https://github.com/features/copilot) - Free tier with limited usage
   - [GitHub Copilot Pro/Pro+/Max](https://github.com/features/copilot) - Full access
