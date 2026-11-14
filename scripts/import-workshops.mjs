@@ -390,6 +390,14 @@ if (sources['visual-studio']) {
     join(contentRoot, 'visual-studio'),
     {
       replacements: [
+        [
+          /To complete this workshop you will need Visual Studio 2026, the \.NET 10 SDK, and a GitHub account with access to GitHub Copilot\./,
+          'To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.\n\n> [!NOTE]\n> The TinyShop solution targets .NET 10. The .NET 11 SDK can build it, but running the framework-dependent app also requires the [.NET 10 ASP.NET Core Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/10.0). Check for `Microsoft.AspNetCore.App 10.x` with `dotnet --list-runtimes`.'
+        ],
+        [
+          /- \*\*\.NET 10 SDK\*\* installed/,
+          '- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0) installed'
+        ],
         [/\(\.\/images\/4-instructions\.png\)/g, '(./images/04-instructions.png)'],
         [/\(\.\/impags\//g, '(./images/'],
         [/agent mdoe/g, 'agent mode'],
