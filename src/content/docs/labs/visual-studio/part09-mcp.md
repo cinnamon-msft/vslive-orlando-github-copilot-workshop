@@ -10,21 +10,25 @@ In this part, you'll learn how to add MCP servers to Visual Studio and use them 
 
 Visual Studio provides a gallery of pre-configured MCP servers that you can easily add to your project.
 
-To see your existing tools and MCP servers installed:
-1. [ ] Open the Copilot Chat window by clicking on the GitHub Copilot icon and selecting **Open Chat Window** or press `Ctrl+\+C`.
-1. [ ] Click on the **Tools** icon at the bottom of the chat window to open the MCP server configuration.
+To install the GitHub MCP server:
+1. [ ] In Visual Studio, select **Extensions > MCP Registries...** to open the **MCP Server Manager**.
 
-   ![MCP Tools icon](./images/9-mcp-tools.png)
-1. Tools that are built in and from MCP servers will appear.
-1. Click the **+** icon to add a new MCP server and **Add from MCP Registry**.
-1. 
-   ![Add MCP server](./images/9-add-mcp-server.png)
-1. Specify the following
-1. **Search for GitHub**
-1. **Click Install** -> Trust and install Remote installation.
+   ![MCP Registries menu](./images/9-mcp-registries-menu.png)
+
+1. [ ] Select the **Browse** tab and search for `github.github`.
+1. [ ] Select the **GitHub** server published by **github**, then click **Install**.
+
+   ![GitHub MCP server in the MCP Server Manager Browse tab](./images/9-add-mcp-server.png)
+
+1. [ ] When prompted, trust and install the remote server.
 
    ![GitHub MCP server configuration](./images/9-github-mcp-server.png)
 
+To see your installed tools and authenticate the GitHub MCP server:
+1. [ ] Open the Copilot Chat window by clicking on the GitHub Copilot icon and selecting **Open Chat Window** or press `Ctrl+\+C`.
+1. [ ] Click on the **Tools** icon at the bottom of the chat window to see built-in tools and tools from installed MCP servers.
+
+   ![MCP Tools icon](./images/9-mcp-tools.png)
 
 1. The GitHub MCP requires authentication. From the **Tools** menu in the chat, expand **the Added GitHub MCP** with the ... and then select **Edit**:
 
@@ -34,14 +38,6 @@ To see your existing tools and MCP servers installed:
 You will see a **Authentication required** message. Click on it and click Authenticate. Afer this you will see that it is online and ready to use.
 
    ![Auth GitHub](./images/9-github-mcp-authentication.png)
-
-Visual Studio 2026 has a built in MCP gallery to help you easily install MCP server.:
-
-1. [ ] In Visual Studio 2026 go to **Extensions -> MCP Registries...** to open the MCP server management window.
- 
-   ![MCP Registries menu](./images/9-mcp-registries-menu.png)
-
-1. [ ] Browse through existing MCP servers in the gallery.
 
 > [!TIP]
 > MCP servers can provide access to documentation, APIs, and other services that can help Copilot give you more accurate and contextual responses.
