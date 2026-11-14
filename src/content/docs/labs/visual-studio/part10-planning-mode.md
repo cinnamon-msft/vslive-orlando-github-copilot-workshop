@@ -1,39 +1,30 @@
 ---
-title: "Part 10: Planning Mode in Agent"
+title: "Part 10: Planning with /plan"
 ---
 
-When working on complex features, it's helpful to plan before diving into implementation. GitHub Copilot's Planning Mode in Agent allows you to create a structured plan for implementing new features. This helps ensure you understand the full scope of changes needed before any code is generated.
+When working on complex features, it's helpful to plan before diving into implementation. In Visual Studio, use the `/plan` command in Copilot Chat to create a structured plan before any code is generated.
 
-In this part, you'll use Planning Mode to plan and implement a feature that allows users to navigate directly to a specific product's detail page.
+In this part, you'll use `/plan` to plan and implement a feature that allows users to navigate directly to a specific product's detail page.
 
-## Understanding Planning Mode
+## Using `/plan`
 
-Planning Mode is a feature in Agent that helps you:
-- Break down complex features into manageable steps
-- Understand all the files and changes required before implementation
-- Review and refine the plan before Copilot starts generating code
+Enter `/plan` in Copilot Chat followed by the task you want to plan. Copilot will help break down the work so you can review and refine the approach before implementation.
 
 ## Creating a Plan for Product Navigation
 
-Let's use Planning Mode to implement a feature that allows users to click on a product in the listing page and navigate to a dedicated product detail page.
+Let's use `/plan` to plan a feature that allows users to click on a product in the listing page and navigate to a dedicated product detail page.
 
 1. [ ] Open the Copilot Chat window if it's not already open.
 1. [ ] Create a new chat session.
-1. [ ] Switch to **Plan** mode.
-1. ![Plan mode](./images/5-plan.png)
-1. [ ] Ensure **Planning** is enabled in the tools, these can also be enabled in normal **Agent* mode.
-
-   ![Planning Mode enabled](./images/10-planning-mode.png)
-
-1. [ ] Enter the following prompt:
+1. [ ] Enter `/plan` followed by the following task:
 
    ```
-   Create a plan for the following: I want to add product navigation to the TinyShop application. When a user clicks on a product in the product listing page, they should be taken to a new product detail page that shows details. Ask me questions along the way.
+   /plan I want to add product navigation to the TinyShop application. When a user clicks on a product in the product listing page, they should be taken to a new product detail page that shows details. Ask me questions along the way.
    ```
 
    ![Questions](./images/10-questions.png)
 
-1. Answer any questiosn along the way.
+1. Answer any questions along the way.
 
 1. [ ] Review the plan that Copilot generates. It should include:
    - Creating a new `ProductDetail.razor` component
@@ -42,12 +33,7 @@ Let's use Planning Mode to implement a feature that allows users to click on a p
    - Adding any necessary CSS styling
    - Etc.
 
-Once a plan has been created, the plan can be reviewed, iterated upon or implemented with a click of the button. 
-
-![Implement](./images/10-implement.png)
-
-1. [ ] If the plan looks good, click **Implement Plan** to begin implementation.
-1. [ ] If you want to modify the plan, you can add additional instructions or ask Copilot to revise specific steps.
+Once a plan has been created, review it and ask Copilot to revise it or implement it in the chat.
 
 ## Reviewing and Refining the Plan
 
@@ -65,9 +51,8 @@ Update the plan to also ensure the product detail page handles cases where the p
 
 ## Implementing the Plan
 
-1. [ ] Once you're satisfied with the plan, click **Implement Plan**.
-1. [ ] Copilot will change to **Agent** mode, implement each step of the plan, creating and modifying files as needed.
-1. [ ] Watch teh status and eview the changes in the editor as they're made.
+1. [ ] Once you're satisfied with the plan, ask Copilot in the chat to implement it.
+1. [ ] Review the changes in the editor as they're made.
 1. ![Watch implementation](./images/10-watch-implementation.png)
 1. [ ] Run the application to test the new product navigation feature.
 
@@ -79,7 +64,7 @@ Update the plan to also ensure the product detail page handles cases where the p
 1. [ ] Verify that you're taken to the product detail page with the correct information.
 1. [ ] Click the "Back to Products" button to return to the listing.
 
-**Key Takeaway**: Planning Mode helps you think through complex features before implementation. By creating a structured plan, you can ensure all necessary changes are considered and review the approach before any code is generated. This leads to better-organized code and fewer iterations.
+**Key Takeaway**: Use `/plan` to think through complex features before implementation. Reviewing and refining the plan helps ensure all necessary changes are considered before code is generated, leading to better-organized code and fewer iterations.
 
 ---
 
