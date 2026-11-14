@@ -67,13 +67,17 @@ The GitHub MCP server allows Copilot to interact with your GitHub repository. Le
 > [!NOTE]
 > This exercise requires write access to the repository. Fork `workshop-tinyshop` before continuing. If you are using a direct clone because your account cannot fork, skip issue creation and ask Copilot to draft the issues instead.
 
-1. [ ] Ensure that the GitHub MCP server is selected as an active tool in Copilot Chat and that the tools are enabled for .
+1. [ ] Open **AI Customization**, select **MCP Servers**, and select the GitHub MCP server (shown as **io.github.github/github-mcp-server**).
+1. [ ] Open the **Tools** tab and enable **Create or update issue/pull request**. You can use **Filter tools** to find it instead of enabling every GitHub tool.
+
+   ![GitHub MCP server Tools tab in AI Customization with Create or update issue/pull request enabled](./images/9-create-issue-enabled.png)
+
+1. [ ] Click **Close** to return to Copilot Chat.
 1. [ ] In the same chat session, type: `Based on the asset optimization recommendations, create 3 GitHub issues for improving the TinyShop application's performance.`
 
    > NOTE:
    > Copilot will use the GitHub MCP server to create the issues directly in your repository. You may be prompted to authorize the action.
 
-1. ![create issue enabled](./images/9-create-issue-enabled.png)
 1. [ ] Review the issues that Copilot proposes to create.
 1. [ ] Approve the creation of the issues when prompted.
 1. [ ] Navigate to your GitHub repository to verify that the issues have been created.
