@@ -16,11 +16,11 @@ Define your own specialized workflows with custom agents, beyond generic coding 
 
 1. New Chat, pick *Quiz Master* as custom agent
 2. `Update questions to …` or just `Update quiz`
-3. Check the prompt and `handoffs` frontmatter in `.github/agents/quiz-master.agent.md`
-4. Review the generated questions, then select **Polish this quiz theme**. Because the handoff uses `send: false`, inspect or edit the pre-filled prompt before you approve and send it to *Pixel Jam*.
+3. Check the instructions in `.github/agents/quiz-master.agent.md`
+4. Review the generated questions, then start a new **Copilot** chat with *Pixel Jam*. Supply the approved theme, relevant file references, and any design decisions from Quiz Master, then send: *"Visually integrate this approved quiz theme without changing the questions or game behavior. Use the integrated browser to verify the result."*
 5. Review Pixel Jam's focused visual integration of the new theme and its browser verification.
 
-> ⏱️ **Handoff exercise (2 minutes):** This is a human-approved handoff: the conversation context moves to another specialist, but that specialist waits for you to send the prompt. In Part 4, the TDD orchestrator instead invokes Red, Green, and Refactor as autonomous subagents without approval between phases.
+> ⏱️ **Specialist transition exercise (2 minutes):** You review one specialist's work before briefing another. Context is not transferred automatically to the new chat; provide the decisions and files Pixel Jam needs. The template's **Polish this quiz theme** handoff button is Local-only and is not required for this Copilot workflow. In Part 4, the TDD orchestrator instead delegates work to subagents.
 
 **Theme Ideas:**
 
@@ -42,7 +42,7 @@ Define your own specialized workflows with custom agents, beyond generic coding 
 - Mystery Bingo: Guess who matches a trait and verify
 - Chaos Bingo: Surprising, absurd, unpredictable prompts
 
-✅ **Result:** Quiz Master creates engaging themed questions, then an approved handoff lets Pixel Jam visually integrate that specific theme.
+✅ **Result:** Quiz Master creates engaging themed questions, then your reviewed brief lets Pixel Jam visually integrate that specific theme.
 
 ---
 
@@ -51,5 +51,5 @@ Define your own specialized workflows with custom agents, beyond generic coding 
 You've learned how to:
 - Use custom agents for specialized workflows
 - Generate themed quiz questions
-- Review and trigger a scoped handoff between custom agents
-- Distinguish human-approved handoffs from autonomous subagent orchestration
+- Review a specialist's output and provide a scoped brief to another custom agent
+- Distinguish manual specialist transitions from autonomous subagent orchestration
