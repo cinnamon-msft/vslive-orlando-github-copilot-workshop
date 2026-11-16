@@ -55,7 +55,7 @@ Inspect what happened under the hood — did the hook fire? How did agents commu
 4. **Agent Flow Chart:** visualize the TDD → Red → Green → Refactor orchestration
 5. **Summary view:** review total tool calls and token usage
 
-The workspace enables debug logs for Local and Agent Host sessions. Logs can contain prompts, context, and tool details, so disable file logging after the exercise on sensitive projects.
+For Copilot sessions, the template enables Agent Host debug logs with `chat.agentHost.agentDebugLog.enabled`. Logs can contain prompts, context, and tool details, so disable logging after the exercise on sensitive projects.
 
 **Bonus:** Click the ✨ sparkle icon to attach debug events to a new chat, then ask: `/troubleshoot did the Stop hook fire during the TDD cycle?`
 
@@ -101,7 +101,7 @@ Combine MCP, custom workflows, and subagent isolation in an agent for powerful w
 
 ## Bonus: Keep Going
 
-- Fix selected UX review problems in a separate Local session
+- Fix selected UX review problems in a separate Copilot session
 - Add ability to have multiple question themes to pick from
 - Add social sharing to win state
 - Make a real iOS or full-stack app?

@@ -49,13 +49,13 @@ Enable Pages if you want to test and share your app live:
 
 ### Step 4: Review Trust and Approvals
 
-Before setup becomes autonomous:
+Before running setup:
 
-1. In Chat, select the **Local** session target and **Default Approvals**. Do not use **Bypass Approvals**, which approves every tool call.
-2. Open `.vscode/settings.json` and review the terminal allowlist. The workspace adds auto-approval only for its exact `npm run dev`, `lint`, `build`, and `test` scripts plus `npm test`; installation, `npx`, script arguments, and unrelated commands still require review.
-3. Apply least privilege: inspect each requested command and approve only the exact command for the shortest useful scope.
+1. In the editor's Chat view, select **Copilot** as the session target, choose **Agent**, and select **Manual permissions**. Avoid **Allow all** and **Autopilot** during setup because they skip approval prompts.
+2. Review `.vscode/settings.json` before trusting the workspace. Its terminal allowlist is not copied to Copilot's Agent Host; do not rely on it to configure approvals for this lab.
+3. Inspect each requested command and prefer **Allow Once**. If repeated commands need approval, use the narrowest session-scoped option offered.
 
-> A Git worktree can give parallel agent sessions separate checked-out files so their edits do not collide, but it does not restrict commands, network access, or access outside that working copy. Some Agent Host worktree sessions are fixed to Bypass Approvals, so use a regular Local folder session for this exercise. Learn more in [Approvals](https://code.visualstudio.com/docs/agents/run/approvals).
+> **Copilot** is the recommended harness and can work in your local folder or Codespace; selecting it does not move your files to the cloud. The **Local** harness is deprecated. Use the editor's current workspace for this exercise. Worktrees separate edits, not command or network access. Learn more in [Agent harnesses](https://code.visualstudio.com/docs/agents/run/agent-harnesses) and [Approvals](https://code.visualstudio.com/docs/agents/run/approvals).
 
 ### Step 5: Run the Setup Skill
 
@@ -65,11 +65,11 @@ In the Chat panel:
 /setup
 ```
 
-When the skill proposes `npm install`, inspect it and approve that exact command once. Let the agent determine the remaining installation steps without broadening approvals.
+When the skill proposes an installation command such as `npm install`, inspect it and approve that exact command once. Review subsequent requests without broadly enabling auto-approval.
 
-✅ **Success:** App is running and open in browser!
+✅ **Success:** Dependencies are installed, lint/build/tests pass, and the development server stays running with the app open in the integrated browser.
 
-Keep this `workshop/` guide open (📌 Pin).
+Keep this workshop guide open (📌 Pin).
 
 ---
 
@@ -83,15 +83,15 @@ Instructions guide all agentic codebase interactions, making them more efficient
 
 **Steps:**
 
-1. Run prompt: `/init` with Autopilot enabled
+1. Run prompt: `/init` with **Manual permissions**
    - Based on the repo's existing conventions, `/init` may generate or update `.github/copilot-instructions.md` or a root `AGENTS.md`.
    - While agent analyzes the codebase, optionally start next task
 2. Open a new chat for the next task, as init can take a while and we can review later.
-3. Review results — is it not too long and overly detailed
+3. Review results — verify commands and conventions against the repo, and keep the instructions concise
    1. Optional follow-up: *"Compress down and add a mandatory development [ ] checklist (lint, build, test) to the top"*
 4. Apply and commit
 
-> A root-level `AGENTS.md` is a portable option when several AI coding tools share the repo. Use one root file here; nested `AGENTS.md` behavior is experimental and outside this lab.
+> A root-level `AGENTS.md` is a portable option when several AI coding tools share the repo. Use one root file here; nested instructions are outside this lab.
 
 ✅ **Result:** All future requests will have a basic map of the workspace.
 
@@ -101,9 +101,12 @@ Instructions guide all agentic codebase interactions, making them more efficient
 
 **Steps:**
 
-1. Prompt: *"Test the app like a critical dogfooder, giving critical feedback on how fun it is"*
+1. Prompt: *"Use the integrated browser to play a complete round of the app like a critical dogfooder. Report usability problems and how fun it is, without changing code."*
 2. Watch how the agent launches the built-in browser, interacts with the app, and writes a report
 3. `/create-skill` *for dogfooding* — or: *"Save this as a dogfooding skill"*
+4. Review the saved skill, then invoke it in a new Copilot chat to try the workflow again
+
+> If you opened the integrated browser tab yourself, use **Share with Agent** in its toolbar to grant the agent access.
 
 ✅ **Result:** The agent used the browser to actually play the app and produced a critical report. You then saved that testing approach as a reusable dogfooding skill.
 
@@ -111,19 +114,19 @@ Instructions guide all agentic codebase interactions, making them more efficient
 
 ---
 
-### Task 3: Customization Modal
+### Task 3: Customization Tour
 
 Tour the repo customizations to understand how context engineering works in practice.
 
 **Steps:**
 
-1. Open the Customization panel, Command: `Chat: Open Customizations (Preview)`
+1. Open the Customization panel, Command: `Chat: Open Customizations`
 2. Browse the repo customizations — instructions, skills, and agents
-3. Look at the **frontend design skill** and **Tailwind 4 instructions**
+3. Confirm the **frontend design skill** and **Tailwind 4 instructions** are discovered for the Copilot harness
 
 > 💡 **Think about:** What conventions or patterns from your own projects could become instructions or skills?
 
-> 🔒 **Exclusion note:** The root `.copilotignore` contains supplemental patterns for environment files, private keys, and generated output on accounts where VS Code enables this feature. It deliberately does not exclude the workshop or source code, and it is not a security boundary. Organization-managed [content exclusion](https://docs.github.com/en/copilot/concepts/context/content-exclusion) requires Copilot Business or Enterprise administration and currently does not cover IDE Edit/Agent modes or Copilot CLI.
+> 🔒 **Exclusion note:** Do not rely on `.copilotignore` or agent instructions to protect secrets or restrict tool access. Review [content exclusion support and limitations](https://docs.github.com/en/copilot/concepts/context/content-exclusion) for your environment; ignore files are not a security boundary.
 
 ---
 

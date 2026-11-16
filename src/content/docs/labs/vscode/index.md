@@ -2,7 +2,7 @@
 title: "🎮 VS Code GitHub Copilot Agent Lab"
 ---
 
-- [ ] VS Code **v1.135 or later**
+- [ ] Latest stable VS Code release
 
 > **Level:** Intermediate
 > **Stack:** TypeScript / Vite / Tailwind CSS
@@ -13,11 +13,11 @@ Welcome to **Bingo Mixer** — a hands-on workshop where you'll transform a soci
 
 ## 📋 Quick Checklist
 
-- [ ] VS Code **v1.135 or later**
+- [ ] Latest stable VS Code release
   - [ ] Make sure updates are not disabled
 - [ ] Signed in to GitHub with Copilot access
 - [ ] Git & Node installed
-- [ ] Chat open with **Local** selected as the session target
+- [ ] Chat open with **Copilot** selected as the session target, **Agent**, and **Manual permissions**
 
 *Optional*: Use DevContainer or WSL.
 

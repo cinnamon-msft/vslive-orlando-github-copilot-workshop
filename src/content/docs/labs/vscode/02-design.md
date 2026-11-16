@@ -21,8 +21,8 @@ Start larger work in Plan mode. Copilot will inspect the current app and its fro
 3. Review the proposed experience, affected areas, and validation approach
 4. Iterate on the plan at least twice with concrete tweaks and clarifications; Copilot will revise it without implementing yet
 5. When the plan is ready, choose:
-   - **Start with Autopilot (preferred):** let Copilot implement and validate the plan autonomously
-   - **Start Implementation:** begin the implementation with the standard approval flow
+   - **Start Implementation (recommended):** begin implementation with **Manual permissions**
+   - **Start with Autopilot (optional):** let Copilot implement and validate autonomously; this skips approval prompts
    - **Open in Editor:** edit or save the plan before implementation
 6. Review the running app and the agent's validation before accepting the changes
 
@@ -60,7 +60,7 @@ Start larger work in Plan mode. Copilot will inspect the current app and its fro
 
 ✅ **Result:** Frontend and Tailwind instructions are used to build a beautiful design.
 
-> ⏱️ **Context checkpoint (1 minute):** After this substantial design conversation, run `/compact` if it appears in the slash-command menu for your Copilot session target or Copilot CLI. Review the summary before continuing. If your Local session does not list it, skip this step. Compaction preserves key decisions while freeing context for the next phase—context engineering applied to the conversation itself.
+> ⏱️ **Context checkpoint (1 minute):** After this substantial design conversation, run `/compact` if it appears in your Copilot chat's slash-command menu; otherwise, skip this step. Review the summary before continuing. Compaction preserves key decisions while freeing context for the next phase—context engineering applied to the conversation itself.
 
 ---
 
