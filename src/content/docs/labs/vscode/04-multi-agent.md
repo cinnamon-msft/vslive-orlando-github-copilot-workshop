@@ -25,7 +25,7 @@ title: "Part 4: Multi-Agent Development"
 
 Use the TDD agent to add a "Four Corners" bingo pattern. The workspace stop hook you set up will enforce test discipline — every agent must leave tests passing before it hands back control.
 
-Unlike the reviewed handoff in Part 3, the TDD agent's `agents` list lets it invoke Red, Green, and Refactor autonomously as subagents.
+Unlike the manual specialist transition in Part 3, the TDD agent's `agents` list lets it invoke Red, Green, and Refactor autonomously as subagents.
 
 **Steps:**
 
