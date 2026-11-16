@@ -9,9 +9,9 @@ In this part, you'll create a reusable prompt file for generating unit tests and
 ## Understanding Prompt Files
 
 Prompt files are markdown files stored in the `.github/prompts` folder of your repository. They:
-- Can be invoked by name in Copilot Chat
+- Can be added to Copilot Chat by name
 - Are shared with your entire team through source control
-- Can include placeholders for dynamic content
+- Can be combined with task-specific context in chat
 - Help standardize common development tasks
 
 ## Exploring the Test Project
@@ -32,7 +32,6 @@ Now let's create a prompt file that helps generate additional unit tests using M
 
    ```markdown
    ---
-   mode: agent
    description: Generate comprehensive unit tests using MSTest
    ---
 
@@ -56,9 +55,6 @@ Now let's create a prompt file that helps generate additional unit tests using M
    2. Include a brief comment explaining the test purpose
    3. Use proper assertions with meaningful failure messages
 
-   ## Context
-
-   Generate tests for: ${input:Describe what you want to test}
    ```
 
 1. [ ] Save the file.
@@ -67,11 +63,13 @@ Now let's create a prompt file that helps generate additional unit tests using M
 
 Now let's use our new prompt file to generate additional unit tests for the Product class.
 
-1. [ ] In Copilot Chat, type `/` to see available prompt files.
-1. [ ] Select `unit-test` from the list of available prompts.
-1. [ ] When prompted for input, type: `the Product class in DataEntities, including tests for setting and getting each property, and tests using DataRow for multiple values`
+1. [ ] In Copilot Chat, switch to **Agent** mode.
+1. [ ] Type `#prompt:` and select `unit-test` from the available prompt files. You can also use the **+** button to add the prompt file as context.
+1. [ ] Add the task `Generate tests for the Product class in DataEntities, including tests for setting and getting each property and tests using DataRow for multiple values`, then submit it.
 
-   ![Using a prompt file](./images/11-prompt-file.png)
+   This example shows a prompt file in an earlier chat interface:
+
+   ![Example prompt file selection](./images/11-prompt-file.png)
 
 1. [ ] Review the generated tests. They should include:
    - Tests for each property (Name, Description, Price, ImageUrl)
@@ -148,7 +146,7 @@ When should a team create a prompt file instead of adding more content to `copil
 <details>
 <summary>Check your answer</summary>
 
-`copilot-instructions.md` should contain durable project guidance that applies to every request. Prompt files are invoked on demand, can target a particular mode, and can accept inputs, making them better for repeatable workflows such as generating tests or scaffolding an endpoint. Keeping task-specific procedures in prompt files prevents the always-on instructions from becoming noisy.
+`copilot-instructions.md` should contain durable project guidance. Prompt files are added on demand and can be combined with task-specific context, making them better for repeatable workflows such as generating tests or scaffolding an endpoint. Keeping task-specific procedures in prompt files prevents the project instructions from becoming noisy.
 
 **Go deeper:** [Add repository instructions and prompt files](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide).
 

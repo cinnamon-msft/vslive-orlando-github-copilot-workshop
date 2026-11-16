@@ -53,7 +53,9 @@ event-specific curriculum additions.
 
 The pinned repositories and commits for all four tracks are recorded in `workshops.sources.json`.
 The Copilot app lessons adapt the pinned `github-samples/copilot-workshops` source and include
-event-specific guided-tour overlays in `scripts/workshop-overlays/copilot-app/`.
+event-specific guided-tour overlays in `scripts/workshop-overlays/copilot-app/`. The Visual Studio
+index and setup pages use templates in `scripts/templates/`; update the template and published page
+together.
 
 ```console
 npm run import:workshops -- --tracks copilot-app,vscode

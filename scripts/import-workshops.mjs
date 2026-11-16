@@ -389,23 +389,21 @@ if (sources['visual-studio']) {
     join(sources['visual-studio'], 'lab'),
     join(contentRoot, 'visual-studio'),
     {
+      exclude: ['part02-enhancing-ui.md', 'setup.md'],
       replacements: [
         [
-          /To complete this workshop you will need Visual Studio 2026, the \.NET 10 SDK, and a GitHub account with access to GitHub Copilot\./,
-          'To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.\n\n> [!NOTE]\n> The TinyShop starter on `main` targets .NET 10 and rolls forward to .NET 11 when the .NET 10 runtime is unavailable. The SDK includes its corresponding ASP.NET Core runtime; check for a released `Microsoft.AspNetCore.App 10.x` or `11.x` with `dotnet --list-runtimes`. If you cloned TinyShop before [.NET 11 support](https://github.com/jamesmontemagno/workshop-tinyshop/pull/2) was merged, update your copy of `main`.'
+          /\[Next: Part 02 - Enhancing UI with Inline Chat\]\(\.\.\/part02-enhancing-ui\/\)/g,
+          '[Next: Part 03 - Referencing Code Files in Chat](../part03-referencing-files/)'
         ],
         [
-          /- \*\*\.NET 10 SDK\*\* installed/,
-          '- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0) installed'
+          /\[Back: Part 02 - Enhancing UI with Inline Chat\]\(\.\.\/part02-enhancing-ui\/\)/g,
+          '[Back: Part 01 - Code Completion with Ghost Text](../part01-code-completion/)'
         ],
+        [/You've completed all 13 parts of the workshop!/g, "You've completed the Visual Studio workshop!"],
         [/\(\.\/images\/4-instructions\.png\)/g, '(./images/04-instructions.png)'],
         [/\(\.\/impags\//g, '(./images/'],
         [/agent mdoe/g, 'agent mode'],
         [/Add from MCP MCP/g, 'Add from MCP Registry'],
-        [
-          /> \[!NOTE\]\n> For the hands-on lab exercises that create or modify repository data via cloud agents \(Part 12\), you'll need to fork the lab repo into your own account\. This gives the cloud agent permissions to operate on your fork\./,
-          'Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.'
-        ],
         [
           /the \*\*eshop\.png\*\* image found in the root of the cloned repository/,
           '`eshop.png` from the root of your cloned TinyShop repository'
@@ -420,21 +418,6 @@ if (sources['visual-studio']) {
 
    When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions
    \`\`\``
-        ],
-        [
-          /## Clone Lab Repository[\s\S]*?The code is now opened in Visual Studio\. Feel free to take a look at it or skip to the next section to start the app\./,
-          `## Clone and open the lab solution
-
-Clone the dedicated TinyShop repository:
-
-\`\`\`powershell
-git clone https://github.com/jamesmontemagno/workshop-tinyshop.git
-cd workshop-tinyshop
-start src\\TinyShop.sln
-\`\`\`
-
-1. [ ] In Visual Studio, select **File -> Open -> Project/Solution** if the solution did not open automatically.
-2. [ ] Open \`src/TinyShop.sln\`.`
         ]
       ]
     }
@@ -447,6 +430,10 @@ start src\\TinyShop.sln
   cpSync(
     join(root, 'scripts', 'templates', 'visual-studio-index.md'),
     join(contentRoot, 'visual-studio', 'index.md')
+  );
+  cpSync(
+    join(root, 'scripts', 'templates', 'visual-studio-setup.md'),
+    join(contentRoot, 'visual-studio', 'setup.md')
   );
 }
 

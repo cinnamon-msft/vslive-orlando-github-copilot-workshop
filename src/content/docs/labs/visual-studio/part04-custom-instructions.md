@@ -9,7 +9,7 @@ Before we begin larger updates to the site with the help of Copilot, we want to 
 Copilot instructions is a markdown file placed in your **.github** folder. It becomes part of your project, and in turn is available to all contributors to your codebase. You can use this file to indicate various coding standards you wish to follow, the technologies your project uses, or anything else important for Copilot Chat to understand when generating suggestions.
 
 > [!IMPORTANT]
-> The *copilot-instructions.md* file is included in **every** call to GitHub Copilot Chat, and will be part of the context sent to Copilot. Because there is always a limited set of tokens an LLM can operate on, a large Copilot instructions file can obscure relevant information. As such, you should limit your Copilot instructions file to project-wide information, providing an overview of what you're building and how you're building it. If you need to provide more specific information for particular tasks, you can create [prompt files](https://docs.github.com/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode#about-prompt-files).
+> Repository instructions provide project-wide context to Copilot Chat when custom instructions are enabled. Keep the file concise: a large instructions file can obscure relevant information. For task-specific workflows, use [prompt files](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=visualstudio).
 
 ## Choose project-wide guidance
 
@@ -26,6 +26,8 @@ Here are some guidelines to consider when creating a Copilot instructions file:
 ## Create a Copilot instructions file
 
 1. [ ] In the repository root, open `.github/copilot-instructions.md`. If the file does not exist, create the `.github` folder and the `copilot-instructions.md` file inside it.
+
+1. [ ] In **Tools -> Options -> GitHub -> Copilot -> Copilot Chat**, ensure that loading custom instructions from `.github/copilot-instructions.md` is enabled.
 
 1. [ ] Add project-specific information about your application and save the file:
 
@@ -46,8 +48,7 @@ Here are some guidelines to consider when creating a Copilot instructions file:
 
    ![New chat](./images/5-new-edits.png)
 
-1. [ ] Go back to Copilot Chat and re-run the prompt from Part 03, you can do this by pressing the up key. or
-1. [ ] Ask: `How would I implement getting and visualizing the products in a table using the code in #ProductService and the css required.`
+1. [ ] Ask the Part 03 question again: `How would I implement getting and visualizing the products in a table using the code in #ProductService and the CSS required?`
 1. [ ] Review the code suggestion but don't implement it yet.
 1. [ ] Notice how the responses now incorporate your custom instructions.
 

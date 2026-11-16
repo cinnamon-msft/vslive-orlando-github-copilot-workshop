@@ -22,6 +22,10 @@ Let's use `/plan` to plan a feature that allows users to click on a product in t
    /plan I want to add product navigation to the TinyShop application. When a user clicks on a product in the product listing page, they should be taken to a new product detail page that shows details. Ask me questions along the way.
    ```
 
+   If `/plan` is unavailable in your Visual Studio version, use **Ask** mode and request a plan without code changes. Review it before switching to **Agent** mode for implementation.
+
+   ![Example planning question](./images/10-questions.png)
+
 1. Answer any questions along the way.
 
 1. [ ] Review the plan that Copilot generates. It should include:
@@ -51,6 +55,9 @@ Update the plan to also ensure the product detail page handles cases where the p
 
 1. [ ] Once you're satisfied with the plan, ask Copilot in the chat to implement it.
 1. [ ] Review the changes in the editor as they're made.
+
+   ![Example implementation progress](./images/10-watch-implementation.png)
+
 1. [ ] Run the application to test the new product navigation feature.
 
 ## Testing the Feature

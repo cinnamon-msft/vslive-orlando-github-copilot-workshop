@@ -32,19 +32,19 @@ To install the GitHub MCP server:
    ![GitHub MCP server configuration](./images/9-github-mcp-server.png)
 
 To see your installed tools and authenticate the GitHub MCP server:
-1. [ ] Open the Copilot Chat window by clicking on the GitHub Copilot icon and selecting **Open Chat Window** or press `Ctrl+\+C`.
+1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat**.
 1. [ ] Click on the **Tools** icon at the bottom of the chat window to see built-in tools and tools from installed MCP servers.
 
    ![MCP Tools icon](./images/9-mcp-tools.png)
 
-1. The GitHub MCP requires authentication. In the **Tools** menu, open the options for the added GitHub MCP server and select **Edit**:
+1. [ ] The GitHub MCP requires authentication. In the **Tools** menu, open the options for the added GitHub MCP server and select **Edit**:
 
    ![GitHub MCP authentication](./images/9-auth-github.png)
 
 
-You will see a **Authentication required** message. Click on it and click Authenticate. Afer this you will see that it is online and ready to use.
+1. [ ] In the configuration file, select **Authentication Required**, then **Authenticate**, and complete the GitHub sign-in. Confirm that the server is online. If the authentication link is missing, enable CodeLens under **Tools -> Options -> Text Editor -> CodeLens**.
 
-   ![Auth GitHub](./images/9-github-mcp-authentication.png)
+   ![GitHub MCP server online in its configuration file](./images/9-github-mcp-authentication.png)
 
 > [!TIP]
 > MCP servers can provide access to documentation, APIs, and other services that can help Copilot give you more accurate and contextual responses.
@@ -53,13 +53,15 @@ You will see a **Authentication required** message. Click on it and click Authen
 
 ## Using MCP Servers to Get Information
 
-Visual Studio includes the Microsoft Learn MCP server; only the GitHub server needed to be installed in the previous steps. Enable Microsoft Learn tools to get current guidance about optimizing asset loading in the application.
+Use the Microsoft Learn MCP server to get current guidance about optimizing asset loading in the application.
 
 1. [ ] In Copilot Chat, switch to **Agent** mode.
-1. [ ] Open **AI Customization**, select **MCP Servers > Microsoft Learn**, and open the **Tools** tab.
-1. [ ] Click **Select all** to make all Microsoft Learn tools available to agents.
+1. [ ] Open **AI Customization** and select **MCP Servers**. If Microsoft Learn is not listed, choose **Add custom MCP server** from the chat's **Tools** menu and add an HTTP server named `Microsoft Learn` with the URL `https://learn.microsoft.com/api/mcp`. See [Microsoft Learn MCP Server](https://learn.microsoft.com/en-us/training/support/mcp) and [Visual Studio MCP setup](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=visualstudio).
+1. [ ] Select **Microsoft Learn** and open the **Tools** tab. Enable the documentation search and fetch tools.
 
-   ![Microsoft Learn MCP server Tools tab in AI Customization with Select all highlighted](./images/9-select-mcp-server.png)
+   This example shows the tools tab; enable only the tools needed for the exercise:
+
+   ![Microsoft Learn tools in AI Customization](./images/9-select-mcp-server.png)
 
 1. [ ] Click **Close** to return to Copilot Chat.
 1. [ ] Type the following prompt: `Using the Microsoft Learn docs mcp, what are the best practices for optimizing image loading and asset delivery in a Blazor Server application?`
@@ -72,7 +74,7 @@ Visual Studio includes the Microsoft Learn MCP server; only the GitHub server ne
 The GitHub MCP server allows Copilot to interact with your GitHub repository. Let's use it to create issues for improvements we want to make to the application.
 
 > [!NOTE]
-> This exercise requires write access to the repository. Fork `workshop-tinyshop` before continuing. If you are using a direct clone because your account cannot fork, skip issue creation and ask Copilot to draft the issues instead.
+> This exercise requires write access to the repository. Fork `workshop-tinyshop` and point `origin` at your fork as described in setup. If your account cannot fork, skip issue creation and ask Copilot to draft the issues instead.
 
 1. [ ] Open **AI Customization**, select **MCP Servers**, and select the GitHub MCP server (shown as **io.github.github/github-mcp-server**).
 1. [ ] Open the **Tools** tab and enable **Create or update issue/pull request**. You can use **Filter tools** to find it instead of enabling every GitHub tool.
@@ -80,14 +82,14 @@ The GitHub MCP server allows Copilot to interact with your GitHub repository. Le
    ![GitHub MCP server Tools tab in AI Customization with Create or update issue/pull request enabled](./images/9-create-issue-enabled.png)
 
 1. [ ] Click **Close** to return to Copilot Chat.
-1. [ ] In the same chat session, type: `Based on the asset optimization recommendations, create 3 GitHub issues for improving the TinyShop application's performance.`
+1. [ ] In the same chat session, ask: `Based on the asset optimization recommendations, create 3 GitHub issues for improving TinyShop performance in YOUR-USERNAME/workshop-tinyshop.` Replace `YOUR-USERNAME` with your GitHub username.
 
    > NOTE:
    > Copilot will use the GitHub MCP server to create the issues directly in your repository. You may be prompted to authorize the action.
 
 1. [ ] Review the issues that Copilot proposes to create.
-1. [ ] Approve the creation of the issues when prompted.
-1. [ ] Navigate to your GitHub repository to verify that the issues have been created.
+1. [ ] Check that the proposed target is your fork, then approve creation when prompted.
+1. [ ] Navigate to your fork on GitHub to verify that the issues have been created.
 
 **Key Takeaway**: MCP servers extend GitHub Copilot's capabilities by connecting it to external services and documentation. This allows Copilot to provide more accurate, up-to-date information and perform actions like creating GitHub issues directly from the chat interface.
 

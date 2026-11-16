@@ -7,7 +7,6 @@
       'setup',
       'part00-exploring-codebase',
       'part01-code-completion',
-      'part02-enhancing-ui',
       'part03-referencing-files',
       'part04-custom-instructions',
       'part05-implementing-features',

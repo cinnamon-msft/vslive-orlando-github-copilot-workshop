@@ -34,12 +34,15 @@ Before delegating to the cloud, it's important to write a clear, detailed prompt
 ## Delegating to the Cloud
 
 > [!NOTE]
-> Cloud delegation creates a GitHub issue and pull request, so it requires a fork of `workshop-tinyshop` (or another repository where you have write access). If your account cannot fork, this feature is unavailable; run the dark-theme prompt in local Agent mode instead.
+> Cloud delegation creates a GitHub issue and pull request, so it requires a fork of `workshop-tinyshop` (or another repository where you have write access). Point `origin` at your fork as described in setup. If your account cannot fork or cloud delegation is unavailable under your plan or organization policy, run the dark-theme prompt in local Agent mode instead; skip the cloud-only steps and test your local changes.
+
+> [!IMPORTANT]
+> The cloud agent works from the remote repository, not your uncommitted local changes. If you want it to build on earlier exercises, commit and push those changes to your fork and select that branch as the task's base when available. Otherwise, it starts from the remote base branch.
 
 1. [ ] Open Copilot Chat and create a new chat
 1. Switch to **Cloud** agent.
 
-   ![Cloud agent](./images/12-cloud-agent.png)
+   ![Cloud selected in the agent picker](./images/12-cloud-agent.png)
 
 1. [ ] Enter a detailed prompt for the dark theme feature:
 
@@ -75,7 +78,7 @@ Before delegating to the cloud, it's important to write a clear, detailed prompt
 1. [ ] Click on the **Send** button (cloud icon) at the bottom of the chat window.
 
 1. The cloud agent will acknowledge the request and begin processing it.
-1. [ ] You will be prompted to confirm the delegation and create an issue. Click **Confirm** to proceed.
+1. [ ] Review the target repository and branch in the confirmation. Confirm only if the task targets your fork and the intended base.
 
    ![Confirm cloud](./images/12-confirm.png)
 
@@ -125,6 +128,6 @@ Local Agent mode works synchronously against your current development environmen
 
 ---
 
-🎉 **Congratulations!** You've completed all 13 parts of the workshop!
+🎉 **Congratulations!** You've completed the Visual Studio workshop!
 
 [Back: Part 11 - Reusable Prompt Files](../part11-reusable-prompts/) | [🎊 Complete Workshop!](complete.html)

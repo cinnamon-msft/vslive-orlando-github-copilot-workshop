@@ -39,11 +39,11 @@ You can also install it from the [Visual Studio Marketplace](https://marketplace
 1. [ ] Open your browser and go to `https://github.com`.
 1. [ ] Sign in with your GitHub account or create a new account if you don't have one.
 1. [ ] Open Visual Studio 2026.
-1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat** or select the GitHub Copilot badge in the upper-right corner of Visual Studio and choose **Open Chat Window**.
+1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat** or select the GitHub Copilot badge in the upper-right corner of Visual Studio and choose **Open Chat**.
 1. [ ] If prompted, sign in to GitHub in the browser and authorize Visual Studio and Copilot.
-1. [ ] When the browser shows the confirmation, click **Open** to return to Visual Studio and verify that Copilot Chat is available.
+1. [ ] If you signed in through the browser, return to Visual Studio when prompted. Verify that Copilot Chat is available.
 
-Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.
+Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts and point your local clone at your fork as described below. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.
 
 ## Open Copilot Chat
 
@@ -74,15 +74,26 @@ start src\TinyShop.sln
 1. [ ] In Visual Studio, select **File -> Open -> Project/Solution** if the solution did not open automatically.
 2. [ ] Open `src/TinyShop.sln`.
 
+For Parts 9 and 12, [fork the starter repository](https://github.com/jamesmontemagno/workshop-tinyshop/fork), then point the existing clone to your fork. Replace `YOUR-USERNAME` with your GitHub username:
+
+```powershell
+git remote set-url origin https://github.com/YOUR-USERNAME/workshop-tinyshop.git
+git remote -v
+```
+
+Confirm that `origin` points to your fork before creating issues or delegating cloud work. If you skip the fork, keep the original remote and follow the local alternatives in those lessons.
+
 ## Start the App
 
 1. [ ] Open the **Solution Explorer** from the **View -> Solution Explorer** menu.
 1. [ ] Set the **TinyShop.AppHost** as the startup project if it isn't already by right-clicking on **TinyShop.AppHost** and selecting **Set as Startup Project**. Start the project with F5 or **Debug -> Start Debugging** from the menu.
 
-    The [Aspire](https://aspire.dev) AppHost will start two applications and the  Aspire Dashboard:
+    The [Aspire](https://aspire.dev) AppHost will start two applications and the Aspire Dashboard:
 
-    - The backend .NET app on **https://localhost:7130/api/Product**
-    - The frontend Blazor app on **https://localhost:7085** - You can see the app by opening that URL from the dashboard
+    - The **products** backend API
+    - The **store** Blazor frontend
+
+    Open each application's endpoint from the dashboard. Ports can vary with the launch profile and environment.
 
 1. [ ] Stop debugging and close the application.
 

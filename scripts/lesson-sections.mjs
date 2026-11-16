@@ -33,17 +33,6 @@ export const lessonSections = {
       heading: 'Test the API'
     }
   ],
-  'visual-studio/part02-enhancing-ui.md': [
-    {
-      before:
-        '1. [ ] In the **Solution explorer** under the **Store** project open **Components/Pages/Products.razor**.',
-      heading: 'Update the loading state'
-    },
-    {
-      before: '1. [ ] Select **Tab** to accept the changes, and it should look similar to:',
-      heading: 'Review and run the change'
-    }
-  ],
   'visual-studio/part03-referencing-files.md': [
     {
       before: '1. [ ] Open the **Products.razor** again from the **Store** project.',

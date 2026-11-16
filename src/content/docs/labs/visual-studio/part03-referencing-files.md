@@ -7,7 +7,7 @@ In this section, you'll learn how to reference existing code files in your chat 
 ## Add the relevant files to context
 
 1. [ ] Open the **Products.razor** again from the **Store** project.
-1. [ ] Ensure that GitHub Copilot Chat is open by clicking on the Github Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
+1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat** if it isn't open.
 
    ![Open chat window dialog](./images/1-open-copilot-chat.png)
 
@@ -15,9 +15,9 @@ In this section, you'll learn how to reference existing code files in your chat 
 
    ![New chat](./images/5-new-edits.png)
 
-1. Change the mode to `Ask`
+1. [ ] Select **Ask** in the agent selector.
 
-	![Change to chat](./images/0-ask-mode.png)
+   ![Ask selected in the agent picker](./images/0-ask-mode.png)
 
 ## Ask a project-aware question
 
@@ -30,4 +30,4 @@ In this section, you'll learn how to reference existing code files in your chat 
 
 ---
 
-[Back: Part 02 - Enhancing UI with Inline Chat](../part02-enhancing-ui/) | [Next: Part 04 - Using Custom Instructions](../part04-custom-instructions/)
+[Back: Part 01 - Code Completion with Ghost Text](../part01-code-completion/) | [Next: Part 04 - Using Custom Instructions](../part04-custom-instructions/)
