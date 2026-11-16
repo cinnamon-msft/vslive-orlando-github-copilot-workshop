@@ -8,7 +8,7 @@ In this section, you'll learn how to use Copilot to debug an exception in your a
 
 1. [ ] Debug the **AppHost** project if it isn't yet, and open the **store** from the .NET Aspire dashboard.
 1. [ ] Click on the **Go to About** button in the navigation menu.
-1. [ ] Observe that an exception occurs, and the application crashes.
+1. [ ] Observe that an exception occurs and the debugger breaks.
 1. [ ] Press the **Analyze with Copilot** option in the pop up. This will open the **Debugger** agent.
 
     ![Pop up for exception with Analyze with Copilot option](./images/7-ask-copilot-exception.png)
@@ -22,7 +22,7 @@ In this section, you'll learn how to use Copilot to debug an exception in your a
 
 In this subsection, you'll learn how to use Copilot to analyze variables using watch windows and visualizers.
 
-1. [ ] Open the **Products.razor** file again from the **Products** project.
+1. [ ] Open the **Products.razor** file again from the **Store** project.
 1. [ ] Add a breakpoint at the end of the **OnInitializedAsync** method.
 1. [ ] Debug the **TinyShop.AppHost** and open the **store** from the .NET Aspire dashboard, and navigate to the **Products** page.
 1. [ ] When the breakpoint is hit, hover over the **imagePrefix** variable.

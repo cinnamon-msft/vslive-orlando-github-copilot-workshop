@@ -57,7 +57,7 @@ export default defineConfig({
             { label: 'Debugging', link: '/labs/visual-studio/part07-debugging-with-copilot/' },
             { label: 'Commit summaries', link: '/labs/visual-studio/part08-commit-summary-descriptions/' },
             { label: 'MCP servers', link: '/labs/visual-studio/part09-mcp/' },
-            { label: 'Planning mode', link: '/labs/visual-studio/part10-planning-mode/' },
+            { label: 'Planning with /plan', link: '/labs/visual-studio/part10-planning-mode/' },
             { label: 'Prompt files', link: '/labs/visual-studio/part11-reusable-prompts/' },
             { label: 'Delegate to cloud', link: '/labs/visual-studio/part12-delegate-to-cloud/' }
           ]

@@ -39,10 +39,10 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
    - DELETE to remove a product
 
    - We can continue to use suggestions OR we could open GitHub Copilot Chat and work with Agent mode:
-     - Open GitHub Copilot Chat in the top-right corner of Visual Studio and select **Open Chat Window** or press `Ctrl+\+C` if Copilot chat isn't open.
+     - Open Copilot Chat from **View -> GitHub Copilot Chat** if it isn't open.
      - Switch to **Agent** mode.
-     - ![Switch to agent mode](./images/1-agent.png)
-     - Attach the current document:
+     - ![Agent selected in the agent picker](./images/1-agent.png)
+     - Attach the current document using the **+** button:
      - ![Attach document](./images/1-attach-document.png)
      - Ask the agent: `Can you implement the rest of the endpoints for the Product API and also implement the ProductService to call these new endpoints in the Store project?`
 
@@ -183,7 +183,7 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
 ## Generate documentation
 
 1. [ ] Try using documentation generation:
-   - Type `///` above a method to generate XML documentation on the **MapProductEndpoints** this can also be brought up with `Alt+/` for inline and then entering **/** which will bring up a list of commands. The documentation generation will appear as ghost text and can be accepted with `Tab`.
+   - Type `///` above **MapProductEndpoints** to generate XML documentation. Review the ghost text and accept it with `Tab`.
 
    ![documentation generation by Copilot](./images/1-docs.png)
 
@@ -191,7 +191,7 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
 
 1. [ ] Test your implementation:
    - Run the AppHost project.
-   - Test your new endpoints by going to **https://localhost:7130/api/Product/1**
+   - Open the **products** endpoint from the Aspire Dashboard and append `/api/Product/1` to its URL.
 
 1. [ ] Stop debugging and close the application
 
