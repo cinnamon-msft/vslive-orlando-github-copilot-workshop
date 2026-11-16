@@ -2,7 +2,7 @@
 title: "Workshop Setup"
 ---
 
-To complete this workshop you will need [Visual Studio 2026](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.
+To complete this workshop you will need [Visual Studio 2026 version 18.12 or later](https://visualstudio.microsoft.com/vs/), the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), and a GitHub account with access to GitHub Copilot.
 
 > [!NOTE]
 > The TinyShop starter on `main` targets .NET 10 and rolls forward to .NET 11 when the .NET 10 runtime is unavailable. The SDK includes its corresponding ASP.NET Core runtime; check for a released `Microsoft.AspNetCore.App 10.x` or `11.x` with `dotnet --list-runtimes`. If you cloned TinyShop before [.NET 11 support](https://github.com/jamesmontemagno/workshop-tinyshop/pull/2) was merged, update your copy of `main`.
@@ -11,7 +11,7 @@ To complete this workshop you will need [Visual Studio 2026](https://visualstudi
 
 Before starting, ensure you have:
 
-- [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) with the GitHub Copilot extension installed
+- [Visual Studio 2026 version 18.12 or later](https://visualstudio.microsoft.com/vs/) with GitHub Copilot installed
 - [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or [.NET 11 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/11.0) installed
 - **GitHub account** with one of the following:
   - [GitHub Copilot Free](https://github.com/features/copilot) - Free tier with limited usage
@@ -21,38 +21,34 @@ Before starting, ensure you have:
 > [!TIP]
 > If you don't have GitHub Copilot yet, you can [sign up for Copilot Free](https://github.com/features/copilot) or start a [free trial of Copilot Pro](https://github.com/github-copilot/signup).
 
-## Install .github + MCP Extension
+## Optional: Install the .github + MCP Extension
 
-Before we begin, let's install the .github + MCP extension for Visual Studio. This extension provides access to GitHub MCP servers which we will use later in the lab.
+The lab uses Visual Studio's built-in MCP Server Manager and standard `.github` files, so this extension is not required. It adds Solution Explorer shortcuts for agent files and a Node.js runtime for local Node-based MCP servers; the MCP servers used in this lab are remote.
 
+To install it:
 1. [ ] Open Visual Studio 2026
 1. [ ] Go to **Extensions -> Manage Extensions**
 1. [ ] Search for **.github + MCP** in the search box
 1. [ ] Click **Install** on the **.github + MCP** extension by Mads Kristensen
 1. [ ] Restart Visual Studio if prompted
 
-> [!TIP]
-> You can also install this extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.GitHubNode). The .github + MCP extension is important because it provides the Node.js runtime required by some MCP servers, which you'll use in Part 9 of this lab.
+You can also install it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.GitHubNode).
 
 ## Sign in to GitHub Copilot
 
 1. [ ] Open your browser and go to `https://github.com`.
 1. [ ] Sign in with your GitHub account or create a new account if you don't have one.
 1. [ ] Open Visual Studio 2026.
-1. [ ] Select **Continue without code**. If prompted to sign-in, you can click Close.
-1. [ ] Click the Copilot icon on the top bar (left side next to the search input box).
-1. [ ] Click **Sign in to use Copilot**.
+1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat** or select the GitHub Copilot badge in the upper-right corner of Visual Studio and choose **Open Chat Window**.
+1. [ ] If prompted, sign in to GitHub and select **Authorize** in the browser.
 1. [ ] A browser window will open prompting you to sign in to GitHub and authorize Visual Studio and Copilot. Complete the sign-in and click **Authorize** when prompted.
-1. [ ] When the browser shows the confirmation, click **Open** to return to Visual Studio.
-1. [ ] After setup you should see the **GitHub Copilot Walkthrough** tab and the Copilot button should be green.
+1. [ ] When the browser shows the confirmation, click **Open** to return to Visual Studio and verify that Copilot Chat is available.
 
 Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.
 
-## Select the workshop model
+## Open Copilot Chat
 
-1. [ ] Open GitHub Copilot Chat.
-2. [ ] In the model picker at the bottom of the Chat pane, select **GPT-5.3 Codex** instead of **Auto**.
-3. [ ] If **GPT-5.3 Codex** is not listed, select **Auto** and let a facilitator know. Do not attempt to bypass your organization's model policy.
+Visual Studio 2026 version 18.12 and later uses the new Copilot Chat experience by default. Use **Auto** or another model available to your account and allowed by your organization; model availability changes over time.
 
 ## Turn on Copilot Settings
 
@@ -62,15 +58,6 @@ Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both n
    - Ensure **Copilot Next Edit Suggestions** is checked.
 
    ![](./images/0-enable-nes.png)
-
-1. [ ] Head to **Tools -> Options -> GitHub -> Copilot -> Copilot Chat** and ensure the following settings are enabled:
-   - **Enable Agent mode in chat pane**
-   - **Enable MCP server integration in agent mode**
-   - **Enable Planning**
-   - **Enable Ask Question**
-   - **Enable View Plan Execution**
-   - **Enable Cloud agent (Preview)**
-   - **Enable custom instructions**
 
 1. [ ] Head to **Tools -> Options -> GitHub -> Editor** and ensure the following settings are enabled:
    - **Enable AI generated description for auto-inserted documentation comments in support languages**

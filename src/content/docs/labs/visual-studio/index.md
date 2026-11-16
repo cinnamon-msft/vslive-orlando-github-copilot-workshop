@@ -3,7 +3,7 @@ title: "Lab 1 · Visual Studio 2026"
 description: "Use advanced GitHub Copilot features while completing the TinyShop solution."
 ---
 
-**90 minutes · Windows required · [Visual Studio 2026](https://visualstudio.microsoft.com/vs/) + .NET SDK 10 or 11**
+**90 minutes · Windows required · [Visual Studio 2026 version 18.12 or later](https://visualstudio.microsoft.com/vs/) + .NET SDK 10 or 11**
 
 Work through a partially completed TinyShop application with a .NET backend and Blazor frontend. You will use Copilot for code completion, inline chat, agentic implementation, vision, debugging, MCP, planning, reusable prompts, and cloud delegation.
 
