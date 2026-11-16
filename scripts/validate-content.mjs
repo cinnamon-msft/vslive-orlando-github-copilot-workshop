@@ -126,14 +126,15 @@ for (const script of ['workshop-doctor.ps1', 'workshop-doctor.sh']) {
   }
 }
 
-for (const path of [
-  'labs/copilot-app/1-install-copilot-app.md',
-  'labs/cli/01-setup.md',
-  'labs/visual-studio/setup.md'
-]) {
+const modelGuidance = new Map([
+  ['labs/copilot-app/1-install-copilot-app.md', /Copilot Fusion/],
+  ['labs/cli/01-setup.md', /GPT-5\.3[ -]Codex/],
+  ['labs/visual-studio/setup.md', /GPT-5\.3[ -]Codex/]
+]);
+for (const [path, guidancePattern] of modelGuidance) {
   const markdown = readFileSync(join(docsRoot, path), 'utf8');
-  if (!/GPT-5\.3[ -]Codex/.test(markdown)) {
-    errors.push(`Missing GPT-5.3 Codex workshop model guidance: ${path}`);
+  if (!guidancePattern.test(markdown)) {
+    errors.push(`Missing expected model guidance: ${path}`);
   }
 }
 

@@ -3,15 +3,15 @@ title: "Lesson 2 - Guided tour of the Copilot app"
 description: "Build and publish a space quiz, take an issue through review, create a weekly automation, and explore a Canvas extension."
 authors:
   - geektrainer
-lastUpdated: 2026-09-16
+lastUpdated: 2026-11-16
 ---
 
 You'll take a fast, end-to-end tour of the GitHub Copilot app using one project: a standalone space quiz. You'll create it in a new folder, watch it update in the integrated browser, publish it to GitHub, create a backlog, carry one idea through a pull request and code review, create and run a weekly issue-review automation, and install a Canvas extension to start work by moving a card on the canvas. The same repository will be the workspace for every later lesson in this lab.
 
 In this lesson, you will:
 
-- create a local project from the **New** tab.
-- use the **Auto** model in **Interactive** mode.
+- create a local project from **New**.
+- use **Copilot Fusion** in **Interactive** mode.
 - build and polish a small site in the integrated browser.
 - publish the project and create issues with the agent.
 - start an isolated session from an issue.
@@ -19,18 +19,19 @@ In this lesson, you will:
 - create and run a weekly issue-review automation.
 - install a Canvas extension and start work by moving a card on the canvas.
 
-## Start from the New tab
+## Start from New
 
 1. Open the GitHub Copilot app.
 2. Confirm you are signed in to GitHub. If the app shows **Sign in to GitHub**, select it and complete the browser flow.
-3. Select the **New** tab in the sidebar.
-4. In the project selector, choose **Local folder or repository**, then create or select an empty folder named `space-quiz`.
-5. Under the prompt box, set the session mode to **Interactive**. This turns off **Autopilot** so the agent pauses when it needs your input.
-6. In the model picker, select **GPT-5.3-Codex** if it is available. If it is not listed, select **Auto**.
-7. Confirm the workspace option is set to the local `space-quiz` folder.
+3. Select **New** in the sidebar.
+4. In the composer below the prompt box, select **This computer** and create or select an empty folder named `space-quiz`.
+5. Set the session mode to **Interactive**. This turns off **Autopilot** so the agent pauses when it needs your input.
+6. In the model picker, select **Copilot Fusion**. The picker may show the model with its **Standard** setting.
+7. Confirm the session is set to **Chat** and the workspace is the local `space-quiz` folder.
+8. After creating the project, find `space-quiz` under **Projects** in the sidebar. Select it to return to the project workspace later.
 
 > [!NOTE]
-> The model picker is separate from the session mode. For this tour, use **GPT-5.3-Codex** when available, with **Auto** as the fallback, and keep the session in **Interactive** mode.
+> The model and session mode are separate settings. For this tour, use **Copilot Fusion** with **Interactive** mode.
 
 ## Build the space quiz
 
@@ -94,6 +95,7 @@ Review and approve any confirmation the agent requests before it creates the rep
 
 > [!TIP]
 > You can add any of your own GitHub repositories as projects. Select the **+** next to **Sessions** in the sidebar, choose **GitHub repository**, then search for the repository you want to clone and connect.
+> Once the repository is connected, it is available under **Projects** in the sidebar alongside your local workspaces.
 
 ## Create a small backlog
 
@@ -105,17 +107,17 @@ Review the space quiz and suggest three focused feature ideas that could each be
 
 After the agent creates the issues:
 
-1. Select **My work** in the sidebar.
+1. Select **Issues** in the sidebar.
 2. Find the three new `space-quiz` issues.
 3. Open each issue and compare its scope and acceptance criteria.
 4. Choose one issue to implement.
 
 ## Start an isolated session from an issue
 
-1. Open your chosen issue in **My work**.
+1. Open your chosen issue in **Issues**.
 2. Select **New session**.
 3. Choose a **new worktree** when the app asks where the session should run. The app creates an isolated branch and working directory for this task.
-4. Set the session mode to **Interactive** and the model to **GPT-5.3-Codex** if available, or **Auto** as the fallback.
+4. Set the session mode to **Interactive** and the model to **Copilot Fusion**.
 5. Send this prompt:
 
    ```plaintext
@@ -156,7 +158,7 @@ Create an automation that reviews recently created issues on a weekly schedule:
    ```
 
 4. Set the session mode to **Autopilot**.
-5. Set the model to **Auto**.
+5. Set the model to **Copilot Fusion**.
 6. Select the new `space-quiz` project.
 7. Open the **Create** dropdown and choose **Create and run**.
 8. Confirm the automation starts and is saved to run weekly.
@@ -184,7 +186,7 @@ Canvas extensions package reusable surfaces that can be installed and opened in 
 
 You've completed a full tour of the GitHub Copilot app:
 
-- created a project from the New tab with GPT-5.3-Codex or the Auto fallback in Interactive mode.
+- created a project from **New** with **Copilot Fusion** in **Interactive** mode.
 - built and polished a site while watching changes in the integrated browser.
 - published a local folder as a GitHub repository.
 - created three issues and started an isolated worktree from one.

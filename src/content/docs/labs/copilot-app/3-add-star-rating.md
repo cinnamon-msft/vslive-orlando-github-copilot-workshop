@@ -18,7 +18,7 @@ In this lesson, you will:
 
 ## Choose an issue
 
-The guided tour created a small backlog of space quiz improvements. In **My work**, choose an open issue that is small enough to complete in one session. If you already implemented all three ideas, create a new issue for a modest improvement, such as adding a question category selector or a restart button. Keep this lesson focused on the session workflow rather than a particular feature.
+The guided tour created a small backlog of space quiz improvements. In **Issues**, choose an open issue that is small enough to complete in one session. If you already implemented all three ideas, create a new issue for a modest improvement, such as adding a question category selector or a restart button. Keep this lesson focused on the session workflow rather than a particular feature.
 
 ## Anatomy of a session
 
@@ -28,7 +28,7 @@ Inside a session you'll see three things: the **conversation** with the agent, t
 
 ## Start a session and request the change
 
-1. In **My work**, open the issue you chose.
+1. In **Issues**, open the issue you chose.
 2. Select **New session** in the upper right.
 3. Choose a **new worktree** when the app asks where the session should run.
 4. Confirm `space-quiz` is the selected repository and set the session mode to **Interactive**.
