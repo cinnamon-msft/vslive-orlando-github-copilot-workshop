@@ -131,6 +131,14 @@ const modelGuidance = new Map([
   ['labs/cli/01-setup.md', /GPT-5\.3[ -]Codex/],
   ['labs/visual-studio/setup.md', /Use \*\*Auto\*\* or another model available to your account and allowed by your organization/]
 ]);
+const visualStudioSetup = readFileSync(join(docsRoot, 'labs/visual-studio/setup.md'), 'utf8');
+const visualStudioSetupTemplate = readFileSync(
+  join(root, 'scripts/templates/visual-studio-setup.md'),
+  'utf8'
+);
+if (visualStudioSetup !== visualStudioSetupTemplate) {
+  errors.push('Visual Studio setup must match its workshop import template.');
+}
 for (const [path, guidancePattern] of modelGuidance) {
   const markdown = readFileSync(join(docsRoot, path), 'utf8');
   if (!guidancePattern.test(markdown)) {
