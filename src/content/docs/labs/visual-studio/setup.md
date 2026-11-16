@@ -23,7 +23,7 @@ Before starting, ensure you have:
 
 ## Optional: Install the .github + MCP Extension
 
-The lab uses Visual Studio's built-in MCP Server Manager and standard `.github` files, so this extension is not required. It adds Solution Explorer shortcuts for agent files and a Node.js runtime for local Node-based MCP servers; the MCP servers used in this lab are remote.
+This extension is optional. The lab uses Visual Studio's built-in MCP Server Manager, and the agent files in later lessons can be created manually under `.github`. You do not need the extension or a local Node.js MCP server to complete the exercises.
 
 To install it:
 1. [ ] Open Visual Studio 2026
@@ -40,8 +40,7 @@ You can also install it from the [Visual Studio Marketplace](https://marketplace
 1. [ ] Sign in with your GitHub account or create a new account if you don't have one.
 1. [ ] Open Visual Studio 2026.
 1. [ ] Open Copilot Chat from **View -> GitHub Copilot Chat** or select the GitHub Copilot badge in the upper-right corner of Visual Studio and choose **Open Chat Window**.
-1. [ ] If prompted, sign in to GitHub and select **Authorize** in the browser.
-1. [ ] A browser window will open prompting you to sign in to GitHub and authorize Visual Studio and Copilot. Complete the sign-in and click **Authorize** when prompted.
+1. [ ] If prompted, sign in to GitHub in the browser and authorize Visual Studio and Copilot.
 1. [ ] When the browser shows the confirmation, click **Open** to return to Visual Studio and verify that Copilot Chat is available.
 
 Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.

@@ -31,7 +31,7 @@ Open `src/TinyShop.sln` in [Visual Studio 2026](https://visualstudio.microsoft.c
 9. [Debug with Copilot](./part07-debugging-with-copilot/)
 10. [Create commit summaries](./part08-commit-summary-descriptions/)
 11. [Connect MCP servers](./part09-mcp/)
-12. [Plan with Agent mode](./part10-planning-mode/)
+12. [Plan with /plan](./part10-planning-mode/)
 13. [Create reusable prompt files](./part11-reusable-prompts/)
 14. [Delegate to the cloud](./part12-delegate-to-cloud/)
 
