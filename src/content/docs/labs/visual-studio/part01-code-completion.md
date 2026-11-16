@@ -197,4 +197,4 @@ In this section, you'll use GitHub Copilot's code completion to implement API en
 
 ---
 
-[Back: Part 00 - Exploring the Codebase with GitHub Copilot Chat](../part00-exploring-codebase/) | [Next: Part 03 - Referencing Code Files in Chat](../part03-referencing-files/)
+[Back: Part 00 - Exploring the Codebase with GitHub Copilot Chat](../part00-exploring-codebase/) | [Next: Part 02 - Referencing Code Files in Chat](../part03-referencing-files/)

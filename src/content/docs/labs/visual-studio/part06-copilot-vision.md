@@ -1,5 +1,5 @@
 ---
-title: "Part 06: Using Copilot Vision"
+title: "Part 05: Using Copilot Vision"
 ---
 
 In this section, you'll use Copilot Vision. You can share screenshots of errors and Copilot will interpret the image and resolve the issue. Or share mockups of new designs, and Vision will help you bring them to life. Let's update our design based on a photo our designer gave us.
@@ -27,4 +27,4 @@ In this section, you'll use Copilot Vision. You can share screenshots of errors 
 
 ---
 
-[Back: Part 05 - Implementing Features with Copilot Agent](../part05-implementing-features/) | [Next: Part 07 - Debugging with Copilot](../part07-debugging-with-copilot/)
+[Back: Part 04 - Implementing Features with Copilot Agent](../part05-implementing-features/) | [Next: Part 06 - Debugging with Copilot](../part07-debugging-with-copilot/)

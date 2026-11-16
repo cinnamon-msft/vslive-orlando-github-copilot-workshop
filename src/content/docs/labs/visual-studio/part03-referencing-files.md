@@ -1,5 +1,5 @@
 ---
-title: "Part 03: Referencing Code Files in Chat"
+title: "Part 02: Referencing Code Files in Chat"
 ---
 
 In this section, you'll learn how to reference existing code files in your chat conversations.
@@ -30,4 +30,4 @@ In this section, you'll learn how to reference existing code files in your chat 
 
 ---
 
-[Back: Part 01 - Code Completion with Ghost Text](../part01-code-completion/) | [Next: Part 04 - Using Custom Instructions](../part04-custom-instructions/)
+[Back: Part 01 - Code Completion with Ghost Text](../part01-code-completion/) | [Next: Part 03 - Using Custom Instructions](../part04-custom-instructions/)

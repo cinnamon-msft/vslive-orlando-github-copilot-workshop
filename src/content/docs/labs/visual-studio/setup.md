@@ -43,7 +43,7 @@ You can also install it from the [Visual Studio Marketplace](https://marketplace
 1. [ ] If prompted, sign in to GitHub in the browser and authorize Visual Studio and Copilot.
 1. [ ] If you signed in through the browser, return to Visual Studio when prompted. Verify that Copilot Chat is available.
 
-Part 9 creates GitHub issues and Part 12 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts and point your local clone at your fork as described below. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.
+Part 8 creates GitHub issues and Part 11 delegates work to a cloud agent. Both need a repository where you have write access. Fork `workshop-tinyshop` before those parts and point your local clone at your fork as described below. If enterprise policy prevents a fork, you can complete every local exercise but must skip those repository-backed actions.
 
 ## Open Copilot Chat
 
@@ -74,7 +74,7 @@ start src\TinyShop.sln
 1. [ ] In Visual Studio, select **File -> Open -> Project/Solution** if the solution did not open automatically.
 2. [ ] Open `src/TinyShop.sln`.
 
-For Parts 9 and 12, [fork the starter repository](https://github.com/jamesmontemagno/workshop-tinyshop/fork), then point the existing clone to your fork. Replace `YOUR-USERNAME` with your GitHub username:
+For Parts 8 and 11, [fork the starter repository](https://github.com/jamesmontemagno/workshop-tinyshop/fork), then point the existing clone to your fork. Replace `YOUR-USERNAME` with your GitHub username:
 
 ```powershell
 git remote set-url origin https://github.com/YOUR-USERNAME/workshop-tinyshop.git

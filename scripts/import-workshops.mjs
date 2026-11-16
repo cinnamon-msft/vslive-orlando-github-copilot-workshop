@@ -418,6 +418,10 @@ if (sources['visual-studio']) {
 
    When creating Commit messages, summarize in a few sentences and then highlight the top 5 changes with emoji and short descriptions
    \`\`\``
+        ],
+        [
+          /\bPart (0?[3-9]|1[0-2])\b/g,
+          (_, number) => `Part ${String(Number(number) - 1).padStart(number.length, '0')}`
         ]
       ]
     }

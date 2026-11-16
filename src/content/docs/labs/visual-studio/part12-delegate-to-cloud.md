@@ -1,5 +1,5 @@
 ---
-title: "Part 12: Delegate to the Cloud"
+title: "Part 11: Delegate to the Cloud"
 ---
 
 Sometimes you have an idea for a feature or improvement that you want to implement, but you don't have the time to work on it right now. GitHub Copilot's Cloud Agent allows you to delegate tasks to run in the cloud, freeing you to focus on other work while Copilot implements the changes.
@@ -130,4 +130,4 @@ Local Agent mode works synchronously against your current development environmen
 
 🎉 **Congratulations!** You've completed the Visual Studio workshop!
 
-[Back: Part 11 - Reusable Prompt Files](../part11-reusable-prompts/) | [🎊 Complete Workshop!](complete.html)
+[Back: Part 10 - Reusable Prompt Files](../part11-reusable-prompts/) | [🎊 Complete Workshop!](complete.html)
