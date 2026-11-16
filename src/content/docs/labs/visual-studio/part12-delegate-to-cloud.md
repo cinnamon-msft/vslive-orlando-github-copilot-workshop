@@ -128,6 +128,6 @@ Local Agent mode works synchronously against your current development environmen
 
 ---
 
-🎉 **Congratulations!** You've completed all 13 parts of the workshop!
+🎉 **Congratulations!** You've completed the Visual Studio workshop!
 
 [Back: Part 11 - Reusable Prompt Files](../part11-reusable-prompts/) | [🎊 Complete Workshop!](complete.html)

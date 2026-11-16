@@ -30,4 +30,4 @@ In this section, you'll learn how to reference existing code files in your chat 
 
 ---
 
-[Back: Part 02 - Enhancing UI with Inline Chat](../part02-enhancing-ui/) | [Next: Part 04 - Using Custom Instructions](../part04-custom-instructions/)
+[Back: Part 01 - Code Completion with Ghost Text](../part01-code-completion/) | [Next: Part 04 - Using Custom Instructions](../part04-custom-instructions/)
