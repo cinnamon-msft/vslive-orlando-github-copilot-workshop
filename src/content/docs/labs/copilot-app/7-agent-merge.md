@@ -1,6 +1,6 @@
 ---
 title: "Lesson 7 - Merging with Agent Merge"
-description: "Open the space quiz feature pull request, review it in My work, and let Agent Merge address blockers and merge it for you."
+description: "Open the space quiz feature pull request, review it in Pull requests, and let Agent Merge address blockers and merge it for you."
 authors:
   - geektrainer
 lastUpdated: 2026-07-09

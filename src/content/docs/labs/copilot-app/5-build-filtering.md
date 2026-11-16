@@ -42,7 +42,7 @@ The **session mode** controls how much autonomy the agent has. You can set it fr
 
 ## Plan the feature
 
-1. In **My work**, open the issue you selected and choose **New session**.
+1. In **Issues**, open the issue you selected and choose **New session**.
 2. Select <kbd>Shift</kbd>+<kbd>Tab</kbd> until the mode displays **Plan**.
 3. Send this prompt. The issue is already in the session's context:
 

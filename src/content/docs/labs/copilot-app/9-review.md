@@ -43,13 +43,13 @@ When using any AI tool, the infrastructure around it drives the quality of what 
 
 Match the **mode and model** to the task. Use **Plan** to think through an approach before building, **Interactive** to stay in the loop on focused changes, and **Autopilot** only for well-scoped, isolated tasks. Choose a faster model for routine edits and a more capable model with higher reasoning effort for complex work.
 
-Context still matters as much as infrastructure. Clearly describing *what* you want built, *why*, and *how* meaningfully changes the output. Quick chats are a great place to scope an idea before you commit it to a full session.
+Context still matters as much as infrastructure. Clearly describing *what* you want built, *why*, and *how* meaningfully changes the output. Chats are a great place to scope an idea before you commit it to a repository session.
 
 ## More to explore
 
 You've covered the core workflow. A few more features worth a look:
 
-- **Quick chats** for fast, throwaway questions that don't need a full session.
+- **Chats** for fast, throwaway questions that don't need a repository session.
 - **Rubber duck** to talk through a problem and get high-signal feedback before you build.
 - [**Custom agents**][custom-agents] to package a role, its tools, and its instructions for repeatable, specialized work.
 - [`/chronicle`][chronicle] to generate a narrative of what happened in a session.

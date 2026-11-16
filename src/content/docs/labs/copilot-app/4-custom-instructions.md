@@ -38,7 +38,7 @@ The space quiz is a small, dependency-free project. Its instructions should pres
 
 ## Start from the issue and add instructions
 
-1. In the Copilot app, select **My work** and open the issue you just created.
+1. In the Copilot app, select **Issues** and open the issue you just created.
 2. Select **New session** to start a session from the issue.
 3. Ask the agent to implement the issue:
 
