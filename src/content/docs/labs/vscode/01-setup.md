@@ -52,6 +52,7 @@ Enable Pages if you want to test and share your app live:
 Before running setup:
 
 1. In the editor's Chat view, select **Copilot** as the session target, choose **Agent**, and select **Manual permissions**. Avoid **Allow all** and **Autopilot** during setup because they skip approval prompts.
+   - **Part 3 exception:** The **Polish this quiz theme** handoff requires **Local**. Use a Local chat in the current workspace with tool approvals enabled for that exercise, then start Part 4 in a **Copilot** chat with **Agent** and **Manual permissions**.
 2. Review `.vscode/settings.json` before trusting the workspace. Its terminal allowlist is not copied to Copilot's Agent Host; do not rely on it to configure approvals for this lab.
 3. Inspect each requested command and prefer **Allow Once**. If repeated commands need approval, use the narrowest session-scoped option offered.
 
