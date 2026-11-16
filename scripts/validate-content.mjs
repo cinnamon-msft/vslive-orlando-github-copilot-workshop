@@ -129,7 +129,7 @@ for (const script of ['workshop-doctor.ps1', 'workshop-doctor.sh']) {
 const modelGuidance = new Map([
   ['labs/copilot-app/1-install-copilot-app.md', /Copilot Fusion/],
   ['labs/cli/01-setup.md', /GPT-5\.3[ -]Codex/],
-  ['labs/visual-studio/setup.md', /GPT-5\.3[ -]Codex/]
+  ['labs/visual-studio/setup.md', /Use \*\*Auto\*\* or another model available to your account and allowed by your organization/]
 ]);
 for (const [path, guidancePattern] of modelGuidance) {
   const markdown = readFileSync(join(docsRoot, path), 'utf8');

@@ -37,7 +37,7 @@ To see your installed tools and authenticate the GitHub MCP server:
 
    ![MCP Tools icon](./images/9-mcp-tools.png)
 
-1. The GitHub MCP requires authentication. From the **Tools** menu in the chat, expand **the Added GitHub MCP** with the ... and then select **Edit**:
+1. The GitHub MCP requires authentication. In the **Tools** menu, open the options for the added GitHub MCP server and select **Edit**:
 
    ![GitHub MCP authentication](./images/9-auth-github.png)
 
@@ -53,7 +53,7 @@ You will see a **Authentication required** message. Click on it and click Authen
 
 ## Using MCP Servers to Get Information
 
-Now that you have the Microsoft Learn and GitHub MCP servers installed, let's use them to get information about optimizing asset loading in the application.
+Visual Studio includes the Microsoft Learn MCP server; only the GitHub server needed to be installed in the previous steps. Enable Microsoft Learn tools to get current guidance about optimizing asset loading in the application.
 
 1. [ ] In Copilot Chat, switch to **Agent** mode.
 1. [ ] Open **AI Customization**, select **MCP Servers > Microsoft Learn**, and open the **Tools** tab.
@@ -106,4 +106,4 @@ Every enabled tool must be described in the model context, leaving less room for
 
 ---
 
-[Back: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/) | [Next: Part 10 - Planning Mode in Agent](../part10-planning-mode/)
+[Back: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/) | [Next: Part 10 - Planning with /plan](../part10-planning-mode/)

@@ -11,7 +11,7 @@ In this section, you'll learn how to use GitHub Copilot to generate commit messa
 
    ![VS commit dialog with AI button](./images/8-commit.png)
    
-1. [ ] In **Solution Explorer**, expand the **GitHub Node** and open `copilot-instructions.md`.
+1. [ ] Open the `.github/copilot-instructions.md` file you updated in Part 04.
 1. [ ] At the bottom of the file, add:
 
    ```markdown

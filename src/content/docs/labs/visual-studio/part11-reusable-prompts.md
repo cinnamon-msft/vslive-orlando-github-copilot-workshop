@@ -26,14 +26,7 @@ The solution already includes a **TinyShop.Tests** project with MSTest configure
 
 Now let's create a prompt file that helps generate additional unit tests using MSTest.
 
-1. [ ] In **Solution Explorer** we will see the **GitHub** node from the extension to add it easily:
-   - Right-Click the **GitHub** node icon/extension in Visual Studio.
-   - Choose **Add Agent File...**.
-   - Select **Prompt file...** from the dialog.
-   - Change the file name to `unit-test.prompt.md` and click **OK**.
-   - The new file will open in the editor; paste the content shown below into the file and save it.
-
-1. [ ] If you can create the file manually in file explorer, add a new file named `unit-test.prompt.md` under `.github/prompts` and paste the content below.
+1. [ ] Create a `.github/prompts` folder in the repository if it does not exist, then create `unit-test.prompt.md` inside it. You can use File Explorer or the optional **.github + MCP** extension's **Add Agent File** command.
 
 1. [ ] Update the prompt file with the following content:
 
@@ -163,4 +156,4 @@ When should a team create a prompt file instead of adding more content to `copil
 
 ---
 
-[Back: Part 10 - Planning Mode in Agent](../part10-planning-mode/) ← | [Next: Part 12 - Delegate to the Cloud](../part12-delegate-to-cloud/) →
+[Back: Part 10 - Planning with /plan](../part10-planning-mode/) ← | [Next: Part 12 - Delegate to the Cloud](../part12-delegate-to-cloud/) →

@@ -25,9 +25,9 @@ Here are some guidelines to consider when creating a Copilot instructions file:
 
 ## Create a Copilot instructions file
 
-1. [ ] In the **Solution Explorer**, expand the **GitHub Node** and open **copilot-instructions.md**
+1. [ ] In the repository root, open `.github/copilot-instructions.md`. If the file does not exist, create the `.github` folder and the `copilot-instructions.md` file inside it.
 
-1. [ ] Add project-specific information about your application:
+1. [ ] Add project-specific information about your application and save the file:
 
     ```markdown
     ### Backend

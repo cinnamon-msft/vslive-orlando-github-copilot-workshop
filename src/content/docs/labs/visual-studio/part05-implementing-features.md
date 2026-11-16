@@ -20,15 +20,11 @@ Let's add the ability to see a list of images into the app:
 
    ![Switch to agent mode](./images/1-agent.png)
 
-1. [ ] At the bottom of the GitHub Copilot Chat pane, confirm the model is **GPT-5.3 Codex** rather than **Auto**. If your organization does not make it available, use **Auto** and notify a facilitator.
-
-    ![Select the model in Copilot](./images/5-select-sonnet.png)
+1. [ ] At the bottom of the Copilot Chat pane, select **Auto** or another model available to your account and allowed by your organization.
 
 1. [ ] Type: `Implement a simple product listing page in Products.razor that fetches products from #ProductService and displays them in a simple list with product name, description, price, and image.`
 
     > NOTE: You should use your own phrasing when generating the prompt. As highlighted previously, part of the exercise is to become comfortable creating prompts for GitHub Copilot. One key tip is it's always good to provide more guidance to ensure you get the code you are looking for.
-
-    > NOTE: If you are asked to **Enable GPT-5.3-Codex for all clients** click on **Enable** button.
 
 Copilot agent mode begins implementing the feature!
 
