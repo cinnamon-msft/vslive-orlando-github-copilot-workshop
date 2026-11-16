@@ -202,12 +202,39 @@ for (const [path, sections] of Object.entries(lessonSections)) {
 }
 
 const visualStudioRoot = join(docsRoot, 'labs', 'visual-studio');
-for (const name of readdirSync(visualStudioRoot).filter((name) => /^part\d+.*\.md$/.test(name))) {
+const visualStudioLessons = readdirSync(visualStudioRoot)
+  .filter((name) => /^part\d+.*\.md$/.test(name))
+  .sort();
+const visualStudioPartNumbers = new Map(
+  visualStudioLessons.map((name, index) => [name.slice(0, -3), String(index).padStart(2, '0')])
+);
+for (const name of visualStudioLessons) {
   const markdown = readFileSync(join(visualStudioRoot, name), 'utf8');
+  const expectedPart = visualStudioPartNumbers.get(name.slice(0, -3));
+  if (!markdown.startsWith(`---\ntitle: "Part ${expectedPart}:`)) {
+    errors.push(`Visual Studio lesson must be numbered Part ${expectedPart}: ${name}`);
+  }
   const sectionCount = [...markdown.matchAll(/^##\s+/gm)].length;
   if (sectionCount < 2) {
     errors.push(`Visual Studio lesson needs at least two sections: ${name}`);
   }
+}
+
+for (const name of readdirSync(visualStudioRoot).filter((name) => name.endsWith('.md'))) {
+  const markdown = readFileSync(join(visualStudioRoot, name), 'utf8');
+  for (const [, number, slug] of markdown.matchAll(
+    /\[[^\]\n]*\bPart (\d+)[^\]\n]*\]\(\.\.?\/(part[^/]+)\/\)/g
+  )) {
+    if (number !== visualStudioPartNumbers.get(slug)) {
+      errors.push(`Incorrect Visual Studio part number in ${name}: Part ${number} links to ${slug}`);
+    }
+  }
+}
+if (
+  readFileSync(join(visualStudioRoot, 'index.md'), 'utf8') !==
+  readFileSync(join(root, 'scripts/templates/visual-studio-index.md'), 'utf8')
+) {
+  errors.push('Visual Studio index must match its workshop import template.');
 }
 
 const commitSummaryLesson = readFileSync(

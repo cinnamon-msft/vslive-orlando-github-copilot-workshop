@@ -1,5 +1,5 @@
 ---
-title: "Part 09: MCP Servers"
+title: "Part 08: MCP Servers"
 ---
 
 Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to large language models (LLMs). MCP servers extend GitHub Copilot's capabilities by connecting to external tools and services, giving it access to real-time data and the ability to perform actions.
@@ -108,4 +108,4 @@ Every enabled tool must be described in the model context, leaving less room for
 
 ---
 
-[Back: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/) | [Next: Part 10 - Planning with /plan](../part10-planning-mode/)
+[Back: Part 07 - Commit Summary Descriptions](../part08-commit-summary-descriptions/) | [Next: Part 09 - Planning with /plan](../part10-planning-mode/)

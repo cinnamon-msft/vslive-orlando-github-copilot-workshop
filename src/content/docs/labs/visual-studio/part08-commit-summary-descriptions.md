@@ -1,5 +1,5 @@
 ---
-title: "Part 08: Commit Summary Descriptions"
+title: "Part 07: Commit Summary Descriptions"
 ---
 
 In this section, you'll learn how to use GitHub Copilot to generate commit messages and customize them.
@@ -11,7 +11,7 @@ In this section, you'll learn how to use GitHub Copilot to generate commit messa
 
    ![VS commit dialog with AI button](./images/8-commit.png)
    
-1. [ ] Open the `.github/copilot-instructions.md` file you updated in Part 04.
+1. [ ] Open the `.github/copilot-instructions.md` file you updated in Part 03.
 1. [ ] At the bottom of the file, add:
 
    ```markdown
@@ -37,4 +37,4 @@ In this section, you'll learn how to use GitHub Copilot to generate commit messa
 
 ---
 
-[Back: Part 07 - Debugging with Copilot](../part07-debugging-with-copilot/) | [Next: Part 09 - MCP Servers](../part09-mcp/)
+[Back: Part 06 - Debugging with Copilot](../part07-debugging-with-copilot/) | [Next: Part 08 - MCP Servers](../part09-mcp/)

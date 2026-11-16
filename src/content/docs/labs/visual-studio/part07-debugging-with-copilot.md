@@ -1,5 +1,5 @@
 ---
-title: "Part 07: Debugging with Copilot"
+title: "Part 06: Debugging with Copilot"
 ---
 
 In this section, you'll learn how to use Copilot to debug an exception in your application.
@@ -60,4 +60,4 @@ The debugger can supply Copilot with the current call stack, code location, exce
 
 ---
 
-[Back: Part 06 - Using Copilot Vision](../part06-copilot-vision/) | [Next: Part 08 - Commit Summary Descriptions](../part08-commit-summary-descriptions/)
+[Back: Part 05 - Using Copilot Vision](../part06-copilot-vision/) | [Next: Part 07 - Commit Summary Descriptions](../part08-commit-summary-descriptions/)

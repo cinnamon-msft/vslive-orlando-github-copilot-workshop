@@ -1,5 +1,5 @@
 ---
-title: "Part 10: Planning with /plan"
+title: "Part 09: Planning with /plan"
 ---
 
 When working on complex features, it's helpful to plan before diving into implementation. In Visual Studio, use the `/plan` command in Copilot Chat to create a structured plan before any code is generated.
@@ -72,4 +72,4 @@ Update the plan to also ensure the product detail page handles cases where the p
 
 ---
 
-[Back: Part 09 - MCP Servers](../part09-mcp/) | [Next: Part 11 - Reusable Prompt Files](../part11-reusable-prompts/)
+[Back: Part 08 - MCP Servers](../part09-mcp/) | [Next: Part 10 - Reusable Prompt Files](../part11-reusable-prompts/)
